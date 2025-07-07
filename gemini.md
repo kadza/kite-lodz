@@ -7,10 +7,12 @@ This project is a static webpage that presents information about kite surfing sp
 - **HTML:** The core markup language for the content.
 - **Tailwind CSS:** For styling the webpage. Included via the Play CDN for simplicity, no build step is required.
 - **JavaScript:** May be used for interactive elements if necessary.
+- **Node.js:** Used for running the development server.
+- **live-server:** A development server with live reloading.
 
 # Development
 
-- **Running the app:** Open the `index.html` file directly in a web browser.
+- **Running the app:** Run `npm start` in your terminal. This will open the page in your browser and automatically reload it when you make changes.
 - **Tests:** Not currently configured for this project.
 
 # Collaboration Workflow
