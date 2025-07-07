@@ -1,2 +1,26 @@
-
 /* Custom styles can be added here if needed. */
+
+body {
+    min-height: 100vh; /* Ensure body takes full viewport height */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.background-padded {
+    background-image: url('assets/background.webp');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    padding: 5rem;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    max-width: calc(100% - 10rem);
+    max-height: calc(100% - 10rem);
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
