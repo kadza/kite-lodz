@@ -1,33 +1,39 @@
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!doctype html>
+<html lang="en" class="h-screen">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Kite Spots</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-
-    <nav class="bg-gray-800 p-4">
-        <div class="container mx-auto flex justify-between items-center uppercase text-white">
-            <a href="index.html" class="text-lg font-bold">Kite Jeziorsko</a>
-            <div class="flex space-x-4">
-                <a href="prognoza.html" class="hover:text-gray-300">Prognoza</a>
-                <a href="spoty.html" class="hover:text-gray-300">Spoty</a>
-            </div>
+  </head>
+  <body
+    class="h-screen m-0 p-0 flex flex-col items-center"
+    style="background-color: #fadca5; color: #39563e"
+  >
+    <div class="h-screen container flex flex-col">
+      <nav class="h-32 text-black flex items-center">
+        <div class="mx-auto flex uppercase justify-start w-full">
+          <div class="flex space-x-4 w-full">
+            <a href="prognoza.html" class="hover:text-gray-300"
+              >Kite Jeziorsko</a
+            >
+            <a href="prognoza.html" class="hover:text-gray-300">Prognoza</a>
+            <a href="spoty.html" class="hover:text-gray-300">Spoty</a>
+          </div>
         </div>
-    </nav>
+      </nav>
 
-    <div class="container mx-auto px-4 py-8">
-
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-
-            <!-- Add more kite spots here -->
-
+      <div class="flex-grow overflow-hidden">
+        <div class="w-full h-full flex justify-center items-center">
+          <img
+            src="./assets/surfer.webp"
+            alt="kitesurfer"
+            class="w-full h-full object-cover"
+          />
         </div>
+      </div>
+
+      <div class="h-32" />
     </div>
-
-</body>
+  </body>
 </html>
