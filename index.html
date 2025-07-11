@@ -5,13 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Kite Spots</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              textColor: "#39563e",
+            },
+          },
+        },
+      };
+    </script>
   </head>
   <body
-    class="h-screen m-0 p-0 flex flex-col items-center"
-    style="background-color: #fadca5; color: #39563e"
+    class="h-screen m-0 p-0 flex flex-col items-center text-textColor"
+    style="background-color: #fadca5"
   >
     <div class="h-screen container flex flex-col">
-      <nav class="h-32 text-black flex items-center">
+      <nav class="h-32 flex items-center">
         <div class="mx-auto flex uppercase justify-start w-full">
           <div class="flex space-x-4 w-full">
             <a href="prognoza.html" class="hover:text-gray-300"
