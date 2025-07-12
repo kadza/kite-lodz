@@ -114,7 +114,7 @@
     <script>
       document.addEventListener("DOMContentLoaded", function() {
         const now = new Date();
-        const delayedDate = new Date(now.getTime() - 7200000); // Subtract 2 hours
+        const delayedDate = new Date(now.getTime() - 10800000); // Subtract 3 hours
 
         const options = { timeZone: 'Europe/Warsaw', year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', hour12: false };
         const formatter = new Intl.DateTimeFormat('en-CA', options);
