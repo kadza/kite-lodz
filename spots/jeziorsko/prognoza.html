@@ -45,14 +45,8 @@
       <div class="flex-grow">
         <div class="w-full flex flex-col items-start space-y-2 mb-4">
           <h2 class="text-2xl">Jeziorsko - Prognoza</h2>
-          <div class="w-full flex flex-col items-start">
-            <img
-              id="meteo-forecast"
-              src=""
-              class="border-0"
-            />
-          </div>
-          <div class="w-full flex flex-col items-start">
+          <img id="meteo-forecast" src="" class="border-0" />
+          <div class="w-full">
             <div id="wg_fwdg_3644_100_1752307649736"></div>
             <script>
               (function (window, document) {
@@ -102,7 +96,7 @@
               ></noscript
             >
           </div>
-          <div class="w-full flex justify-start">
+          <div class="w-full">
             <iframe
               class="w-full h-[450px]"
               src="https://embed.windy.com/embed.html?type=map&location=coordinates&metricRain=mm&metricTemp=°C&metricWind=kt&zoom=11&overlay=wind&product=ecmwf&level=surface&lat=51.792&lon=18.906&detailLat=51.83&detailLon=18.728&detail=true"
@@ -113,27 +107,34 @@
       </div>
     </div>
     <script>
-      document.addEventListener("DOMContentLoaded", function() {
+      document.addEventListener("DOMContentLoaded", function () {
         const now = new Date();
         const delayedDate = new Date(now.getTime() - 21600000); // Subtract 6 hours
 
-        const options = { timeZone: 'Europe/Warsaw', year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', hour12: false };
-        const formatter = new Intl.DateTimeFormat('en-CA', options);
+        const options = {
+          timeZone: "Europe/Warsaw",
+          year: "numeric",
+          month: "2-digit",
+          day: "2-digit",
+          hour: "2-digit",
+          hour12: false,
+        };
+        const formatter = new Intl.DateTimeFormat("en-CA", options);
         const parts = formatter.formatToParts(delayedDate);
-        
-        const year = parts.find(p => p.type === 'year').value;
-        const month = parts.find(p => p.type === 'month').value;
-        const day = parts.find(p => p.type === 'day').value;
-        const hour = parseInt(parts.find(p => p.type === 'hour').value, 10);
+
+        const year = parts.find((p) => p.type === "year").value;
+        const month = parts.find((p) => p.type === "month").value;
+        const day = parts.find((p) => p.type === "day").value;
+        const hour = parseInt(parts.find((p) => p.type === "hour").value, 10);
 
         const forecastHourSlot = Math.floor(hour / 6) * 6;
-        const formattedHour = String(forecastHourSlot).padStart(2, '0');
+        const formattedHour = String(forecastHourSlot).padStart(2, "0");
 
         const fdate = `${year}${month}${day}${formattedHour}`;
-        
+
         const forecastUrl = `https://old.meteo.pl/um/metco/mgram_pict.php?ntype=0u&fdate=${fdate}&row=416&col=206&lang=pl`;
-        
-        document.getElementById('meteo-forecast').src = forecastUrl;
+
+        document.getElementById("meteo-forecast").src = forecastUrl;
       });
     </script>
   </body>
