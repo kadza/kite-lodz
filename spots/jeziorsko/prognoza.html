@@ -45,14 +45,14 @@
       <div class="flex-grow">
         <div class="w-full flex flex-col items-start space-y-2 mb-4">
           <h2 class="text-2xl">Jeziorsko - Prognoza</h2>
-          <div class="w-full flex flex-col items-center">
+          <div class="w-full flex flex-col items-start">
             <img
               id="meteo-forecast"
               src=""
               class="border-0"
             />
           </div>
-          <div class="w-full flex flex-col items-center">
+          <div class="w-full flex flex-col items-start">
             <div id="wg_fwdg_3644_100_1752307649736"></div>
             <script>
               (function (window, document) {
@@ -86,7 +86,7 @@
               })(window, document);
             </script>
           </div>
-          <div class="w-1/2">
+          <div class="w-full">
             <script src="https://www.windfinder.com/widget/forecast/js/jeziorsko_popow?unit_wave=m&unit_rain=mm&unit_temperature=c&unit_wind=kts&unit_pressure=hPa&days=4&show_day=1&show_waves=0"></script>
             <noscript
               ><a
@@ -102,7 +102,7 @@
               ></noscript
             >
           </div>
-          <div class="w-full flex justify-center">
+          <div class="w-full flex justify-start">
             <iframe
               class="w-full h-[450px]"
               src="https://embed.windy.com/embed.html?type=map&location=coordinates&metricRain=mm&metricTemp=°C&metricWind=kt&zoom=11&overlay=wind&product=ecmwf&level=surface&lat=51.792&lon=18.906&detailLat=51.83&detailLon=18.728&detail=true"
@@ -115,7 +115,7 @@
     <script>
       document.addEventListener("DOMContentLoaded", function() {
         const now = new Date();
-        const delayedDate = new Date(now.getTime() - 10800000); // Subtract 3 hours
+        const delayedDate = new Date(now.getTime() - 21600000); // Subtract 6 hours
 
         const options = { timeZone: 'Europe/Warsaw', year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', hour12: false };
         const formatter = new Intl.DateTimeFormat('en-CA', options);
