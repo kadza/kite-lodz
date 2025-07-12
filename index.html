@@ -4,6 +4,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Kite Spots</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
@@ -11,7 +14,11 @@
           extend: {
             colors: {
               textColor: "#39563e",
+              hoverColor: "#c7a370",
             },
+            fontFamily: {
+              'montserrat': ['"Montserrat"', 'sans-serif']
+            }
           },
         },
       };
@@ -24,12 +31,12 @@
     <div class="h-screen container flex flex-col">
       <nav class="h-32 flex items-center">
         <div class="mx-auto flex uppercase justify-start w-full">
-          <div class="flex space-x-4 w-full">
-            <a href="prognoza.html" class="hover:text-gray-300"
+          <div class="flex space-x-16 w-full font-montserrat text-[2rem]">
+            <a href="prognoza.html" class="hover:text-hoverColor"
               >Kite Jeziorsko</a
             >
-            <a href="prognoza.html" class="hover:text-gray-300">Prognoza</a>
-            <a href="spoty.html" class="hover:text-gray-300">Spoty</a>
+            <a href="prognoza.html" class="hover:text-hoverColor">Prognoza</a>
+            <a href="spoty.html" class="hover:text-hoverColor">Spoty</a>
           </div>
         </div>
       </nav>
