@@ -26,7 +26,7 @@
         },
       };
     </script>
-  <style>
+    <style>
       body::before {
         content: "";
         position: fixed;
@@ -34,7 +34,7 @@
         left: 0;
         width: 100%;
         height: 100%;
-        background-image: url('/assets/background.webp');
+        background-image: url("/assets/background.webp");
         background-size: cover;
         background-position: center;
         background-attachment: fixed;
@@ -48,8 +48,8 @@
 
       /* Hide scrollbar for IE, Edge and Firefox */
       .overflow-y-auto {
-        -ms-overflow-style: none;  /* IE and Edge */
-        scrollbar-width: none;  /* Firefox */
+        -ms-overflow-style: none; /* IE and Edge */
+        scrollbar-width: none; /* Firefox */
       }
     </style>
   </head>
@@ -72,7 +72,7 @@
       <div
         class="flex-grow p-8 bg-white bg-opacity-50 rounded-lg overflow-y-auto"
       >
-        <div class="w-full flex flex-col items-start space-y-2 mb-4">
+        <div class="w-full flex flex-col items-start space-y-2">
           <img id="meteo-forecast" src="" class="border-0" />
           <div class="w-full">
             <script src="https://www.windfinder.com/widget/forecast/js/jeziorsko_popow?unit_wave=m&unit_rain=mm&unit_temperature=c&unit_wind=kts&unit_pressure=hPa&days=4&show_day=1&show_waves=0"></script>
@@ -133,6 +133,7 @@
           </div>
         </div>
       </div>
+      <div class="min-h-[4rem] flex items-center"></div>
     </div>
     <script>
       document.addEventListener("DOMContentLoaded", function () {

@@ -52,9 +52,21 @@
         opacity: 0.9;
         z-index: -1;
       }
+      /* Hide scrollbar for Chrome, Safari and Opera */
+      .overflow-y-auto::-webkit-scrollbar {
+        display: none;
+      }
+
+      /* Hide scrollbar for IE, Edge and Firefox */
+      .overflow-y-auto {
+        -ms-overflow-style: none; /* IE and Edge */
+        scrollbar-width: none; /* Firefox */
+      }
     </style>
   </head>
-  <body class="m-0 p-0 flex flex-col items-center text-textColor">
+  <body
+    class="m-0 p-0 flex flex-col items-center text-textColor h-full overflow-hidden"
+  >
     <div class="container flex flex-col flex-grow pt-[6rem] h-full">
       <nav class="h-[6rem] flex items-center fixed top-0 left-0 right-0 z-10">
         <div class="container mx-auto flex uppercase justify-start">
@@ -68,7 +80,7 @@
         </div>
       </nav>
 
-      <div class="flex-grow p-8 bg-white bg-opacity-50 rounded-lg">
+      <div class="p-8 bg-white bg-opacity-50 rounded-lg overflow-y-auto">
         <div class="flex">
           <div class="w-1/4">
             <ul>
@@ -100,6 +112,7 @@
           </div>
         </div>
       </div>
+      <div class="min-h-[4rem] flex items-center"></div>
     </div>
     <script>
       const initialCenter = [51.82, 18.69];
