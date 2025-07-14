@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="h-full">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -41,15 +41,24 @@
         opacity: 0.9;
         z-index: -1;
       }
+      /* Hide scrollbar for Chrome, Safari and Opera */
+      .overflow-y-auto::-webkit-scrollbar {
+        display: none;
+      }
+
+      /* Hide scrollbar for IE, Edge and Firefox */
+      .overflow-y-auto {
+        -ms-overflow-style: none;  /* IE and Edge */
+        scrollbar-width: none;  /* Firefox */
+      }
     </style>
   </head>
   <body
-    class="m-0 p-0 flex flex-col items-center text-textColor"
-    style="overflow-y: scroll"
+    class="m-0 p-0 flex flex-col items-center text-textColor h-full overflow-hidden"
   >
-    <div class="container flex flex-col mb-16">
-      <nav class="h-32 flex items-center">
-        <div class="mx-auto flex uppercase justify-start w-full">
+    <div class="container flex flex-col flex-grow pt-32 h-full">
+      <nav class="h-32 flex items-center fixed top-0 left-0 right-0 z-10">
+        <div class="container mx-auto flex uppercase justify-start">
           <div class="flex space-x-16 w-full font-montserrat text-[2rem]">
             <a href="/index.html" class="hover:text-hoverColor">Kite Łódź</a>
             <a href="index.html" class="hover:text-hoverColor">Jeziorsko</a>
@@ -61,7 +70,7 @@
       </nav>
 
       <div
-        class="flex-grow p-8 bg-white bg-opacity-50 rounded-lg"
+        class="flex-grow p-8 bg-white bg-opacity-50 rounded-lg overflow-y-auto"
       >
         <h2 class="text-2xl mb-4">Popów</h2>
         <p>This is the page for Popów.</p>
