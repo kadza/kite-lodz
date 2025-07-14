@@ -47,7 +47,8 @@
         <div class="mx-auto flex uppercase justify-start w-full">
           <div class="flex space-x-16 w-full font-montserrat text-[2rem]">
             <a href="/index.html" class="hover:text-hoverColor">Kite Łódź</a>
-            <a href="index.html" class="hover:text-hoverColor">Spoty</a>
+            <a href="index.html" class="hover:text-hoverColor">Jeziorsko</a>
+            <a href="spoty.html" class="hover:text-hoverColor">Spoty</a>
             <a href="prognoza.html" class="hover:text-hoverColor">Prognoza</a>
             <a href="aktualne.html" class="hover:text-hoverColor">Aktualne</a>
           </div>
@@ -55,39 +56,7 @@
       </nav>
 
       <div class="flex-grow">
-        <h2 class="text-2xl mb-4">Jeziorsko - Spoty</h2>
-        <div class="flex">
-          <div class="w-1/4">
-            <ul>
-              <li id="popow"><a href="popow.html">Popów</a></li>
-              <li id="popow-polanka">
-                <a href="popow-polanka.html">Popów polanka</a>
-              </li>
-              <li id="wylazlow"><a href="wylazlow.html">Wylazłów</a></li>
-              <li id="brodnia-tama">
-                <a href="brodnia-tama.html">Brodnia tama</a>
-              </li>
-              <li id="brodnia-cypel">
-                <a href="brodnia-cypel.html">Brodnia cypel</a>
-              </li>
-              <li id="ostrow"><a href="ostrow.html">Ostrów Warcki</a></li>
-              <li id="zaspy"><a href="zaspy.html">Zaspy</a></li>
-              <li id="milkowice"><a href="milkowice.html">Miłkowice</a></li>
-              <li id="skarpa"><a href="skarpa.html">Skarpa</a></li>
-            </ul>
-          </div>
-          <div class="w-3/4 relative">
-            <div id="map" style="height: 45rem; width: 100%"></div>
-            <button
-              id="reset-map"
-              class="absolute top-2 right-2 bg-white p-2 rounded-md shadow-md text-textColor hover:bg-gray-100 z-[1000]"
-            >
-              Reset
-            </button>
-          </div>
-        </div>
         <div class="mb-8">
-          <h2 class="text-2xl mb-4">Informacje ogólne</h2>
           <ul>
             <li class="mb-4">
               <h3 class="text-xl mb-2">Wiatr</h3>
@@ -190,102 +159,6 @@
         </div>
       </div>
     </div>
-    <script>
-      const initialCenter = [51.82, 18.69];
-      const initialZoom = 13;
-      const map = L.map("map").setView(initialCenter, initialZoom);
-
-      L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-        maxZoom: 19,
-        attribution: "© OpenStreetMap",
-      }).addTo(map);
-
-      const defaultIcon = new L.Icon.Default();
-      const greenIcon = new L.Icon({
-        iconUrl: "/spots/assets/marker-icon-green.png",
-        shadowUrl: "/spots/assets/marker-shadow.png",
-        iconSize: [25, 41],
-        iconAnchor: [12, 41],
-        popupAnchor: [1, -34],
-        shadowSize: [41, 41],
-      });
-
-      const spots = {
-        popow: {
-          coords: [51.831492, 18.720963],
-          elem: document.getElementById("popow"),
-        },
-        "popow-polanka": {
-          coords: [51.828077, 18.718547],
-          elem: document.getElementById("popow-polanka"),
-        },
-        wylazlow: {
-          coords: [51.820756, 18.717871],
-          elem: document.getElementById("wylazlow"),
-        },
-        skarpa: {
-          coords: [51.837093, 18.719265],
-          elem: document.getElementById("skarpa"),
-        },
-        "brodnia-tama": {
-          coords: [51.794334, 18.700114],
-          elem: document.getElementById("brodnia-tama"),
-        },
-        "brodnia-cypel": {
-          coords: [51.796756, 18.684622],
-          elem: document.getElementById("brodnia-cypel"),
-        },
-        ostrow: {
-          coords: [51.803366, 18.660262],
-          elem: document.getElementById("ostrow"),
-        },
-        zaspy: {
-          coords: [51.822518, 18.668995],
-          elem: document.getElementById("zaspy"),
-        },
-        milkowice: {
-          coords: [51.831662, 18.673346],
-          elem: document.getElementById("milkowice"),
-        },
-      };
-
-      for (const spotName in spots) {
-        const spot = spots[spotName];
-        spot.marker = L.marker(spot.coords, { icon: defaultIcon })
-          .addTo(map)
-          .bindPopup(spot.elem.textContent);
-
-        spot.marker.on("click", function (e) {
-          map.setView(e.latlng, 18);
-        });
-
-        spot.marker.on("mouseover", function () {
-          this.setIcon(greenIcon);
-          spot.elem.classList.add("text-hoverColor");
-        });
-
-        spot.marker.on("mouseout", function () {
-          this.setIcon(defaultIcon);
-          spot.elem.classList.remove("text-hoverColor");
-        });
-
-        spot.elem.addEventListener("mouseover", function () {
-          spot.marker.setIcon(greenIcon);
-          spot.elem.classList.add("text-hoverColor");
-        });
-
-        spot.elem.addEventListener("mouseout", function () {
-          spot.marker.setIcon(defaultIcon);
-          spot.elem.classList.remove("text-hoverColor");
-        });
-      }
-
-      document
-        .getElementById("reset-map")
-        .addEventListener("click", function () {
-          map.setView(initialCenter, initialZoom);
-          map.closePopup();
-        });
-    </script>
   </body>
 </html>
+
