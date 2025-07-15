@@ -69,39 +69,57 @@
   >
     <div class="container flex flex-col flex-grow pt-[6rem] h-full">
       <nav class="h-[6rem] flex items-center fixed top-0 left-0 right-0 z-10">
-        <div class="container mx-auto flex uppercase justify-start">
-          <div class="flex space-x-16 w-full font-montserrat text-[2rem]">
-            <a href="/index.html" class="hover:text-hoverColor">Kite Łódź</a>
-            <a href="index.html" class="hover:text-hoverColor">Jeziorsko</a>
-            <a href="spoty.html" class="hover:text-hoverColor">Spoty</a>
-            <a href="prognoza.html" class="hover:text-hoverColor">Prognoza</a>
-            <a href="aktualne.html" class="hover:text-hoverColor">Aktualne</a>
-          </div>
+        <div class="container mx-auto flex uppercase justify-between items-center px-4">
+            <a href="/index.html" class="font-montserrat text-[2rem] hover:text-hoverColor">Kite Łódź</a>
+
+            <div class="hidden md:flex space-x-16 font-montserrat text-[2rem]">
+                <a href="index.html" class="hover:text-hoverColor">Jeziorsko</a>
+                <a href="spoty.html" class="hover:text-hoverColor underline decoration-2 underline-offset-8">Spoty</a>
+                <a href="prognoza.html" class="hover:text-hoverColor">Prognoza</a>
+                <a href="aktualne.html" class="hover:text-hoverColor">Aktualne</a>
+            </div>
+
+            <div class="md:hidden">
+                <button id="menu-btn" class="text-textColor focus:outline-none">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
+            </div>
         </div>
       </nav>
 
-      <div class="p-8 bg-white bg-opacity-50 rounded-lg overflow-y-auto">
-        <div class="flex">
-          <div class="w-1/4">
-            <ul>
-              <li id="popow"><a href="popow.html">Popów</a></li>
+      <!-- Mobile Menu -->
+      <div id="mobile-menu" class="hidden fixed top-0 left-0 w-full h-full bg-white bg-opacity-90 z-[1100]">
+        <div class="flex flex-col items-center justify-center h-full font-montserrat text-[2rem] space-y-8">
+            <a href="/index.html" class="hover:text-hoverColor">Kite Łódź</a>
+            <a href="index.html" class="hover:text-hoverColor">Jeziorsko</a>
+            <a href="spoty.html" class="hover:text-hoverColor underline decoration-2 underline-offset-8">Spoty</a>
+            <a href="prognoza.html" class="hover:text-hoverColor">Prognoza</a>
+            <a href="aktualne.html" class="hover:text-hoverColor">Aktualne</a>
+        </div>
+      </div>
+
+      <div class="p-4 md:p-8 bg-white bg-opacity-50 md:rounded-lg overflow-y-auto">
+        <div class="flex flex-col md:flex-row">
+          <div class="w-full md:w-1/4 mb-4 md:mb-0">
+            <ul class="font-montserrat text-xl uppercase space-y-4 text-center md:text-left">
+              <li id="popow"><a href="popow.html" class="hover:text-hoverColor">Popów</a></li>
               <li id="popow-polanka">
-                <a href="popow-polanka.html">Popów polanka</a>
+                <a href="popow-polanka.html" class="hover:text-hoverColor">Popów polanka</a>
               </li>
-              <li id="wylazlow"><a href="wylazlow.html">Wylazłów</a></li>
+              <li id="wylazlow"><a href="wylazlow.html" class="hover:text-hoverColor">Wylazłów</a></li>
               <li id="brodnia-tama">
-                <a href="brodnia-tama.html">Brodnia tama</a>
+                <a href="brodnia-tama.html" class="hover:text-hoverColor">Brodnia tama</a>
               </li>
               <li id="brodnia-cypel">
-                <a href="brodnia-cypel.html">Brodnia cypel</a>
+                <a href="brodnia-cypel.html" class="hover:text-hoverColor">Brodnia cypel</a>
               </li>
-              <li id="ostrow"><a href="ostrow.html">Ostrów Warcki</a></li>
-              <li id="zaspy"><a href="zaspy.html">Zaspy</a></li>
-              <li id="milkowice"><a href="milkowice.html">Miłkowice</a></li>
-              <li id="skarpa"><a href="skarpa.html">Skarpa</a></li>
+              <li id="ostrow"><a href="ostrow.html" class="hover:text-hoverColor">Ostrów Warcki</a></li>
+              <li id="zaspy"><a href="zaspy.html" class="hover:text-hoverColor">Zaspy</a></li>
+              <li id="milkowice"><a href="milkowice.html" class="hover:text-hoverColor">Miłkowice</a></li>
+              <li id="skarpa"><a href="skarpa.html" class="hover:text-hoverColor">Skarpa</a></li>
             </ul>
           </div>
-          <div class="w-3/4 relative">
+          <div class="w-full md:w-3/4 relative">
             <div id="map" style="height: 45rem; width: 100%"></div>
             <button
               id="reset-map"
@@ -114,7 +132,18 @@
       </div>
       <div class="min-h-[4rem] flex items-center"></div>
     </div>
+    <div class="min-h-[4rem] flex items-center"></div>
+    </div>
     <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const menuBtn = document.getElementById("menu-btn");
+        const mobileMenu = document.getElementById("mobile-menu");
+
+        menuBtn.addEventListener("click", function () {
+          mobileMenu.classList.toggle("hidden");
+        });
+      });
+
       const initialCenter = [51.82, 18.69];
       const initialZoom = 13;
       const map = L.map("map").setView(initialCenter, initialZoom);
