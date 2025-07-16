@@ -242,13 +242,54 @@
       </div>
       <div class="min-h-[2rem] md:min-h-[4rem] flex items-center"></div>
     </div>
+    <!-- Fullscreen Image Modal -->
+    <div
+      id="fullscreen-modal"
+      class="fixed inset-0 bg-black flex items-center justify-center z-[1200] hidden"
+    >
+      <button
+        id="close-fullscreen-modal"
+        class="absolute top-4 right-4 text-white text-4xl font-bold focus:outline-none"
+      >
+        &times;
+      </button>
+      <img id="fullscreen-image" src="" alt="Fullscreen Image" class="max-w-[90%] max-h-[90%] object-contain" />
+    </div>
+
     <script>
       document.addEventListener("DOMContentLoaded", function () {
         const menuBtn = document.getElementById("menu-btn");
         const mobileMenu = document.getElementById("mobile-menu");
+        const fullscreenModal = document.getElementById("fullscreen-modal");
+        const fullscreenImage = document.getElementById("fullscreen-image");
+        const closeFullscreenModalBtn = document.getElementById("close-fullscreen-modal");
 
         menuBtn.addEventListener("click", function () {
           mobileMenu.classList.toggle("hidden");
+        });
+
+        // Get all images that should be clickable for fullscreen
+        const images = document.querySelectorAll("img[src^='assets/']"); // Selects images in the current directory's assets folder
+
+        images.forEach(image => {
+          image.style.cursor = "pointer"; // Add a pointer cursor to indicate clickability
+          image.addEventListener("click", function () {
+            fullscreenImage.src = this.src;
+            fullscreenModal.classList.remove("hidden");
+            document.body.style.overflow = "hidden"; // Prevent scrolling when modal is open
+          });
+        });
+
+        closeFullscreenModalBtn.addEventListener("click", function () {
+          fullscreenModal.classList.add("hidden");
+          document.body.style.overflow = ""; // Restore scrolling
+        });
+
+        fullscreenModal.addEventListener("click", function (event) {
+          if (event.target === fullscreenModal) {
+            fullscreenModal.classList.add("hidden");
+            document.body.style.overflow = ""; // Restore scrolling
+          }
         });
       });
     </script>
