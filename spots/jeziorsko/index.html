@@ -83,9 +83,7 @@
               >Kite Łódź</a
             >
           </span>
-          <span class="font-montserrat text-[2rem] md:hidden">
-            Jeziorsko
-          </span>
+          <span class="font-montserrat text-[2rem] md:hidden"> Jeziorsko </span>
 
           <div class="hidden md:flex space-x-16 font-montserrat text-[2rem]">
             <a
@@ -221,10 +219,11 @@
                 Zalane fundamenty i konary drzew
                 <p class="mb-4">
                   Zalew Jeziorsko powstał na terenach zamieszkałych.
-                  Pozostałości po zabudowaniach, drogach, konary starych drzew
-                  nie zostały usunięte i w zależności od poziomu wody może je
-                  przykrywać jedynie cienka warstwa wody. Pamiętaj aby przed
-                  startem upewnić się gdzie znajdują się potencjalne pułapki.
+                  Pozostałości po zabudowaniach, drogach czy konary starych
+                  drzew nie zostały całkowicie usunięte i w zależności od
+                  poziomu wody może je przykrywać jedynie cienka warstwa wody.
+                  Pamiętaj aby przed startem upewnić się gdzie znajdują się
+                  potencjalne pułapki.
                 </p>
                 <div class="w-1/2 h-128 bg-gray-300 animate-pulse">
                   <img
@@ -253,7 +252,12 @@
       >
         &times;
       </button>
-      <img id="fullscreen-image" src="" alt="Fullscreen Image" class="max-w-[90%] max-h-[90%] object-contain" />
+      <img
+        id="fullscreen-image"
+        src=""
+        alt="Fullscreen Image"
+        class="max-w-[90%] max-h-[90%] object-contain"
+      />
     </div>
 
     <script>
@@ -262,7 +266,9 @@
         const mobileMenu = document.getElementById("mobile-menu");
         const fullscreenModal = document.getElementById("fullscreen-modal");
         const fullscreenImage = document.getElementById("fullscreen-image");
-        const closeFullscreenModalBtn = document.getElementById("close-fullscreen-modal");
+        const closeFullscreenModalBtn = document.getElementById(
+          "close-fullscreen-modal",
+        );
 
         menuBtn.addEventListener("click", function () {
           mobileMenu.classList.toggle("hidden");
@@ -271,7 +277,7 @@
         // Get all images that should be clickable for fullscreen
         const images = document.querySelectorAll("img[src^='assets/']"); // Selects images in the current directory's assets folder
 
-        images.forEach(image => {
+        images.forEach((image) => {
           image.style.cursor = "pointer"; // Add a pointer cursor to indicate clickability
           image.addEventListener("click", function () {
             fullscreenImage.src = this.src;
