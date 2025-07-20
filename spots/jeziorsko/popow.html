@@ -10,6 +10,10 @@
       href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
       rel="stylesheet"
     />
+    <link
+      href="https://cdn.jsdelivr.net/npm/basiclightbox@5.0.4/dist/basicLightbox.min.css"
+      rel="stylesheet"
+    />
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
@@ -129,19 +133,73 @@
       <div
         class="flex-grow p-4 md:p-8 bg-white bg-opacity-50 md:rounded-lg overflow-y-auto"
       >
-        <h2 class="text-2xl mb-4">Popów</h2>
-        <p>This is the page for Popów.</p>
+        <h2 class="text-2xl mb-4 text-center">Popów</h2>
+        <p class="text-lg text-center">Kierunki wiatru: SW, W, NW</p>
+        <p class="mt-4 text-justify">
+          Popów to popularny spot kitesurfingowy zlokalizowany na zachodnim brzegu zbiornika Jeziorsko, ceniony za dużą, otwartą przestrzeń. Najlepsze warunki do pływania zapewniają kierunki wiatru z południowego-zachodu, zachodu oraz północnego-zachodu. W sezonie letnim spot oferuje głównie płaską wodę z niewielkim chopem przy silniejszym wietrze, co czyni go idealnym miejscem do nauki i doskonalenia trików. Do dyspozycji kitesurferów jest szeroka, piaszczysto-trawiasta plaża, która zapewnia dużo miejsca do bezpiecznego startowania i lądowania latawców. Należy jednak zachować szczególną ostrożność ze względu na zatopione fundamenty starych budynków, które znajdują się w pobliżu brzegu. Zimą, przy odpowiedniej pokrywie śnieżnej, Popów zamienia się w doskonałe miejsce do uprawiania snowkitingu. Dzięki zróżnicowanym warunkom, spot jest odpowiedni zarówno dla początkujących, jak i zaawansowanych riderów. To miejsce przyciąga lokalną społeczność kitesurferów, tworząc przyjazną i pomocną atmosferę.
+        </p>
+
+        <div class="flex flex-col md:flex-row justify-center items-start space-y-8 md:space-y-0 md:space-x-8 mt-8">
+          <div>
+            <img src="assets/popow-zima-mapa.png" alt="Mapa spotu Popów zimą" class="rounded-2xl shadow-lg h-96">
+            <h3 class="text-xl mt-2 text-center">Mapa Zimą</h3>
+          </div>
+          <div>
+            <img src="assets/popow-lato-mapa.png" alt="Mapa spotu Popów latem" class="rounded-2xl shadow-lg h-96">
+            <h3 class="text-xl mt-2 text-center">Mapa Latem</h3>
+          </div>
+        </div>
+
+        <div class="text-center mt-8">
+          <a href="https://www.google.com/maps/dir/?api=1&destination=51.830556,18.731944" target="_blank" class="inline-block bg-black text-white font-bold py-3 px-6 rounded-lg hover:bg-gray-800 transition-colors">
+            Dojazd do spotu
+          </a>
+        </div>
+
+        <div class="mt-12">
+          <h3 class="text-2xl text-center mb-4">Galeria</h3>
+          <div class="gallery grid grid-cols-1 md:grid-cols-2 gap-8">
+            <a href="assets/popow-wiosna.jpg">
+              <img src="assets/popow-wiosna.jpg" alt="Spot Popów wiosną" class="rounded-2xl shadow-lg h-96 w-full object-cover">
+              <p class="text-center mt-2">Wiosna</p>
+            </a>
+            <a href="assets/popow-zima.jpg">
+              <img src="assets/popow-zima.jpg" alt="Spot Popów zimą" class="rounded-2xl shadow-lg h-96 w-full object-cover">
+              <p class="text-center mt-2">Zima</p>
+            </a>
+          </div>
+        </div>
       </div>
       <div class="min-h-[2rem] md:min-h-[4rem]"></div>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/basiclightbox@5.0.4/dist/basicLightbox.min.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function () {
+        // Mobile menu script
         const menuBtn = document.getElementById("menu-btn");
         const mobileMenu = document.getElementById("mobile-menu");
 
         menuBtn.addEventListener("click", function () {
           mobileMenu.classList.toggle("hidden");
         });
+
+        // Gallery lightbox script
+        const galleryElement = document.querySelector('.gallery');
+        if (galleryElement) {
+          const lightbox = basicLightbox.create(`
+            <img width="1600" height="1200" src="">
+          `);
+          const lightboxImg = lightbox.element().querySelector('img');
+
+          galleryElement.addEventListener('click', function (event) {
+            const link = event.target.closest('a');
+            if (!link) return;
+            
+            event.preventDefault();
+            lightboxImg.src = link.href;
+            lightbox.show();
+          });
+        }
       });
     </script>
   </body>
