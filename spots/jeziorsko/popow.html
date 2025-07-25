@@ -76,9 +76,7 @@
               >Kite Łódź</a
             >
           </span>
-          <span class="font-montserrat text-[2rem] md:hidden">
-            Popów
-          </span>
+          <span class="font-montserrat text-[2rem] md:hidden"> Popów </span>
 
           <div class="hidden md:flex space-x-16 font-montserrat text-[2rem]">
             <a href="index.html" class="hover:text-hoverColor">Jeziorsko</a>
@@ -133,40 +131,100 @@
       <div
         class="flex-grow p-4 md:p-8 bg-white bg-opacity-50 md:rounded-lg overflow-y-auto"
       >
-        <h2 class="text-2xl mb-4 text-center">Popów</h2>
-        <p class="text-lg text-center">Kierunki wiatru: SW, W, NW</p>
-        <p class="mt-4 text-justify">
-          Popów to popularny spot kitesurfingowy zlokalizowany na zachodnim brzegu zbiornika Jeziorsko, ceniony za dużą, otwartą przestrzeń. Najlepsze warunki do pływania zapewniają kierunki wiatru z południowego-zachodu, zachodu oraz północnego-zachodu. W sezonie letnim spot oferuje głównie płaską wodę z niewielkim chopem przy silniejszym wietrze, co czyni go idealnym miejscem do nauki i doskonalenia trików. Do dyspozycji kitesurferów jest szeroka, piaszczysto-trawiasta plaża, która zapewnia dużo miejsca do bezpiecznego startowania i lądowania latawców. Należy jednak zachować szczególną ostrożność ze względu na zatopione fundamenty starych budynków, które znajdują się w pobliżu brzegu. Zimą, przy odpowiedniej pokrywie śnieżnej, Popów zamienia się w doskonałe miejsce do uprawiania snowkitingu. Dzięki zróżnicowanym warunkom, spot jest odpowiedni zarówno dla początkujących, jak i zaawansowanych riderów. To miejsce przyciąga lokalną społeczność kitesurferów, tworząc przyjazną i pomocną atmosferę.
-        </p>
+        <h2 class="text-2xl mb-8 text-center font-bold">Popów</h2>
 
-        <div class="flex flex-col md:flex-row justify-center items-start space-y-8 md:space-y-0 md:space-x-8 mt-8">
-          <div>
-            <img src="assets/popow-zima-mapa.png" alt="Mapa spotu Popów zimą" class="rounded-2xl shadow-lg h-96">
-            <h3 class="text-xl mt-2 text-center">Mapa Zimą</h3>
+        <div class="flex flex-col md:flex-row gap-8">
+          <!-- Main content column -->
+          <div class="md:w-2/3 order-2 md:order-2">
+            <div class="p-6 bg-white bg-opacity-70 rounded-2xl shadow-lg h-fit">
+              <p class="text-justify">
+                Popów to najbardzej popularny spot zlokalizowany na zachodnim
+                brzegu zbiornika Jeziorsko. Najlepsze warunki do pływania
+                zapewniają kierunki wiatru z południowego-zachodu, zachodu oraz
+                północnego-zachodu. Jeżeli stan wody jest wysoki, miejsca do
+                startu jest bardzo mało i start jest możliwy jedynie przy
+                wietrze zachodnim. Przy niższym stanie wody należy zachować
+                szczególną ostrożność ze względu na zatopione fundamenty starych
+                budynków, które znajdują się w pobliżu brzegu.
+              </p>
+
+              <div class="mt-8">
+                <h3 class="text-2xl text-center mb-4 font-bold">Galeria</h3>
+                <div class="gallery grid grid-cols-1 md:grid-cols-2 gap-8">
+                  <div>
+                    <a
+                      href="assets/popow-wiosna.jpg"
+                      class="block relative h-96 w-full bg-gray-200 rounded-2xl shadow-lg overflow-hidden"
+                    >
+                      <img
+                        src="assets/popow-wiosna.jpg"
+                        alt="Spot Popów wiosną"
+                        class="absolute top-0 left-0 w-full h-full object-cover"
+                        loading="lazy"
+                        onload="this.style.opacity=1"
+                        style="opacity: 0;"
+                      />
+                    </a>
+                    <p class="text-center mt-2">Wiosna</p>
+                  </div>
+                  <div>
+                    <a
+                      href="assets/popow-zima.jpg"
+                      class="block relative h-96 w-full bg-gray-200 rounded-2xl shadow-lg overflow-hidden"
+                    >
+                      <img
+                        src="assets/popow-zima.jpg"
+                        alt="Spot Popów zimą"
+                        class="absolute top-0 left-0 w-full h-full object-cover"
+                        loading="lazy"
+                        onload="this.style.opacity=1"
+                        style="opacity: 0;"
+                      />
+                    </a>
+                    <p class="text-center mt-2">Zima</p>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-          <div>
-            <img src="assets/popow-lato-mapa.png" alt="Mapa spotu Popów latem" class="rounded-2xl shadow-lg h-96">
-            <h3 class="text-xl mt-2 text-center">Mapa Latem</h3>
-          </div>
-        </div>
 
-        <div class="text-center mt-8">
-          <a href="https://www.google.com/maps/dir/?api=1&destination=51.830556,18.731944" target="_blank" class="inline-block bg-black text-white font-bold py-3 px-6 rounded-lg hover:bg-gray-800 transition-colors">
-            Dojazd do spotu
-          </a>
-        </div>
+          <!-- Sidebar / Info card -->
+          <div
+            class="md:w-1/3 p-6 bg-white bg-opacity-70 rounded-2xl shadow-lg h-fit order-1 md:order-1"
+          >
+            <h3 class="text-xl font-bold text-center mb-4">Informacje</h3>
 
-        <div class="mt-12">
-          <h3 class="text-2xl text-center mb-4">Galeria</h3>
-          <div class="gallery grid grid-cols-1 md:grid-cols-2 gap-8">
-            <a href="assets/popow-wiosna.jpg">
-              <img src="assets/popow-wiosna.jpg" alt="Spot Popów wiosną" class="rounded-2xl shadow-lg h-96 w-full object-cover">
-              <p class="text-center mt-2">Wiosna</p>
-            </a>
-            <a href="assets/popow-zima.jpg">
-              <img src="assets/popow-zima.jpg" alt="Spot Popów zimą" class="rounded-2xl shadow-lg h-96 w-full object-cover">
-              <p class="text-center mt-2">Zima</p>
-            </a>
+            <div class="flex justify-around items-center mb-6">
+              <div>
+                <p class="font-bold text-center">Kierunki wiatru:</p>
+                <p class="text-center">SW, W, NW</p>
+              </div>
+              <a
+                href="https://www.google.com/maps/dir/?api=1&destination=51.830556,18.731944"
+                target="_blank"
+                class="inline-block font-montserrat uppercase font-semibold bg-transparent border-2 border-textColor text-textColor py-2 px-4 rounded hover:bg-textColor hover:text-white transition-colors"
+              >
+                Dojazd
+              </a>
+            </div>
+
+            <div class="space-y-6 lightbox-item">
+              <a
+                href="assets/popow-zima-mapa.png"
+                class="block relative bg-gray-200 rounded-2xl shadow-lg overflow-hidden"
+              >
+                <!-- This div creates the 4:3 aspect ratio -->
+                <div style="padding-bottom: 75%;"></div>
+                <img
+                  src="assets/popow-zima-mapa.png"
+                  alt="Mapa spotu Popów zimą"
+                  class="absolute top-0 left-0 w-full h-full object-cover"
+                  loading="lazy"
+                  onload="this.style.opacity=1"
+                  style="opacity: 0;"
+                />
+              </a>
+            </div>
           </div>
         </div>
       </div>
@@ -184,22 +242,24 @@
         });
 
         // Gallery lightbox script
-        const galleryElement = document.querySelector('.gallery');
-        if (galleryElement) {
-          const lightbox = basicLightbox.create(`
+        const lightbox = basicLightbox.create(
+          `
             <img width="1600" height="1200" src="">
-          `);
-          const lightboxImg = lightbox.element().querySelector('img');
+          `,
+          {
+            className: "bg-black",
+          },
+        );
+        const lightboxImg = lightbox.element().querySelector("img");
 
-          galleryElement.addEventListener('click', function (event) {
-            const link = event.target.closest('a');
-            if (!link) return;
-            
-            event.preventDefault();
-            lightboxImg.src = link.href;
-            lightbox.show();
-          });
-        }
+        document.body.addEventListener("click", function (event) {
+          const link = event.target.closest(".gallery a, .lightbox-item a");
+          if (!link) return;
+
+          event.preventDefault();
+          lightboxImg.src = link.href;
+          lightbox.show();
+        });
       });
     </script>
   </body>
