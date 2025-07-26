@@ -67,9 +67,7 @@
   <body
     class="m-0 p-0 flex flex-col items-center text-textColor h-full overflow-hidden"
   >
-    <div
-      class="container flex flex-col flex-grow pt-[3rem] md:pt-[6rem] h-full"
-    >
+    <div class="container flex flex-col flex-grow pt-[6rem] h-full">
       <nav
         class="h-[3rem] md:h-[6rem] flex items-center fixed top-0 left-0 right-0 z-10"
       >
@@ -83,7 +81,19 @@
               >Kite Łódź</a
             >
           </span>
-          <span class="font-montserrat text-[2rem] md:hidden"> Jeziorsko </span>
+          <div class="md:hidden">
+            <span class="font-montserrat text-[2rem]"> Jeziorsko </span>
+            <!-- Sub Navbar -->
+            <nav
+              class="h-[3rem] md:h-[6rem] flex items-center fixed top-[3rem] md:top-[6rem] left-0 right-0 z-10"
+            >
+              <div class="container mx-auto flex uppercase px-4 space-x-4">
+                <a href="spoty.html" class="hover:text-hoverColor">Spoty</a>
+                <span class="border-l border-textColor h-6"></span>
+                <a href="pogoda.html" class="hover:text-hoverColor">Pogoda</a>
+              </div>
+            </nav>
+          </div>
 
           <div class="hidden md:flex space-x-16 font-montserrat text-[2rem]">
             <a
@@ -130,8 +140,6 @@
             class="hover:text-hoverColor underline decoration-2 underline-offset-8"
             >Jeziorsko</a
           >
-          <a href="spoty.html" class="hover:text-hoverColor">Spoty</a>
-          <a href="pogoda.html" class="hover:text-hoverColor">Pogoda</a>
         </div>
       </div>
 
