@@ -10,10 +10,6 @@
       href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
       rel="stylesheet"
     />
-    <link
-      href="https://cdn.jsdelivr.net/npm/basiclightbox@5.0.4/dist/basicLightbox.min.css"
-      rel="stylesheet"
-    />
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
@@ -192,7 +188,7 @@
                 <p class="text-center">SW, W, NW</p>
               </div>
               <a
-                href="https://www.google.com/maps/dir/?api=1&destination=51.830556,18.731944"
+                href="https://www.google.com/maps/dir/?api=1&destination=51.831271992818834, 18.721478922761708"
                 target="_blank"
                 class="inline-block font-montserrat uppercase font-semibold bg-transparent border-2 border-textColor text-textColor py-2 px-4 rounded hover:bg-textColor hover:text-white transition-colors"
               >
@@ -234,7 +230,24 @@
       </div>
       <div class="min-h-[2rem] md:min-h-[4rem]"></div>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/basiclightbox@5.0.4/dist/basicLightbox.min.js"></script>
+    <!-- Fullscreen Image Modal -->
+    <div
+      id="fullscreen-modal"
+      class="fixed inset-0 bg-black flex items-center justify-center z-[1200] hidden"
+    >
+      <button
+        id="close-fullscreen-modal"
+        class="absolute top-4 right-4 text-white text-4xl font-bold focus:outline-none"
+      >
+        &times;
+      </button>
+      <img
+        id="fullscreen-image"
+        src=""
+        alt="Fullscreen Image"
+        class="max-w-[90%] max-h-[90%] object-contain"
+      />
+    </div>
     <script>
       document.addEventListener("DOMContentLoaded", function () {
         // Mobile menu script
@@ -245,24 +258,36 @@
           mobileMenu.classList.toggle("hidden");
         });
 
-        // Gallery lightbox script
-        const lightbox = basicLightbox.create(
-          `
-            <img width="1600" height="1200" src="">
-          `,
-          {
-            className: "bg-black",
-          },
+        // Fullscreen modal script
+        const fullscreenModal = document.getElementById("fullscreen-modal");
+        const fullscreenImage = document.getElementById("fullscreen-image");
+        const closeFullscreenModalBtn = document.getElementById(
+          "close-fullscreen-modal",
         );
-        const lightboxImg = lightbox.element().querySelector("img");
 
-        document.body.addEventListener("click", function (event) {
-          const link = event.target.closest(".gallery a, .lightbox-item a");
-          if (!link) return;
+        // Get all links that should be clickable for fullscreen
+        const links = document.querySelectorAll(".gallery a, .lightbox-item a");
 
-          event.preventDefault();
-          lightboxImg.src = link.href;
-          lightbox.show();
+        links.forEach((link) => {
+          link.style.cursor = "pointer"; // Add a pointer cursor to indicate clickability
+          link.addEventListener("click", function (event) {
+            event.preventDefault(); // Prevent default link behavior
+            fullscreenImage.src = this.href;
+            fullscreenModal.classList.remove("hidden");
+            document.body.style.overflow = "hidden"; // Prevent scrolling when modal is open
+          });
+        });
+
+        closeFullscreenModalBtn.addEventListener("click", function () {
+          fullscreenModal.classList.add("hidden");
+          document.body.style.overflow = ""; // Restore scrolling
+        });
+
+        fullscreenModal.addEventListener("click", function (event) {
+          if (event.target === fullscreenModal) {
+            fullscreenModal.classList.add("hidden");
+            document.body.style.overflow = ""; // Restore scrolling
+          }
         });
       });
     </script>
