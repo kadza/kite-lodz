@@ -3,36 +3,59 @@ layout: base.html
 title: Jeziorsko Spoty
 ---
 
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+<link
+  rel="stylesheet"
+  href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+  integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+  crossorigin=""
+/>
+<script
+  src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+  integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+  crossorigin=""
+></script>
 
 <div class="p-4 md:p-8 bg-white bg-opacity-50 md:rounded-lg overflow-y-auto">
   <div class="flex flex-col">
     <div class="hidden md:block w-full mb-4 overflow-x-auto">
-      <ul class="flex flex-row divide-x divide-textColor font-montserrat text-xl uppercase">
+      <ul
+        class="flex flex-row divide-x divide-textColor font-montserrat text-xl uppercase"
+      >
         <li id="popow" class="whitespace-nowrap">
           <a href="popow.html" class="hover:text-hoverColor px-2">Popów</a>
         </li>
         <li id="popow-polanka" class="whitespace-nowrap">
-          <a href="popow-polanka.html" class="hover:text-hoverColor px-2">Popów polanka</a>
+          <a href="popow-polanka.html" class="hover:text-hoverColor px-2"
+            >Popów polanka</a
+          >
         </li>
         <li id="wylazlow" class="whitespace-nowrap">
-          <a href="wylazlow.html" class="hover:text-hoverColor px-2">Wylazłów</a>
+          <a href="wylazlow.html" class="hover:text-hoverColor px-2"
+            >Wylazłów</a
+          >
         </li>
         <li id="brodnia-tama" class="whitespace-nowrap">
-          <a href="brodnia-tama.html" class="hover:text-hoverColor px-2">Brodnia tama</a>
+          <a href="brodnia-tama.html" class="hover:text-hoverColor px-2"
+            >Brodnia tama</a
+          >
         </li>
         <li id="brodnia-cypel" class="whitespace-nowrap">
-          <a href="brodnia-cypel.html" class="hover:text-hoverColor px-2">Brodnia cypel</a>
+          <a href="brodnia-cypel.html" class="hover:text-hoverColor px-2"
+            >Brodnia cypel</a
+          >
         </li>
         <li id="ostrow" class="whitespace-nowrap">
-          <a href="ostrow.html" class="hover:text-hoverColor px-2">Ostrów Warcki</a>
+          <a href="ostrow.html" class="hover:text-hoverColor px-2"
+            >Ostrów Warcki</a
+          >
         </li>
         <li id="zaspy" class="whitespace-nowrap">
           <a href="zaspy.html" class="hover:text-hoverColor px-2">Zaspy</a>
         </li>
         <li id="milkowice" class="whitespace-nowrap">
-          <a href="milkowice.html" class="hover:text-hoverColor px-2">Miłkowice</a>
+          <a href="milkowice.html" class="hover:text-hoverColor px-2"
+            >Miłkowice</a
+          >
         </li>
         <li id="skarpa" class="whitespace-nowrap">
           <a href="skarpa.html" class="hover:text-hoverColor px-2">Skarpa</a>
@@ -41,7 +64,12 @@ title: Jeziorsko Spoty
     </div>
     <div class="w-full relative">
       <div id="map" class="h-[80vh] md:h-[45rem] w-full"></div>
-      <button id="reset-map" class="absolute top-2 right-2 bg-white p-2 rounded-md shadow-md text-textColor hover:bg-gray-100 z-[1000]">Reset</button>
+      <button
+        id="reset-map"
+        class="absolute top-2 right-2 bg-white p-2 rounded-md shadow-md text-textColor hover:bg-gray-100 z-[1000]"
+      >
+        Reset
+      </button>
     </div>
   </div>
 </div>
@@ -142,3 +170,4 @@ title: Jeziorsko Spoty
     map.closePopup();
   });
 </script>
+
