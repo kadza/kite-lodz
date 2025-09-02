@@ -26,14 +26,14 @@ src/
 ├── _layouts/
 │   └── base.html      # Main page template
 ├── pages/             # Page-specific content
-│   ├── index.html
+│   ├── index.njk
 │   └── spots/
 │       └── jeziorsko/
-│           ├── index.html
+│           ├── index.njk
 │           ├── pogoda/
-│           │   └── index.html
+│           │   └── index.njk
 │           └── spoty/
-│               └── index.html
+│               └── index.njk
 ├── assets/            # Static assets (copied as-is)
 └── scripts/           # Build scripts (copied as-is)
 
@@ -53,8 +53,11 @@ dist/                  # Generated output (ready for deployment)
 ## Build Commands
 
 ```bash
-# Development server with live reload
+# Development server with live reload (recommended)
 npm run dev
+
+# Simple build + serve (for testing)
+npm run dev-simple
 
 # Build for production
 npm run build
@@ -62,6 +65,17 @@ npm run build
 # Watch for changes and rebuild
 npm run watch
 ```
+
+## Troubleshooting
+
+### If you see raw HTML instead of rendered components:
+1. Make sure you're accessing the site through the web server (http://127.0.0.1:8080)
+2. Not by opening HTML files directly in your browser
+3. The `| safe` filter in the layout ensures HTML is not encoded
+
+### File Extensions:
+- Use `.njk` for template files that need processing
+- Use `.html` for static files that don't need processing
 
 ## How It Works
 

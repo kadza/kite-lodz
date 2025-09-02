@@ -5,7 +5,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "live-server",
-    "dev": "eleventy --serve",
+    "dev": "eleventy --serve --port=8080",
+    "dev-simple": "eleventy && live-server dist --port=8080",
     "build": "eleventy",
     "watch": "eleventy --watch",
     "optimize": "node scripts/optimize-images.js"

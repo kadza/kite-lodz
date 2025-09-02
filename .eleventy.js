@@ -7,10 +7,14 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/_includes");
   eleventyConfig.addPassthroughCopy("src/_layouts");
 
-  // Watch for changes
-  eleventyConfig.addWatchTarget("src/assets");
-  eleventyConfig.addWatchTarget("src/_includes");
-  eleventyConfig.addWatchTarget("src/_layouts");
+  // Watch for changes (with fallback for fsevents issues)
+  try {
+    eleventyConfig.addWatchTarget("src/assets");
+    eleventyConfig.addWatchTarget("src/_includes");
+    eleventyConfig.addWatchTarget("src/_layouts");
+  } catch (err) {
+    console.log('File watching may be limited due to fsevents compatibility issues');
+  }
 
   // Copy generated pages to root level for proper URL structure
   eleventyConfig.on('eleventy.after', async function() {
@@ -56,5 +60,10 @@ module.exports = function(eleventyConfig) {
     templateFormats: ["html", "njk", "md"],
     htmlTemplateEngine: "njk",
     markdownTemplateEngine: "njk",
+    // Use polling for file watching to avoid fsevents issues
+    chokidarConfig: {
+      usePolling: true,
+      interval: 500,
+    },
   };
 };
