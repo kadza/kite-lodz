@@ -16,6 +16,9 @@ module.exports = function(eleventyConfig) {
     console.log('File watching may be limited due to fsevents compatibility issues');
   }
 
+  // Ensure HTML files are processed as templates
+  eleventyConfig.setTemplateFormats(["html", "njk", "md"]);
+
   // Copy generated pages to root level for proper URL structure
   eleventyConfig.on('eleventy.after', async function() {
     const fs = require('fs').promises;
@@ -49,6 +52,9 @@ module.exports = function(eleventyConfig) {
 
     await copyDir('dist/pages/spots', 'dist/spots');
   });
+
+  // Configure HTML files to be processed as Nunjucks templates
+  eleventyConfig.setTemplateFormats(["html", "njk", "md"]);
 
   return {
     dir: {

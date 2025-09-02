@@ -26,14 +26,14 @@ src/
 ├── _layouts/
 │   └── base.html      # Main page template
 ├── pages/             # Page-specific content
-│   ├── index.njk
+│   ├── index.html
 │   └── spots/
 │       └── jeziorsko/
-│           ├── index.njk
+│           ├── index.html
 │           ├── pogoda/
-│           │   └── index.njk
+│           │   └── index.html
 │           └── spoty/
-│               └── index.njk
+│               └── index.html
 ├── assets/            # Static assets (copied as-is)
 └── scripts/           # Build scripts (copied as-is)
 
@@ -74,8 +74,9 @@ npm run watch
 3. The `| safe` filter in the layout ensures HTML is not encoded
 
 ### File Extensions:
-- Use `.njk` for template files that need processing
-- Use `.html` for static files that don't need processing
+- Use `.html` for template files (processed as Nunjucks)
+- Use `.html` in `src/_includes/` and `src/_layouts/` for shared components
+- Static assets remain in `src/assets/` and are copied as-is
 
 ## How It Works
 
