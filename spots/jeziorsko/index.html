@@ -177,22 +177,24 @@
               zatoczka zimą.
             </p>
             <div class="flex space-x-4">
-              <div class="w-1/2 h-128 bg-gray-300 animate-pulse rounded-2xl overflow-hidden">
+              <div class="w-1/2 h-128 bg-gray-300 rounded-2xl overflow-hidden">
                 <img
-                  src="assets/popow-wiosna.jpg"
+                  src="../../assets/popow-wiosna.webp"
                   alt="Jeziorsko wiosną"
                   class="w-full h-full object-cover"
-                  style="display: none"
-                  onload="this.style.display='block'; this.parentElement.classList.remove('animate-pulse', 'bg-gray-300')"
+                  loading="lazy"
+                  onload="this.style.opacity=1"
+                  style="opacity: 0"
                 />
               </div>
-              <div class="w-1/2 h-128 bg-gray-300 animate-pulse rounded-2xl overflow-hidden">
+              <div class="w-1/2 h-128 bg-gray-300 rounded-2xl overflow-hidden">
                 <img
-                  src="assets/popow-zima.jpg"
+                  src="../../assets/popow-zima.webp"
                   alt="Jeziorsko zimą"
                   class="w-full h-full object-cover"
-                  style="display: none"
-                  onload="this.style.display='block'; this.parentElement.classList.remove('animate-pulse', 'bg-gray-300')"
+                  loading="lazy"
+                  onload="this.style.opacity=1"
+                  style="opacity: 0"
                 />
               </div>
             </div>
@@ -233,9 +235,11 @@
                   Pamiętaj aby przed startem upewnić się gdzie znajdują się
                   potencjalne pułapki.
                 </p>
-                <div class="w-1/2 h-128 bg-gray-300 animate-pulse rounded-2xl overflow-hidden">
+                <div
+                  class="w-1/2 h-128 bg-gray-300 animate-pulse rounded-2xl overflow-hidden"
+                >
                   <img
-                    src="assets/popow-fundamenty.jpg"
+                    src="../../assets/popow-fundamenty.webp"
                     alt="Zalane fundamenty w Popowie"
                     class="w-full h-full object-cover"
                     style="display: none"
@@ -283,7 +287,7 @@
         });
 
         // Get all images that should be clickable for fullscreen
-        const images = document.querySelectorAll("img[src^='assets/']"); // Selects images in the current directory's assets folder
+        const images = document.querySelectorAll("img[src^='../../assets/']"); // Selects images in the root assets folder
 
         images.forEach((image) => {
           image.style.cursor = "pointer"; // Add a pointer cursor to indicate clickability
