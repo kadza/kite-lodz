@@ -67,12 +67,13 @@
     <span class="hidden md:flex">
       <a
         href="/"
-        class="font-montserrat text-[2rem] hover:text-hoverColor underline decoration-2 underline-offset-8"
+        class="font-montserrat text-[2rem] hover:text-hoverColor nav-link"
+        data-page="home"
         >Kite Łódź</a
       >
     </span>
     <span class="font-montserrat text-[2rem] md:hidden">
-      Kite Łódź
+      <a href="/" class="nav-link" data-page="home">Kite Łódź</a>
     </span>
 
     <div class="hidden md:flex space-x-16 font-montserrat text-[2rem]">
@@ -121,7 +122,8 @@
   >
     <a
       href="/"
-      class="hover:text-hoverColor underline decoration-2 underline-offset-8"
+      class="hover:text-hoverColor nav-link"
+      data-page="home"
       >Kite Łódź</a
     >
     <a href="/spots/jeziorsko/" class="hover:text-hoverColor">Jeziorsko</a>
@@ -308,14 +310,17 @@
 
     // Add active state styling to navigation links
     const currentPath = window.location.pathname;
+    const navLinks = document.querySelectorAll('.nav-link');
 
-    // Check for Jeziorsko pages
-    if (currentPath.includes('/spots/jeziorsko/')) {
-      const navLinks = document.querySelectorAll('.nav-link');
+    navLinks.forEach(link => {
+      const pageType = link.getAttribute('data-page');
 
-      navLinks.forEach(link => {
-        const pageType = link.getAttribute('data-page');
-
+      // Handle home page
+      if (pageType === 'home' && (currentPath === '/' || currentPath === '/index.html')) {
+        link.classList.add('underline', 'decoration-2', 'underline-offset-8');
+      }
+      // Handle Jeziorsko pages
+      else if (currentPath.includes('/spots/jeziorsko/')) {
         if (pageType === 'jeziorsko' && (currentPath === '/spots/jeziorsko/' || currentPath === '/spots/jeziorsko/index.html')) {
           link.classList.add('underline', 'decoration-2', 'underline-offset-8');
         } else if (pageType === 'spoty' && currentPath.includes('/spoty')) {
@@ -323,8 +328,8 @@
         } else if (pageType === 'pogoda' && currentPath.includes('/pogoda')) {
           link.classList.add('underline', 'decoration-2', 'underline-offset-8');
         }
-      });
-    }
+      }
+    });
   });
 </script>
 
