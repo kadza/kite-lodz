@@ -5,6 +5,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "live-server",
+    "dev": "eleventy --serve",
+    "build": "eleventy",
+    "watch": "eleventy --watch",
     "optimize": "node scripts/optimize-images.js"
   },
   "keywords": [],
@@ -12,6 +15,7 @@
   "license": "ISC",
   "description": "",
   "devDependencies": {
+    "@11ty/eleventy": "^3.1.2",
     "live-server": "^1.2.2",
     "sharp": "^0.33.0"
   }

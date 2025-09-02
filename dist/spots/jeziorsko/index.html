@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="en" class="h-full">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jeziorsko Spot</title>
+    <link rel="preload" href="/assets/fonts/montserrat-regular.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/fonts.css" />
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          textColor: "#39563e",
+          hoverColor: "#c7a370",
+        },
+        fontFamily: {
+          montserrat: ['"Montserrat"', "sans-serif"],
+        },
+      },
+    },
+  };
+</script>
+<style>
+  body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("/assets/background.webp");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    opacity: 0.9;
+    z-index: -1;
+  }
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  .overflow-y-auto::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .overflow-y-auto {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+</style>
+  </head>
+  <body class="h-full m-0 p-0 flex flex-col items-center text-textColor overflow-hidden">
+    <nav class="h-[3rem] md:h-[6rem] flex items-center fixed top-0 left-0 right-0 z-10">
+  <div class="container mx-auto flex uppercase justify-between items-center px-4">
+    <span class="hidden md:flex">
+      <a href="/" class="font-montserrat text-[2rem] hover:text-hoverColor underline decoration-2 underline-offset-8">Kite Łódź</a>
+    </span>
+    <span class="font-montserrat text-[2rem] md:hidden">
+      Kite Łódź
+    </span>
+
+    <div class="hidden md:flex space-x-16 font-montserrat text-[2rem]">
+      <a href="/spots/jeziorsko/" class="hover:text-hoverColor">Jeziorsko</a>
+    </div>
+
+    <div class="md:hidden">
+      <button id="menu-btn" class="text-textColor focus:outline-none">
+        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile Menu -->
+<div id="mobile-menu" class="hidden fixed top-0 left-0 w-full h-full bg-white bg-opacity-90 z-20">
+  <div class="flex flex-col items-center justify-center h-full font-montserrat text-[2rem] space-y-8">
+    <a href="/" class="hover:text-hoverColor underline decoration-2 underline-offset-8">Kite Łódź</a>
+    <a href="/spots/jeziorsko/" class="hover:text-hoverColor">Jeziorsko</a>
+  </div>
+</div>
+
+    <div class="container flex flex-col flex-grow pt-[3rem] md:pt-[6rem] h-full">
+      
+&lt;div class=&quot;flex-grow p-4 md:p-8 bg-white bg-opacity-50 md:rounded-lg overflow-y-auto&quot;&gt;
+  &lt;ul&gt;
+    &lt;li class=&quot;mb-4&quot;&gt;
+      &lt;h3 class=&quot;text-xl mb-2&quot;&gt;Wiatr&lt;/h3&gt;
+      &lt;p&gt;
+        Zalew Jeziorsko jest na tyle duży, że można na nim pływać przy każdym kierunku wiatru. Należy jedynie pamiętać o wyborze odpowiedniego spotu z kierunkiem wiatru on shore lub side on shore. Najbardziej stabilne warunki występują przy wiatrach południowych SW, S, SE.
+      &lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li class=&quot;mb-4&quot;&gt;
+      &lt;h3 class=&quot;text-xl mb-2&quot;&gt;Zafalowanie&lt;/h3&gt;
+      &lt;p&gt;
+        Przy wiatrach powyżej 15kt zaczynają się tworzyć fale. Dla zaawansowanego surfera ich wysokość i okres pozwala na swobodne pływanie między nimi. Początkujący powinni uważać przy wiatrach 20kt i więcej ponieważ fale utrudniają im start i pływanie.
+      &lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li class=&quot;mb-4&quot;&gt;
+      &lt;h3 class=&quot;text-xl mb-2&quot;&gt;Zmienny poziom wody&lt;/h3&gt;
+      &lt;p class=&quot;mb-2&quot;&gt;
+        Poziom wody w zalewie Jeziorsko zmienia się w ciągu roku. Jesienią woda jest wypuszczana, a wiosną napuszczana. Z tego powodu poziom wody w tych samych miejscach może być różny z miesiąca na miesiąc. Dany spot latem może być kompletnie zalany, bez możliwości startu. Na zdjęciu z lewej strony zatoczka Popów latem, a z prawej ta sama zatoczka zimą.
+      &lt;/p&gt;
+      &lt;div class=&quot;flex space-x-4&quot;&gt;
+        &lt;div class=&quot;w-1/2 h-128 bg-gray-300 rounded-2xl overflow-hidden&quot;&gt;
+          &lt;img src=&quot;/assets/popow-wiosna.webp&quot; alt=&quot;Jeziorsko wiosną&quot; class=&quot;w-full h-full object-cover&quot; loading=&quot;lazy&quot; onload=&quot;this.style.opacity=1&quot; style=&quot;opacity: 0&quot; /&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;w-1/2 h-128 bg-gray-300 rounded-2xl overflow-hidden&quot;&gt;
+          &lt;img src=&quot;/assets/popow-zima.webp&quot; alt=&quot;Jeziorsko zimą&quot; class=&quot;w-full h-full object-cover&quot; loading=&quot;lazy&quot; onload=&quot;this.style.opacity=1&quot; style=&quot;opacity: 0&quot; /&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/li&gt;
+    &lt;li class=&quot;mb-4&quot;&gt;
+      &lt;h3 class=&quot;text-xl mb-2&quot;&gt;Niebezpieczeństwa&lt;/h3&gt;
+      &lt;p class=&quot;mb-2&quot;&gt;
+        Zanim wybierzesz się na sesję koniecznie bądź świadom niebezpieczeństw obecnych na zalewie:
+      &lt;/p&gt;
+      &lt;ul class=&quot;list-disc list-inside&quot;&gt;
+        &lt;li class=&quot;mb-4&quot;&gt;
+          Nierówny wiatr
+          &lt;p class=&quot;mb-1&quot;&gt;
+            Jeziorsko to zbiornik śródlądowy i wiatr nie jest tak stabiliny jak na Zatoce Puckiej czy w Egipcie. Szkwały przekraczające 10 węzłów jak i kilkuminutowe dziury w wietrze zdarzają się regularnie. Należy o tym pamiętać przy wyborze sprzętu i przy startach z brzegu.
+          &lt;/p&gt;
+        &lt;/li&gt;
+        &lt;li class=&quot;mb-4&quot;&gt;
+          Mało miejsca do startu
+          &lt;p class=&quot;mb-1&quot;&gt;
+            Szczególnie latem gdy poziom wody jest wysoki miejsce do startu jest mało. Dodając do tego nierówny wiatr starty z brzegu wymagają opanowania i techniki.
+          &lt;/p&gt;
+        &lt;/li&gt;
+        &lt;li&gt;
+          Zalane fundamenty i konary drzew
+          &lt;p class=&quot;mb-4&quot;&gt;
+            Zalew Jeziorsko powstał na terenach zamieszkałych. Pozostałości po zabudowaniach, drogach czy konary starych drzew nie zostały całkowicie usunięte i w zależności od poziomu wody może je przykrywać jedynie cienka warstwa wody. Pamiętaj aby przed startem upewnić się gdzie znajdują się potencjalne pułapki.
+          &lt;/p&gt;
+          &lt;div class=&quot;w-1/2 h-128 bg-gray-300 animate-pulse rounded-2xl overflow-hidden&quot;&gt;
+            &lt;img src=&quot;/assets/popow-fundamenty.webp&quot; alt=&quot;Zalane fundamenty w Popowie&quot; class=&quot;w-full h-full object-cover&quot; style=&quot;display: none&quot; onload=&quot;this.style.display=&#39;block&#39;; this.parentElement.classList.remove(&#39;animate-pulse&#39;, &#39;bg-gray-300&#39;)&quot; /&gt;
+          &lt;/div&gt;
+        &lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&quot;min-h-[2rem] md:min-h-[4rem] flex items-center&quot;&gt;&lt;/div&gt;
+
+&lt;!-- Fullscreen Image Modal --&gt;
+&lt;div id=&quot;fullscreen-modal&quot; class=&quot;fixed inset-0 bg-black flex items-center justify-center z-[1200] hidden&quot;&gt;
+  &lt;button id=&quot;close-fullscreen-modal&quot; class=&quot;absolute top-4 right-4 text-white text-4xl font-bold focus:outline-none&quot;&gt;&amp;times;&lt;/button&gt;
+  &lt;img id=&quot;fullscreen-image&quot; src=&quot;&quot; alt=&quot;Fullscreen Image&quot; class=&quot;max-w-[90%] max-h-[90%] object-contain&quot; /&gt;
+&lt;/div&gt;
+
+&lt;script&gt;
+  document.addEventListener(&quot;DOMContentLoaded&quot;, function () {
+    const fullscreenModal = document.getElementById(&quot;fullscreen-modal&quot;);
+    const fullscreenImage = document.getElementById(&quot;fullscreen-image&quot;);
+    const closeFullscreenModalBtn = document.getElementById(&quot;close-fullscreen-modal&quot;);
+
+    // Get all images that should be clickable for fullscreen
+    const images = document.querySelectorAll(&quot;img[src^=&#39;/assets/&#39;]&quot;); // Selects images in the root assets folder
+
+    images.forEach((image) =&gt; {
+      image.style.cursor = &quot;pointer&quot;; // Add a pointer cursor to indicate clickability
+      image.addEventListener(&quot;click&quot;, function () {
+        fullscreenImage.src = this.src;
+        fullscreenModal.classList.remove(&quot;hidden&quot;);
+        document.body.style.overflow = &quot;hidden&quot;; // Prevent scrolling when modal is open
+      });
+    });
+
+    closeFullscreenModalBtn.addEventListener(&quot;click&quot;, function () {
+      fullscreenModal.classList.add(&quot;hidden&quot;);
+      document.body.style.overflow = &quot;&quot;; // Restore scrolling
+    });
+
+    fullscreenModal.addEventListener(&quot;click&quot;, function (event) {
+      if (event.target === fullscreenModal) {
+        fullscreenModal.classList.add(&quot;hidden&quot;);
+        document.body.style.overflow = &quot;&quot;; // Restore scrolling
+      }
+    });
+  });
+&lt;/script&gt;
+    </div>
+
+    <script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const menuBtn = document.getElementById("menu-btn");
+    const mobileMenu = document.getElementById("mobile-menu");
+
+    if (menuBtn && mobileMenu) {
+      menuBtn.addEventListener("click", function () {
+        mobileMenu.classList.toggle("hidden");
+      });
+    }
+  });
+</script>
+  </body>
+</html>

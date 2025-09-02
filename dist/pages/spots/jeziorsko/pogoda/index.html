@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="en" class="h-full">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kite Spots</title>
+    <link rel="preload" href="/assets/fonts/montserrat-regular.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/fonts.css" />
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          textColor: "#39563e",
+          hoverColor: "#c7a370",
+        },
+        fontFamily: {
+          montserrat: ['"Montserrat"', "sans-serif"],
+        },
+      },
+    },
+  };
+</script>
+<style>
+  body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("/assets/background.webp");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    opacity: 0.9;
+    z-index: -1;
+  }
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  .overflow-y-auto::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .overflow-y-auto {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+</style>
+  </head>
+  <body class="h-full m-0 p-0 flex flex-col items-center text-textColor overflow-hidden">
+    <nav class="h-[3rem] md:h-[6rem] flex items-center fixed top-0 left-0 right-0 z-10">
+  <div class="container mx-auto flex uppercase justify-between items-center px-4">
+    <span class="hidden md:flex">
+      <a href="/" class="font-montserrat text-[2rem] hover:text-hoverColor underline decoration-2 underline-offset-8">Kite Łódź</a>
+    </span>
+    <span class="font-montserrat text-[2rem] md:hidden">
+      Kite Łódź
+    </span>
+
+    <div class="hidden md:flex space-x-16 font-montserrat text-[2rem]">
+      <a href="/spots/jeziorsko/" class="hover:text-hoverColor">Jeziorsko</a>
+    </div>
+
+    <div class="md:hidden">
+      <button id="menu-btn" class="text-textColor focus:outline-none">
+        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile Menu -->
+<div id="mobile-menu" class="hidden fixed top-0 left-0 w-full h-full bg-white bg-opacity-90 z-20">
+  <div class="flex flex-col items-center justify-center h-full font-montserrat text-[2rem] space-y-8">
+    <a href="/" class="hover:text-hoverColor underline decoration-2 underline-offset-8">Kite Łódź</a>
+    <a href="/spots/jeziorsko/" class="hover:text-hoverColor">Jeziorsko</a>
+  </div>
+</div>
+
+    <div class="container flex flex-col flex-grow pt-[3rem] md:pt-[6rem] h-full">
+      
+&lt;div class=&quot;flex-grow p-4 md:p-8 bg-white bg-opacity-50 md:rounded-lg overflow-y-auto&quot;&gt;
+  &lt;div class=&quot;w-full flex flex-col items-start&quot;&gt;
+    &lt;div class=&quot;w-full mb-4&quot;&gt;
+      &lt;h3 class=&quot;text-xl mb-2&quot;&gt;Aktualna pogoda*&lt;/h3&gt;
+      &lt;div id=&quot;current-weather&quot; class=&quot;flex flex-col&quot;&gt;
+        &lt;div class=&quot;flex space-x-2&quot;&gt;
+          &lt;p&gt;Kierunek wiatru:&lt;/p&gt;
+          &lt;p id=&quot;wind-dir&quot;&gt;-&lt;/p&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;flex space-x-2&quot;&gt;
+          &lt;p&gt;Prędkość wiatru:&lt;/p&gt;
+          &lt;p id=&quot;wind-speed&quot;&gt;-&lt;/p&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;flex space-x-2&quot;&gt;
+          &lt;p&gt;Temperatura:&lt;/p&gt;
+          &lt;p id=&quot;temperature&quot;&gt;-&lt;/p&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;h3 class=&quot;text-xl mb-2&quot;&gt;Prognozy&lt;/h3&gt;
+    &lt;img id=&quot;meteo-forecast&quot; src=&quot;&quot; class=&quot;border-0 mb-4&quot; /&gt;
+    &lt;div class=&quot;w-full mb-4&quot;&gt;
+      &lt;script src=&quot;https://www.windfinder.com/widget/forecast/js/jeziorsko_popow?unit_wave=m&amp;unit_rain=mm&amp;unit_temperature=c&amp;unit_wind=kts&amp;unit_pressure=hPa&amp;days=4&amp;show_day=1&amp;show_waves=0&quot;&gt;&lt;/script&gt;
+      &lt;noscript&gt;
+        &lt;a rel=&quot;nofollow&quot; href=&quot;https://www.windfinder.com/forecast/jeziorsko_popow?utm_source=forecast&amp;utm_medium=web&amp;utm_campaign=homepageweather&amp;utm_content=noscript-forecast&quot;&gt;Wind forecast for Jeziorsko Popów&lt;/a&gt;
+        provided by
+        &lt;a rel=&quot;nofollow&quot; href=&quot;https://www.windfinder.com?utm_source=forecast&amp;utm_medium=web&amp;utm_campaign=homepageweather&amp;utm_content=noscript-logo&quot;&gt;windfinder.com&lt;/a&gt;
+      &lt;/noscript&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;w-full mb-4&quot;&gt;
+      &lt;iframe class=&quot;w-full h-[450px]&quot; src=&quot;https://embed.windy.com/embed.html?type=map&amp;location=coordinates&amp;metricRain=mm&amp;metricTemp=°C&amp;metricWind=kt&amp;zoom=11&amp;overlay=wind&amp;product=ecmwf&amp;level=surface&amp;lat=51.792&amp;lon=18.906&amp;detailLat=51.83&amp;detailLon=18.728&amp;detail=true&quot; frameborder=&quot;0&quot;&gt;&lt;/iframe&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;w-full&quot;&gt;
+      &lt;div id=&quot;wg_fwdg_3644_100_1752307649736&quot;&gt;&lt;/div&gt;
+      &lt;script&gt;
+        (function (window, document) {
+          var loader = function () {
+            var arg = [
+              &quot;s=3644&quot;,
+              &quot;m=100&quot;,
+              &quot;uid=wg_fwdg_3644_100_1752307649736&quot;,
+              &quot;wj=knots&quot;,
+              &quot;tj=c&quot;,
+              &quot;waj=m&quot;,
+              &quot;tij=cm&quot;,
+              &quot;odh=0&quot;,
+              &quot;doh=24&quot;,
+              &quot;fhours=240&quot;,
+              &quot;hrsm=2&quot;,
+              &quot;vt=forecasts&quot;,
+              &quot;lng=en&quot;,
+              &quot;idbs=1&quot;,
+              &quot;p=WINDSPD,GUST,SMER,TMPE,FLHGT,CDC,APCP1s,RATING&quot;,
+            ];
+            var script = document.createElement(&quot;script&quot;);
+            var tag = document.getElementsByTagName(&quot;script&quot;)[0];
+            script.src = &quot;https://www.windguru.cz/js/widget.php?&quot; + arg.join(&quot;&amp;&quot;);
+            tag.parentNode.insertBefore(script, tag);
+          };
+          window.addEventListener ? window.addEventListener(&quot;load&quot;, loader, false) : window.attachEvent(&quot;onload&quot;, loader);
+        })(window, document);
+      &lt;/script&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;w-full text-left text-xs mt-4&quot;&gt;
+    &lt;p&gt;* Aktualna pogoda jest pobierana ze strony &lt;a href=&quot;http://meteor.iung.pulawy.pl/view2.php?u=Warta&quot; target=&quot;_blank&quot; class=&quot;underline&quot;&gt;pulawy.pl&lt;/a&gt;&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;min-h-[2rem] md:min-h-[4rem]&quot;&gt;&lt;/div&gt;
+
+&lt;script&gt;
+  document.addEventListener(&quot;DOMContentLoaded&quot;, function () {
+    const now = new Date();
+    const delayedDate = new Date(now.getTime() - 21600000); // Subtract 6 hours
+
+    const options = {
+      timeZone: &quot;Europe/Warsaw&quot;,
+      year: &quot;numeric&quot;,
+      month: &quot;2-digit&quot;,
+      day: &quot;2-digit&quot;,
+      hour: &quot;2-digit&quot;,
+      hour12: false,
+    };
+    const formatter = new Intl.DateTimeFormat(&quot;en-CA&quot;, options);
+    const parts = formatter.formatToParts(delayedDate);
+
+    const year = parts.find((p) =&gt; p.type === &quot;year&quot;).value;
+    const month = parts.find((p) =&gt; p.type === &quot;month&quot;).value;
+    const day = parts.find((p) =&gt; p.type === &quot;day&quot;).value;
+    const hour = parseInt(parts.find((p) =&gt; p.type === &quot;hour&quot;).value, 10);
+
+    const forecastHourSlot = Math.floor(hour / 6) * 6;
+    const formattedHour = String(forecastHourSlot).padStart(2, &quot;0&quot;);
+
+    const fdate = `${year}${month}${day}${formattedHour}`;
+
+    const forecastUrl = `https://old.meteo.pl/um/metco/mgram_pict.php?ntype=0u&amp;fdate=${fdate}&amp;row=416&amp;col=206&amp;lang=pl`;
+
+    document.getElementById(&quot;meteo-forecast&quot;).src = forecastUrl;
+
+    async function fetchWeather() {
+      try {
+        const response = await fetch(&quot;https://meteor-proxy.lukasz-kujawiak.workers.dev/&quot;);
+        const text = await response.text();
+
+        const windDirMatch = text.match(/windDir:&#92;s*([&#92;d.-]+)/);
+        const windSpeedMatch = text.match(/windSpeed:&#92;s*([&#92;d.-]+)/);
+        const temperatureIntMatch = text.match(/temperatureInt:&#92;s*([&#92;d.-]+)/);
+
+        const windDir = windDirMatch ? parseFloat(windDirMatch[1]) : null;
+        const windSpeedMps = windSpeedMatch ? parseFloat(windSpeedMatch[1]) : null;
+        const temperatureInt = temperatureIntMatch ? parseFloat(temperatureIntMatch[1]).toFixed(2) : &quot;Błąd&quot;;
+
+        function toTextualDescription(degree) {
+          if (degree &gt; 337.5 || degree &lt;= 22.5) return &quot;N&quot;;
+          if (degree &gt; 22.5 &amp;&amp; degree &lt;= 67.5) return &quot;NE&quot;;
+          if (degree &gt; 67.5 &amp;&amp; degree &lt;= 112.5) return &quot;E&quot;;
+          if (degree &gt; 112.5 &amp;&amp; degree &lt;= 157.5) return &quot;SE&quot;;
+          if (degree &gt; 157.5 &amp;&amp; degree &lt;= 202.5) return &quot;S&quot;;
+          if (degree &gt; 202.5 &amp;&amp; degree &lt;= 247.5) return &quot;SW&quot;;
+          if (degree &gt; 247.5 &amp;&amp; degree &lt;= 292.5) return &quot;W&quot;;
+          if (degree &gt; 292.5 &amp;&amp; degree &lt;= 337.5) return &quot;NW&quot;;
+          return &quot;Błąd&quot;;
+        }
+
+        const windSpeedKnots = windSpeedMps !== null ? (windSpeedMps * 1.94384).toFixed(2) : &quot;Błąd&quot;;
+        const windSpeedMpsFormatted = windSpeedMps !== null ? windSpeedMps.toFixed(2) : &quot;Błąd&quot;;
+
+        document.getElementById(&quot;wind-dir&quot;).textContent = windDir !== null ? toTextualDescription(windDir) : &quot;Błąd&quot;;
+        document.getElementById(&quot;wind-speed&quot;).textContent = `${windSpeedMpsFormatted} m/s (${windSpeedKnots} kt)`;
+        document.getElementById(&quot;temperature&quot;).textContent = `${temperatureInt} °C`;
+      } catch (error) {
+        console.error(&quot;Error fetching weather data:&quot;, error);
+        document.getElementById(&quot;wind-dir&quot;).textContent = &quot;Błąd&quot;;
+        document.getElementById(&quot;wind-speed&quot;).textContent = &quot;Błąd&quot;;
+        document.getElementById(&quot;temperature&quot;).textContent = &quot;Błąd&quot;;
+      }
+    }
+
+    fetchWeather();
+  });
+&lt;/script&gt;
+    </div>
+
+    <script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const menuBtn = document.getElementById("menu-btn");
+    const mobileMenu = document.getElementById("mobile-menu");
+
+    if (menuBtn && mobileMenu) {
+      menuBtn.addEventListener("click", function () {
+        mobileMenu.classList.toggle("hidden");
+      });
+    }
+  });
+</script>
+  </body>
+</html>

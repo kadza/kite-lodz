@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="en" class="h-full">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% if title %}{{ title }}{% else %}Kite Spots{% endif %}</title>
+    {% include "header.html" %}
+  </head>
+  <body class="h-full m-0 p-0 flex flex-col items-center text-textColor overflow-hidden">
+    {% include "navigation.html" %}
+
+    <div class="container flex flex-col flex-grow pt-[3rem] md:pt-[6rem] h-full">
+      {{ content }}
+    </div>
+
+    {% include "footer.html" %}
+  </body>
+</html>
