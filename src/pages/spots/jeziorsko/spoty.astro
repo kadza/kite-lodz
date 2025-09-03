@@ -1,0 +1,190 @@
+---
+import { Layout } from '../../../components/Layout';
+import { Head } from '../../../components/Head';
+import type { NavLink } from '../../../components/Nav';
+
+const navLinks: NavLink[] = [
+  { href: '/spots/jeziorsko/', label: 'Jeziorsko' },
+  { href: '/spots/jeziorsko/spoty', label: 'Spoty', isActive: true },
+  { href: '/spots/jeziorsko/pogoda', label: 'Pogoda' }
+];
+
+const subNav: NavLink[] = [
+  { href: '/spots/jeziorsko/spoty', label: 'Spoty' },
+  { href: '/spots/jeziorsko/pogoda', label: 'Pogoda' }
+];
+---
+
+<html lang="en" className="h-full">
+  <head>
+    <Head title="Spoty - Jeziorsko" />
+  </head>
+  <body>
+    <Layout navLinks={navLinks} subNav={subNav}>
+  <div className="flex flex-col">
+    <div className="hidden md:block w-full mb-4 overflow-x-auto">
+      <ul className="flex flex-row divide-x divide-textColor font-montserrat text-xl uppercase">
+        <li id="popow" className="whitespace-nowrap">
+          <a href="/spots/jeziorsko/popow" className="hover:text-hoverColor px-2">Popów</a>
+        </li>
+        <li id="popow-polanka" className="whitespace-nowrap">
+          <a href="/spots/jeziorsko/popow-polanka" className="hover:text-hoverColor px-2">Popów polanka</a>
+        </li>
+        <li id="wylazlow" className="whitespace-nowrap">
+          <a href="/spots/jeziorsko/wylazlow" className="hover:text-hoverColor px-2">Wylazłów</a>
+        </li>
+        <li id="brodnia-tama" className="whitespace-nowrap">
+          <a href="/spots/jeziorsko/brodnia-tama" className="hover:text-hoverColor px-2">Brodnia tama</a>
+        </li>
+        <li id="brodnia-cypel" className="whitespace-nowrap">
+          <a href="/spots/jeziorsko/brodnia-cypel" className="hover:text-hoverColor px-2">Brodnia cypel</a>
+        </li>
+        <li id="ostrow" className="whitespace-nowrap">
+          <a href="/spots/jeziorsko/ostrow" className="hover:text-hoverColor px-2">Ostrów Warcki</a>
+        </li>
+        <li id="zaspy" className="whitespace-nowrap">
+          <a href="/spots/jeziorsko/zaspy" className="hover:text-hoverColor px-2">Zaspy</a>
+        </li>
+        <li id="milkowice" className="whitespace-nowrap">
+          <a href="/spots/jeziorsko/milkowice" className="hover:text-hoverColor px-2">Miłkowice</a>
+        </li>
+        <li id="skarpa" className="whitespace-nowrap">
+          <a href="/spots/jeziorsko/skarpa" className="hover:text-hoverColor px-2">Skarpa</a>
+        </li>
+      </ul>
+    </div>
+    <div className="w-full relative">
+      <div id="map" className="h-[80vh] md:h-[45rem] w-full"></div>
+      <button
+        id="reset-map"
+        className="absolute top-2 right-2 bg-white p-2 rounded-md shadow-md text-textColor hover:bg-gray-100 z-[1000]"
+      >
+        Reset
+      </button>
+    </div>
+  </div>
+</Layout>
+
+<link
+  rel="stylesheet"
+  href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+  integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+  crossOrigin=""
+/>
+<script
+  src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+  integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+  crossOrigin=""
+></script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const menuBtn = document.getElementById("menu-btn");
+    const mobileMenu = document.getElementById("mobile-menu");
+
+    if (menuBtn && mobileMenu) {
+      menuBtn.addEventListener("click", function () {
+        mobileMenu.classList.toggle("hidden");
+      });
+    }
+
+    const initialCenter = [51.82, 18.69];
+    const initialZoom = 12;
+    const map = L.map("map").setView(initialCenter, initialZoom);
+
+    L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+      maxZoom: 19,
+      attribution: "© OpenStreetMap",
+    }).addTo(map);
+
+    const defaultIcon = new L.Icon.Default();
+    const greenIcon = new L.Icon({
+      iconUrl: "/assets/marker-icon-green.webp",
+      shadowUrl: "/assets/marker-shadow.webp",
+      iconSize: [25, 41],
+      iconAnchor: [12, 41],
+      popupAnchor: [1, -34],
+      shadowSize: [41, 41],
+    });
+
+    const spots = {
+      popow: {
+        coords: [51.831492, 18.720963],
+        elem: document.getElementById("popow"),
+      },
+      "popow-polanka": {
+        coords: [51.828077, 18.718547],
+        elem: document.getElementById("popow-polanka"),
+      },
+      wylazlow: {
+        coords: [51.820756, 18.717871],
+        elem: document.getElementById("wylazlow"),
+      },
+      skarpa: {
+        coords: [51.837093, 18.719265],
+        elem: document.getElementById("skarpa"),
+      },
+      "brodnia-tama": {
+        coords: [51.794334, 18.700114],
+        elem: document.getElementById("brodnia-tama"),
+      },
+      "brodnia-cypel": {
+        coords: [51.796756, 18.684622],
+        elem: document.getElementById("brodnia-cypel"),
+      },
+      ostrow: {
+        coords: [51.803366, 18.660262],
+        elem: document.getElementById("ostrow"),
+      },
+      zaspy: {
+        coords: [51.822518, 18.668995],
+        elem: document.getElementById("zaspy"),
+      },
+      milkowice: {
+        coords: [51.831662, 18.673346],
+        elem: document.getElementById("milkowice"),
+      },
+    };
+
+    for (const spotName in spots) {
+      const spot = spots[spotName];
+      spot.marker = L.marker(spot.coords, { icon: defaultIcon })
+        .addTo(map)
+        .bindPopup(spot.elem.textContent);
+
+      spot.marker.on("click", function (e) {
+        map.setView(e.latlng, 18);
+      });
+
+      spot.marker.on("mouseover", function () {
+        this.setIcon(greenIcon);
+        spot.elem.classList.add("text-hoverColor");
+      });
+
+      spot.marker.on("mouseout", function () {
+        this.setIcon(defaultIcon);
+        spot.elem.classList.remove("text-hoverColor");
+      });
+
+      spot.elem.addEventListener("mouseover", function () {
+        spot.marker.setIcon(greenIcon);
+        spot.elem.classList.add("text-hoverColor");
+      });
+
+      spot.elem.addEventListener("mouseout", function () {
+        spot.marker.setIcon(defaultIcon);
+        spot.elem.classList.remove("text-hoverColor");
+      });
+    }
+
+    document
+      .getElementById("reset-map")
+      .addEventListener("click", function () {
+        map.setView(initialCenter, initialZoom);
+        map.closePopup();
+      });
+  });
+</script>
+    </Layout>
+  </body>
+</html>

@@ -1,0 +1,185 @@
+---
+import { Layout } from '../../../components/Layout';
+import { Head } from '../../../components/Head';
+import type { NavLink } from '../../../components/Nav';
+
+const navLinks: NavLink[] = [
+  { href: '/spots/jeziorsko/', label: 'Jeziorsko' },
+  { href: '/spots/jeziorsko/spoty', label: 'Spoty', isActive: true },
+  { href: '/spots/jeziorsko/pogoda', label: 'Pogoda' }
+];
+
+const subNav: NavLink[] = [
+  { href: '/spots/jeziorsko/spoty', label: 'Spoty' },
+  { href: '/spots/jeziorsko/pogoda', label: 'Pogoda' }
+];
+---
+
+<html lang="en" className="h-full">
+  <head>
+    <Head title="Popów - Jeziorsko" />
+  </head>
+  <body>
+    <Layout navLinks={navLinks} subNav={subNav}>
+  <h2 className="text-2xl mb-6 text-center md:block hidden">Popów</h2>
+
+  <div className="flex flex-col md:flex-row gap-8">
+    <!-- Main content column -->
+    <div className="md:w-2/3 order-2 md:order-2">
+      <div className="md:p-6 md:bg-white md:bg-opacity-70 md:rounded-2xl md:shadow-lg h-fit">
+        <p className="text-justify">
+          Popów to najbardzej popularny spot zlokalizowany na zachodnim brzegu zbiornika Jeziorsko.
+          Najlepsze warunki do pływania zapewniają kierunki wiatru z południowego-zachodu, zachodu oraz
+          północnego-zachodu. Jeżeli stan wody jest wysoki, miejsca do startu jest bardzo mało, cała
+          zatoczka może być zalana i start jest możliwy jedynie przy wietrze zachodnim. Przy niższym
+          stanie wody miejsca do startu jest dużo, ale należy zachować szczególną ostrożność ze względu
+          na zatopione fundamenty starych budynków, które znajdują się w pobliżu brzegu.
+        </p>
+
+        <div className="mt-8">
+          <div className="gallery grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <a
+                href="/assets/popow-wiosna.webp"
+                className="block relative h-96 w-full bg-gray-200 rounded-2xl shadow-lg overflow-hidden"
+              >
+                <img
+                  src="/assets/popow-wiosna.webp"
+                  alt="Spot Popów wiosną"
+                  className="absolute top-0 left-0 w-full h-full object-cover"
+                  loading="lazy"
+                  onload="this.style.opacity=1"
+                  style="opacity: 0"
+                />
+              </a>
+            </div>
+            <div>
+              <a
+                href="/assets/popow-zima.webp"
+                className="block relative h-96 w-full bg-gray-200 rounded-2xl shadow-lg overflow-hidden"
+              >
+                <img
+                  src="/assets/popow-zima.webp"
+                  alt="Spot Popów zimą"
+                  className="absolute top-0 left-0 w-full h-full object-cover"
+                  loading="lazy"
+                  onload="this.style.opacity=1"
+                  style="opacity: 0"
+                />
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sidebar / Info card -->
+    <div className="md:w-1/3 md:p-6 md:bg-white md:bg-opacity-70 md:rounded-2xl md:shadow-lg h-fit order-1 md:order-1">
+      <div className="flex justify-around items-center mb-6">
+        <div>
+          <p className="font-bold text-center">Kierunki wiatru:</p>
+          <p className="text-center">SW, W, NW</p>
+        </div>
+        <a
+          href="https://www.google.com/maps/dir/?api=1&destination=51.831271992818834, 18.721478922761708"
+          target="_blank"
+          className="inline-block font-montserrat uppercase font-semibold bg-transparent border-2 border-textColor text-textColor py-2 px-4 rounded hover:bg-textColor hover:text-white transition-colors"
+        >
+          Dojazd
+        </a>
+      </div>
+
+      <div className="space-y-6 lightbox-item">
+        <a
+          href="/assets/popow-zima-mapa.webp"
+          className="block relative bg-gray-200 rounded-2xl shadow-lg overflow-hidden"
+        >
+          <!-- This div creates the 4:3 aspect ratio -->
+          <div style="padding-bottom: 75%"></div>
+          <img
+            src="/assets/popow-zima-mapa.webp"
+            alt="Mapa spotu Popów zimą"
+            className="absolute top-0 left-0 w-full h-full object-cover"
+            loading="lazy"
+            onload="this.style.opacity=1"
+            style="opacity: 0"
+          />
+        </a>
+        <div className="text-xs text-center mt-2">
+          <p className="flex justify-center items-center space-x-4">
+            <span><span className="text-[#6d9fea]">■</span> Parking</span>
+            <span><span className="text-[#39771d]">■</span> Strefa startu</span>
+            <span><span className="text-[#e06767]">■</span> Strefa niebezpieczna</span>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</Layout>
+
+<!-- Fullscreen Image Modal -->
+<div
+  id="fullscreen-modal"
+  className="fixed inset-0 bg-black flex items-center justify-center z-[1200] hidden"
+>
+  <button
+    id="close-fullscreen-modal"
+    className="absolute top-4 right-4 text-white text-4xl font-bold focus:outline-none"
+  >
+    &times;
+  </button>
+  <img
+    id="fullscreen-image"
+    src=""
+    alt="Fullscreen Image"
+    className="max-w-[90%] max-h-[90%] object-contain"
+  />
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    // Mobile menu script
+    const menuBtn = document.getElementById("menu-btn");
+    const mobileMenu = document.getElementById("mobile-menu");
+
+    if (menuBtn && mobileMenu) {
+      menuBtn.addEventListener("click", function () {
+        mobileMenu.classList.toggle("hidden");
+      });
+    }
+
+    // Fullscreen modal script
+    const fullscreenModal = document.getElementById("fullscreen-modal");
+    const fullscreenImage = document.getElementById("fullscreen-image");
+    const closeFullscreenModalBtn = document.getElementById("close-fullscreen-modal");
+
+    // Get all links that should be clickable for fullscreen
+    const links = document.querySelectorAll(".gallery a, .lightbox-item a");
+
+    links.forEach((link) => {
+      link.style.cursor = "pointer"; // Add a pointer cursor to indicate clickability
+      link.addEventListener("click", function (event) {
+        event.preventDefault(); // Prevent default link behavior
+        fullscreenImage.src = this.href;
+        fullscreenModal.classList.remove("hidden");
+        document.body.style.overflow = "hidden"; // Prevent scrolling when modal is open
+      });
+    });
+
+    if (closeFullscreenModalBtn) {
+      closeFullscreenModalBtn.addEventListener("click", function () {
+        fullscreenModal.classList.add("hidden");
+        document.body.style.overflow = ""; // Restore scrolling
+      });
+    }
+
+    if (fullscreenModal) {
+      fullscreenModal.addEventListener("click", function (event) {
+        if (event.target === fullscreenModal) {
+          fullscreenModal.classList.add("hidden");
+          document.body.style.overflow = ""; // Restore scrolling
+        }
+      });
+    }
+  });
+</script>

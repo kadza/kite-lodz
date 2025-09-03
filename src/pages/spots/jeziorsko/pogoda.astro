@@ -1,0 +1,216 @@
+---
+import { Layout } from '../../../components/Layout';
+import { Head } from '../../../components/Head';
+import type { NavLink } from '../../../components/Nav';
+
+const navLinks: NavLink[] = [
+  { href: '/spots/jeziorsko/', label: 'Jeziorsko' },
+  { href: '/spots/jeziorsko/spoty', label: 'Spoty' },
+  { href: '/spots/jeziorsko/pogoda', label: 'Pogoda', isActive: true }
+];
+
+const subNav: NavLink[] = [
+  { href: '/spots/jeziorsko/spoty', label: 'Spoty' },
+  { href: '/spots/jeziorsko/pogoda', label: 'Pogoda' }
+];
+---
+
+<html lang="en" className="h-full">
+  <head>
+    <Head title="Pogoda - Jeziorsko" />
+  </head>
+  <body>
+    <Layout navLinks={navLinks} subNav={subNav}>
+  <div className="w-full flex flex-col items-start">
+    <div className="w-full mb-4">
+      <h3 className="text-xl mb-2">Aktualna pogoda*</h3>
+      <div id="current-weather" className="flex flex-col">
+        <div className="flex space-x-2">
+          <p>Kierunek wiatru:</p>
+          <p id="wind-dir">-</p>
+        </div>
+        <div className="flex space-x-2">
+          <p>Prędkość wiatru:</p>
+          <p id="wind-speed">-</p>
+        </div>
+        <div className="flex space-x-2">
+          <p>Temperatura:</p>
+          <p id="temperature">-</p>
+        </div>
+      </div>
+    </div>
+    <h3 className="text-xl mb-2">Prognozy</h3>
+    <img id="meteo-forecast" src="" className="border-0 mb-4" />
+    <div className="w-full mb-4">
+      <script src="https://www.windfinder.com/widget/forecast/js/jeziorsko_popow?unit_wave=m&unit_rain=mm&unit_temperature=c&unit_wind=kts&unit_pressure=hPa&days=4&show_day=1&show_waves=0"></script>
+      <noscript>
+        <a
+          rel="nofollow"
+          href="https://www.windfinder.com/forecast/jeziorsko_popow?utm_source=forecast&utm_medium=web&utm_campaign=homepageweather&utm_content=noscript-forecast"
+        >
+          Wind forecast for Jeziorsko Popów
+        </a>
+        provided by
+        <a
+          rel="nofollow"
+          href="https://www.windfinder.com?utm_source=forecast&utm_medium=web&utm_campaign=homepageweather&utm_content=noscript-logo"
+        >
+          windfinder.com
+        </a>
+      </noscript>
+    </div>
+    <div className="w-full mb-4">
+      <iframe
+        className="w-full h-[450px]"
+        src="https://embed.windy.com/embed.html?type=map&location=coordinates&metricRain=mm&metricTemp=°C&metricWind=kt&zoom=11&overlay=wind&product=ecmwf&level=surface&lat=51.792&lon=18.906&detailLat=51.83&detailLon=18.728&detail=true"
+        frameBorder="0"
+      ></iframe>
+    </div>
+    <div className="w-full">
+      <div id="wg_fwdg_3644_100_1752307649736"></div>
+      <script>
+        (function (window, document) {
+          var loader = function () {
+            var arg = [
+              "s=3644",
+              "m=100",
+              "uid=wg_fwdg_3644_100_1752307649736",
+              "wj=knots",
+              "tj=c",
+              "waj=m",
+              "tij=cm",
+              "odh=0",
+              "doh=24",
+              "fhours=240",
+              "hrsm=2",
+              "vt=forecasts",
+              "lng=en",
+              "idbs=1",
+              "p=WINDSPD,GUST,SMER,TMPE,FLHGT,CDC,APCP1s,RATING",
+            ];
+            var script = document.createElement("script");
+            var tag = document.getElementsByTagName("script")[0];
+            script.src =
+              "https://www.windguru.cz/js/widget.php?" + arg.join("&");
+            tag.parentNode.insertBefore(script, tag);
+          };
+          window.addEventListener
+            ? window.addEventListener("load", loader, false)
+            : window.attachEvent("onload", loader);
+        })(window, document);
+      </script>
+    </div>
+  </div>
+  <div className="w-full text-left text-xs mt-4">
+    <p>
+      * Aktualna pogoda jest pobierana ze strony
+      <a
+        href="http://meteor.iung.pulawy.pl/view2.php?u=Warta"
+        target="_blank"
+        className="underline"
+      >
+        pulawy.pl
+      </a>
+    </p>
+  </div>
+</Layout>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const menuBtn = document.getElementById("menu-btn");
+    const mobileMenu = document.getElementById("mobile-menu");
+
+    if (menuBtn && mobileMenu) {
+      menuBtn.addEventListener("click", function () {
+        mobileMenu.classList.toggle("hidden");
+      });
+    }
+
+    const now = new Date();
+    const delayedDate = new Date(now.getTime() - 21600000); // Subtract 6 hours
+
+    const options = {
+      timeZone: "Europe/Warsaw",
+      year: "numeric",
+      month: "2-digit",
+      day: "2-digit",
+      hour: "2-digit",
+      hour12: false,
+    };
+    const formatter = new Intl.DateTimeFormat("en-CA", options);
+    const parts = formatter.formatToParts(delayedDate);
+
+    const year = parts.find((p) => p.type === "year").value;
+    const month = parts.find((p) => p.type === "month").value;
+    const day = parts.find((p) => p.type === "day").value;
+    const hour = parseInt(parts.find((p) => p.type === "hour").value, 10);
+
+    const forecastHourSlot = Math.floor(hour / 6) * 6;
+    const formattedHour = String(forecastHourSlot).padStart(2, "0");
+
+    const fdate = `${year}${month}${day}${formattedHour}`;
+
+    const forecastUrl = `https://old.meteo.pl/um/metco/mgram_pict.php?ntype=0u&fdate=${fdate}&row=416&col=206&lang=pl`;
+
+    document.getElementById("meteo-forecast").src = forecastUrl;
+
+    async function fetchWeather() {
+      try {
+        const response = await fetch(
+          "https://meteor-proxy.lukasz-kujawiak.workers.dev/",
+        );
+        const text = await response.text();
+
+        const windDirMatch = text.match(/windDir:\s*([\d.-]+)/);
+        const windSpeedMatch = text.match(/windSpeed:\s*([\d.-]+)/);
+        const temperatureIntMatch = text.match(
+          /temperatureInt:\s*([\d.-]+)/,
+        );
+
+        const windDir = windDirMatch ? parseFloat(windDirMatch[1]) : null;
+        const windSpeedMps = windSpeedMatch
+          ? parseFloat(windSpeedMatch[1])
+          : null;
+        const temperatureInt = temperatureIntMatch
+          ? parseFloat(temperatureIntMatch[1]).toFixed(2)
+          : "Błąd";
+
+        function toTextualDescription(degree) {
+          if (degree > 337.5 || degree <= 22.5) return "N";
+          if (degree > 22.5 && degree <= 67.5) return "NE";
+          if (degree > 67.5 && degree <= 112.5) return "E";
+          if (degree > 112.5 && degree <= 157.5) return "SE";
+          if (degree > 157.5 && degree <= 202.5) return "S";
+          if (degree > 202.5 && degree <= 247.5) return "SW";
+          if (degree > 247.5 && degree <= 292.5) return "W";
+          if (degree > 292.5 && degree <= 337.5) return "NW";
+          return "Błąd";
+        }
+
+        const windSpeedKnots =
+          windSpeedMps !== null
+            ? (windSpeedMps * 1.94384).toFixed(2)
+            : "Błąd";
+        const windSpeedMpsFormatted =
+          windSpeedMps !== null ? windSpeedMps.toFixed(2) : "Błąd";
+
+        document.getElementById("wind-dir").textContent =
+          windDir !== null ? toTextualDescription(windDir) : "Błąd";
+        document.getElementById("wind-speed").textContent =
+          `${windSpeedMpsFormatted} m/s (${windSpeedKnots} kt)`;
+        document.getElementById("temperature").textContent =
+          `${temperatureInt} °C`;
+      } catch (error) {
+        console.error("Error fetching weather data:", error);
+        document.getElementById("wind-dir").textContent = "Błąd";
+        document.getElementById("wind-speed").textContent = "Błąd";
+        document.getElementById("temperature").textContent = "Błąd";
+      }
+    }
+
+    fetchWeather();
+  });
+</script>
+    </Layout>
+  </body>
+</html>

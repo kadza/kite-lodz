@@ -1,0 +1,40 @@
+---
+import { Layout } from '../components/Layout';
+import { Head } from '../components/Head';
+import type { NavLink } from '../components/Nav';
+
+const navLinks: NavLink[] = [
+  { href: '/spots/jeziorsko/', label: 'Jeziorsko' }
+];
+---
+
+<html lang="en" className="h-full">
+  <head>
+    <Head title="Kite Spots" />
+  </head>
+  <body>
+    <Layout navLinks={navLinks}>
+      <div className="w-full h-full flex justify-center items-center">
+        <img
+          src="/assets/surfer.webp"
+          alt="kitesurfer"
+          className="w-full h-full object-cover"
+          loading="lazy"
+        />
+      </div>
+    </Layout>
+  </body>
+</html>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const menuBtn = document.getElementById("menu-btn");
+    const mobileMenu = document.getElementById("mobile-menu");
+
+    if (menuBtn && mobileMenu) {
+      menuBtn.addEventListener("click", function () {
+        mobileMenu.classList.toggle("hidden");
+      });
+    }
+  });
+</script>
