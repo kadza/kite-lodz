@@ -1,6 +1,7 @@
 {
   "name": "jeziorsko",
   "version": "1.0.0",
+  "type": "module",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -8,6 +9,8 @@
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
+    "lint:fix": "eslint . --ext .js,.jsx,.ts,.tsx --fix",
     "optimize": "node scripts/optimize-images.js",
     "build-tsx": "echo 'TSX function components are integrated with Astro'"
   },
@@ -19,6 +22,12 @@
     "@parcel/transformer-typescript-tsc": "^2.15.4",
     "@types/react": "^19.1.12",
     "@types/react-dom": "^19.1.9",
+    "@typescript-eslint/eslint-plugin": "^8.42.0",
+    "@typescript-eslint/parser": "^8.42.0",
+    "eslint": "^9.34.0",
+    "eslint-plugin-react": "^7.37.5",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "eslint-plugin-react-refresh": "^0.4.20",
     "live-server": "^1.2.2",
     "parcel": "^2.15.4",
     "react": "^19.1.1",
