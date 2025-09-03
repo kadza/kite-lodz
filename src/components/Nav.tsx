@@ -10,9 +10,10 @@ interface NavProps {
   links: NavLink[];
   homeLink?: string;
   subNav?: NavLink[];
+  isHomePage?: boolean;
 }
 
-export const Nav: FunctionComponent<NavProps> = ({ links, homeLink = "/", subNav }) => {
+export const Nav: FunctionComponent<NavProps> = ({ links, homeLink = "/", subNav, isHomePage = false }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   return (
@@ -21,7 +22,7 @@ export const Nav: FunctionComponent<NavProps> = ({ links, homeLink = "/", subNav
         <span className="hidden md:flex">
           <a
             href={homeLink}
-            className="font-montserrat text-[2rem] hover:text-hoverColor underline decoration-2 underline-offset-8"
+            className={`font-montserrat text-[2rem] hover:text-hoverColor ${isHomePage ? 'underline decoration-2 underline-offset-8' : ''}`}
           >
             Kite Łódź
           </a>
@@ -89,7 +90,7 @@ export const Nav: FunctionComponent<NavProps> = ({ links, homeLink = "/", subNav
         id="mobile-menu"
         className="hidden fixed top-0 left-0 w-full h-full bg-white bg-opacity-90 z-20 flex flex-col items-center justify-center font-montserrat text-[2rem] space-y-8"
       >
-        <a href={homeLink} className="hover:text-hoverColor underline decoration-2 underline-offset-8">
+        <a href={homeLink} className={`hover:text-hoverColor ${isHomePage ? 'underline decoration-2 underline-offset-8' : ''}`}>
           Kite Łódź
         </a>
         {links.map((link) => (
