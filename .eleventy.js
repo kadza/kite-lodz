@@ -1,6 +1,6 @@
 module.exports = function(eleventyConfig) {
   // Copy assets without processing
-  eleventyConfig.addPassthroughCopy("src/assets");
+  eleventyConfig.addPassthroughCopy("assets");
   eleventyConfig.addPassthroughCopy("src/scripts");
 
   // Copy root-level files that aren't processed by Eleventy
@@ -9,7 +9,7 @@ module.exports = function(eleventyConfig) {
 
   // Watch for changes (with fallback for fsevents issues)
   try {
-    eleventyConfig.addWatchTarget("src/assets");
+    eleventyConfig.addWatchTarget("assets");
     eleventyConfig.addWatchTarget("src/_includes");
     eleventyConfig.addWatchTarget("src/_layouts");
   } catch (err) {
