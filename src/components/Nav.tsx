@@ -22,7 +22,7 @@ export const Nav: FunctionComponent<NavProps> = ({
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   return (
-    <nav className="h-[3rem] md:h-[5rem] flex items-center flex-col fixed top-0 left-0 right-0">
+    <nav className="h-[3rem] md:h-[5rem] mb-4 flex items-center flex-col relative m-b-10">
       <div className="container mx-auto flex uppercase gap-8 items-center px-4">
         <span className="hidden md:flex">
           <a
@@ -80,7 +80,7 @@ export const Nav: FunctionComponent<NavProps> = ({
       {subNav && (
         <>
           {/* Mobile: Fixed positioning */}
-          <div className="container h-[2rem] flex items-center top-[3rem] left-0 right-0">
+          <div className="container h-[2rem] flex items-center">
             <div className="container mx-auto flex uppercase px-4 space-x-4">
               {subNav.map((link, index) => (
                 <div key={link.href} className="flex items-center space-x-4">
@@ -100,7 +100,7 @@ export const Nav: FunctionComponent<NavProps> = ({
       {/* Mobile Menu */}
       <div
         id="mobile-menu"
-        className="hidden fixed top-0 left-0 w-full h-full bg-white bg-opacity-90 z-20 flex flex-col items-center justify-center font-montserrat text-[2rem] space-y-8"
+        className="hidden absolute top-0 left-0 w-full h-full bg-white bg-opacity-90 z-20 flex flex-col items-center justify-center font-montserrat text-[2rem] space-y-8"
       >
         <a
           href={homeLink}
