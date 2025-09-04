@@ -18,7 +18,7 @@ export const Layout: FunctionComponent<LayoutProps> = ({
   isHomePage,
   children,
 }) => (
-  <div className="h-full m-0 p-0 flex flex-col items-center text-textColor">
+  <>
     <Nav
       links={navLinks}
       homeLink={homeLink}
@@ -26,12 +26,10 @@ export const Layout: FunctionComponent<LayoutProps> = ({
       isHomePage={isHomePage}
     />
 
-    <div className={`container flex flex-col flex-grow h-full overflow-y-auto ${subNav && subNav.length > 1 ? 'pt-[6rem]' : 'pt-[3rem]'}`}>
-      <div className="flex-grow p-4 md:p-8 bg-white bg-opacity-50 md:rounded-lg">
-        {children}
-      </div>
-      <div className="min-h-[2rem] md:min-h-[4rem]"></div>
+    <div
+      className={`container mx-auto flex-grow p-4 md:p-8 bg-white bg-opacity-50 md:rounded-lg ${subNav && subNav.length > 1 ? "mt-[6rem]" : "mt-[4rem]"}`}
+    >
+      {children}
     </div>
-  </div>
+  </>
 );
-
