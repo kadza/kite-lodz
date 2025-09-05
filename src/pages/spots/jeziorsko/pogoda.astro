@@ -20,24 +20,24 @@ const subNav: NavLink[] = [
   <body className="h-full">
     <Layout navLinks={navLinks} subNav={subNav}>
   <div className="w-full flex flex-col items-start">
-    <div className="w-full mb-4">
-      <h3 className="text-xl mb-2">Aktualna pogoda*</h3>
-      <div id="current-weather" className="flex flex-col">
-        <div className="flex space-x-2">
-          <p>Kierunek wiatru:</p>
-          <p id="wind-dir">-</p>
-        </div>
-        <div className="flex space-x-2">
-          <p>Prędkość wiatru:</p>
-          <p id="wind-speed">-</p>
-        </div>
-        <div className="flex space-x-2">
-          <p>Temperatura:</p>
-          <p id="temperature">-</p>
-        </div>
-      </div>
-    </div>
-    <h3 className="text-xl mb-2">Prognozy</h3>
+     <div className="w-full mb-4">
+       <h3 className="text-xl mb-2">Aktualna pogoda*</h3>
+       <div id="current-weather" className="flex flex-col">
+         <div className="flex space-x-2">
+           <p>Kierunek wiatru:</p>
+           <p id="wind-dir">-</p>
+         </div>
+         <div className="flex space-x-2">
+           <p>Prędkość wiatru:</p>
+           <p id="wind-speed">-</p>
+         </div>
+         <div className="flex space-x-2">
+           <p>Temperatura:</p>
+           <p id="temperature">-</p>
+         </div>
+       </div>
+     </div>
+     <h3 className="text-xl mb-2">Prognozy</h3>
     <img id="meteo-forecast" src="" className="border-0 mb-4" />
     <div className="w-full mb-4">
       <script src="https://www.windfinder.com/widget/forecast/js/jeziorsko_popow?unit_wave=m&unit_rain=mm&unit_temperature=c&unit_wind=kts&unit_pressure=hPa&days=4&show_day=1&show_waves=0"></script>
@@ -99,8 +99,8 @@ const subNav: NavLink[] = [
       </script>
     </div>
   </div>
-  <div className="w-full text-left text-xs mt-4">
-    <p>
+   <div className="w-full text-left text-xs mt-4">
+     <p>
       * Aktualna pogoda jest pobierana ze strony
       <a
         href="http://meteor.iung.pulawy.pl/view2.php?u=Warta"

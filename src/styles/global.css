@@ -28,3 +28,9 @@ body::before {
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
 }
+
+/* Global text color */
+h1, h2, h3, h4, h5, h6,
+p, li, span, div, a {
+  @apply text-textColor;
+}
