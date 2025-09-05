@@ -13,33 +13,33 @@ const subNav: NavLink[] = [
 ];
 ---
 
-<html lang="en" className="h-full">
+<html lang="en" class="h-full">
   <head>
     <Head title="Pogoda - Jeziorsko" />
   </head>
-  <body className="h-full">
+  <body class="h-full">
     <Layout navLinks={navLinks} subNav={subNav}>
-  <div className="w-full flex flex-col items-start">
-     <div className="w-full mb-4">
-       <h3 className="text-xl mb-2">Aktualna pogoda*</h3>
-       <div id="current-weather" className="flex flex-col">
-         <div className="flex space-x-2">
+  <div class="w-full flex flex-col items-start">
+     <div class="w-full mb-4">
+       <h3 class="text-xl mb-2">Aktualna pogoda*</h3>
+       <div id="current-weather" class="flex flex-col">
+         <div class="flex space-x-2">
            <p>Kierunek wiatru:</p>
            <p id="wind-dir">-</p>
          </div>
-         <div className="flex space-x-2">
+         <div class="flex space-x-2">
            <p>Prędkość wiatru:</p>
            <p id="wind-speed">-</p>
          </div>
-         <div className="flex space-x-2">
+         <div class="flex space-x-2">
            <p>Temperatura:</p>
            <p id="temperature">-</p>
          </div>
        </div>
      </div>
-     <h3 className="text-xl mb-2">Prognozy</h3>
-    <img id="meteo-forecast" src="" className="border-0 mb-4" />
-    <div className="w-full mb-4">
+     <h3 class="text-xl mb-2">Prognozy</h3>
+    <img id="meteo-forecast" src="" class="border-0 mb-4" />
+    <div class="w-full mb-4">
       <script src="https://www.windfinder.com/widget/forecast/js/jeziorsko_popow?unit_wave=m&unit_rain=mm&unit_temperature=c&unit_wind=kts&unit_pressure=hPa&days=4&show_day=1&show_waves=0"></script>
       <noscript>
         <a
@@ -57,14 +57,14 @@ const subNav: NavLink[] = [
         </a>
       </noscript>
     </div>
-    <div className="w-full mb-4">
+    <div class="w-full mb-4">
       <iframe
-        className="w-full h-[450px]"
+        class="w-full h-[450px]"
         src="https://embed.windy.com/embed.html?type=map&location=coordinates&metricRain=mm&metricTemp=°C&metricWind=kt&zoom=11&overlay=wind&product=ecmwf&level=surface&lat=51.792&lon=18.906&detailLat=51.83&detailLon=18.728&detail=true"
         frameBorder="0"
       ></iframe>
     </div>
-    <div className="w-full">
+    <div class="w-full">
       <div id="wg_fwdg_3644_100_1752307649736"></div>
       <script>
         (function (window, document) {
@@ -99,13 +99,13 @@ const subNav: NavLink[] = [
       </script>
     </div>
   </div>
-   <div className="w-full text-left text-xs mt-4">
+   <div class="w-full text-left text-xs mt-4">
      <p>
       * Aktualna pogoda jest pobierana ze strony
       <a
         href="http://meteor.iung.pulawy.pl/view2.php?u=Warta"
         target="_blank"
-        className="underline"
+        class="underline"
       >
         pulawy.pl
       </a>
