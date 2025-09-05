@@ -22,14 +22,14 @@ export const Nav: FunctionComponent<NavProps> = ({
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   return (
-    <nav className="h-[3rem] md:h-[5rem] mb-4 flex items-center flex-col relative m-b-10">
+    <nav className="h-[3rem] md:h-[4rem] mb-4 mt-5 flex items-center flex-col relative">
       <div className="container mx-auto flex uppercase gap-8 items-center px-4">
         <span className="hidden md:flex">
           <a
             href={homeLink}
-            className={`font-montserrat text-[2rem] hover:text-hoverColor ${isHomePage ? "underline decoration-2 underline-offset-8" : ""}`}
+            className={`font-montserrat text-[2rem] hover:text-hoverColor text-textColor ${isHomePage ? "underline decoration-2 underline-offset-8" : ""}`}
           >
-            Kite Łódź
+            Kite Łódź{" "}
           </a>
         </span>
         <span className="font-montserrat text-[2rem] md:hidden">Kite Łódź</span>
@@ -41,7 +41,7 @@ export const Nav: FunctionComponent<NavProps> = ({
               <a
                 key={link.href}
                 href={link.href}
-                className={`hover:text-hoverColor ${link.isActive ? "underline decoration-2 underline-offset-8" : ""}`}
+                className={`hover:text-hoverColor text-textColor ${link.isActive ? "underline decoration-2 underline-offset-8" : ""}`}
               >
                 {link.label}
               </a>
@@ -84,7 +84,10 @@ export const Nav: FunctionComponent<NavProps> = ({
             <div className="container mx-auto flex uppercase px-4 space-x-4">
               {subNav.map((link, index) => (
                 <div key={link.href} className="flex items-center space-x-4">
-                  <a href={link.href} className="hover:text-hoverColor p-1">
+                  <a
+                    href={link.href}
+                    className={`hover:text-hoverColor text-textColor ${link.isActive ? "underline underline-offset-4 decoration-2" : ""}`}
+                  >
                     {link.label}
                   </a>
                   {index < subNav.length - 1 && (
