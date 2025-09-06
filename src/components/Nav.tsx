@@ -13,7 +13,7 @@ interface NavProps {
 
 export const Nav: FunctionComponent<NavProps> = ({ links, subNav }) => {
   return (
-    <nav className="h-[4rem] mb-4 mt-2 md:mt-5 flex items-center flex-col relative">
+    <nav className="min-h-[4rem] mb-4 mt-2 md:mt-5 flex flex-col relative">
       <div className="container mx-auto flex uppercase items-center px-4">
         <div className="hidden md:flex space-x-8 font-montserrat text-[2rem]">
           {links.map((link, index) => (
@@ -75,8 +75,8 @@ export const Nav: FunctionComponent<NavProps> = ({ links, subNav }) => {
       {subNav && (
         <>
           {/* Mobile: Fixed positioning */}
-          <div className="container h-[2rem] flex items-center">
-            <div className="container mx-auto flex uppercase px-4">
+          <div className="container flex">
+            <div className="container mx-auto flex flex-wrap md:flex-nowrap uppercase px-4 gap-3 md:gap-0">
               {subNav.map((link, index) => (
                 <>
                   <a
@@ -87,7 +87,7 @@ export const Nav: FunctionComponent<NavProps> = ({ links, subNav }) => {
                     {link.label}
                   </a>
                   {index < subNav.length - 1 && (
-                    <span className="border-l border-textColor h-4 mx-2 self-center"></span>
+                    <span className="border-l border-textColor h-4 mx-2 self-center hidden md:block"></span>
                   )}
                 </>
               ))}
