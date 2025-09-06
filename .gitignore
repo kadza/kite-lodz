@@ -1,4 +1,18 @@
-node_modules
+# Dependencies
+node_modules/
+
+# Build outputs
+dist/
+.astro/
+
+# Environment variables
 .env
-dist
+.env.local
+.env.production
+
+# Cache
 .eslintcache
+
+# OS files
+.DS_Store
+Thumbs.db
