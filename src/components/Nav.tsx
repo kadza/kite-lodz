@@ -97,8 +97,14 @@ export const Nav: FunctionComponent<NavProps> = ({ links, subNav }) => {
       {/* Mobile Menu */}
       <div
         id="mobile-menu"
-        className="hidden absolute top-0 left-0 w-full h-full bg-white bg-opacity-90 z-20 flex flex-col items-center justify-center font-montserrat text-[2rem] space-y-8"
+        className="hidden fixed inset-0 w-screen h-screen bg-white z-50 flex flex-col items-center justify-center font-montserrat text-[2rem] space-y-12"
       >
+        <button
+          id="close-mobile-menu"
+          className="absolute top-6 right-6 text-textColor hover:text-hoverColor text-4xl font-bold focus:outline-none"
+        >
+          ×
+        </button>
         {links.map((link) => (
           <a
             key={link.href}
