@@ -1,4 +1,4 @@
-import { useState, type FunctionComponent } from "react";
+import { type FunctionComponent } from "react";
 
 export interface NavLink {
   href: string;
@@ -8,34 +8,14 @@ export interface NavLink {
 
 interface NavProps {
   links: NavLink[];
-  homeLink?: string;
   subNav?: NavLink[];
-  isHomePage?: boolean;
 }
 
-export const Nav: FunctionComponent<NavProps> = ({
-  links,
-  homeLink = "/",
-  subNav,
-  isHomePage = false,
-}) => {
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
+export const Nav: FunctionComponent<NavProps> = ({ links, subNav }) => {
   return (
     <nav className="h-[3rem] md:h-[4rem] mb-4 mt-5 flex items-center flex-col relative">
-      <div className="container mx-auto flex uppercase gap-8 items-center px-4">
-        <span className="hidden md:flex">
-          <a
-            href={homeLink}
-            className={`font-montserrat text-[2rem] hover:text-hoverColor text-textColor ${isHomePage ? "underline decoration-2 underline-offset-8" : ""}`}
-          >
-            Kite Łódź{" "}
-          </a>
-        </span>
-        <span className="font-montserrat text-[2rem] md:hidden">Kite Łódź</span>
-        <span className="border-l border-textColor h-4"></span>
-
-        <div className="hidden md:flex space-x-16 font-montserrat text-[2rem]">
+      <div className="container mx-auto flex uppercase items-center px-4">
+        <div className="hidden md:flex space-x-8 font-montserrat text-[2rem]">
           {links.map((link, index) => (
             <>
               <a
@@ -46,18 +26,14 @@ export const Nav: FunctionComponent<NavProps> = ({
                 {link.label}
               </a>
               {index < links.length - 1 && (
-                <span className="border-l border-textColor h-4"></span>
+                <span className="border-l border-textColor h-8 self-center"></span>
               )}
             </>
           ))}
         </div>
 
         <div className="md:hidden">
-          <button
-            id="menu-btn"
-            className="text-textColor focus:outline-none"
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          >
+          <button id="menu-btn" className="text-textColor focus:outline-none">
             <svg
               className="w-8 h-8"
               fill="none"
@@ -81,19 +57,20 @@ export const Nav: FunctionComponent<NavProps> = ({
         <>
           {/* Mobile: Fixed positioning */}
           <div className="container h-[2rem] flex items-center">
-            <div className="container mx-auto flex uppercase px-4 space-x-4">
+            <div className="container mx-auto flex uppercase px-4">
               {subNav.map((link, index) => (
-                <div key={link.href} className="flex items-center space-x-4">
+                <>
                   <a
+                    key={link.href}
                     href={link.href}
                     className={`hover:text-hoverColor text-textColor ${link.isActive ? "underline underline-offset-4 decoration-2" : ""}`}
                   >
                     {link.label}
                   </a>
                   {index < subNav.length - 1 && (
-                    <span className="border-l border-textColor h-2"></span>
+                    <span className="border-l border-textColor h-4 mx-2 self-center"></span>
                   )}
-                </div>
+                </>
               ))}
             </div>
           </div>
@@ -105,12 +82,6 @@ export const Nav: FunctionComponent<NavProps> = ({
         id="mobile-menu"
         className="hidden absolute top-0 left-0 w-full h-full bg-white bg-opacity-90 z-20 flex flex-col items-center justify-center font-montserrat text-[2rem] space-y-8"
       >
-        <a
-          href={homeLink}
-          className={`hover:text-hoverColor ${isHomePage ? "underline decoration-2 underline-offset-8" : ""}`}
-        >
-          Kite Łódź
-        </a>
         {links.map((link) => (
           <a
             key={link.href}
