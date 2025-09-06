@@ -13,7 +13,7 @@ interface NavProps {
 
 export const Nav: FunctionComponent<NavProps> = ({ links, subNav }) => {
   return (
-    <nav className="h-[3rem] md:h-[4rem] mb-4 mt-5 flex items-center flex-col relative">
+    <nav className="h-[4rem] mb-4 mt-2 md:mt-5 flex items-center flex-col relative">
       <div className="container mx-auto flex uppercase items-center px-4">
         <div className="hidden md:flex space-x-8 font-montserrat text-[2rem]">
           {links.map((link, index) => (
@@ -32,7 +32,26 @@ export const Nav: FunctionComponent<NavProps> = ({ links, subNav }) => {
           ))}
         </div>
 
-        <div className="md:hidden">
+        <div className="md:hidden flex items-center justify-between w-full">
+          {(() => {
+            const activeMainLink = links.find((link) => link.isActive);
+            const activeSubLink = subNav?.find((link) => link.isActive);
+            let displayLink = activeMainLink;
+
+            if (!displayLink && activeSubLink) {
+              // Find parent link based on URL path
+              displayLink = links.find(
+                (link) =>
+                  activeSubLink.href.startsWith(link.href) && link.href !== "/",
+              );
+            }
+
+            return displayLink ? (
+              <span className="font-montserrat text-[2rem] text-textColor">
+                {displayLink.label}
+              </span>
+            ) : null;
+          })()}
           <button id="menu-btn" className="text-textColor focus:outline-none">
             <svg
               className="w-8 h-8"
