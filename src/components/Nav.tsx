@@ -13,7 +13,7 @@ interface NavProps {
 
 export const Nav: FunctionComponent<NavProps> = ({ links, subNav }) => {
   return (
-    <nav className="min-h-[4rem] mb-4 mt-2 md:mt-5 flex flex-col relative">
+    <nav className="min-h-[4rem] mb-2 mt-2 md:mt-5 flex flex-col relative">
       <div className="container mx-auto flex uppercase items-center px-4">
         <div className="hidden md:flex space-x-8 font-montserrat text-[2rem]">
           {links.map((link, index) => (
