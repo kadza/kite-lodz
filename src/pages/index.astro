@@ -1,0 +1,57 @@
+---
+import { Layout } from '../components/Layout';
+import { Head } from '../components/Head';
+import type { NavLink } from '../components/Nav';
+
+const navLinks: NavLink[] = [
+  { href: '/', label: 'Kite Łódź', isActive: true },
+  { href: '/spots/jeziorsko/', label: 'Jeziorsko' }
+];
+---
+
+<html lang="en" class="h-full">
+  <head>
+    <Head title="Kite Spots" />
+  </head>
+  <body class="h-full">
+    <Layout navLinks={navLinks}>
+      <div class="w-full h-full flex justify-center items-center">
+        <img
+          src="/assets/surfer.webp"
+          alt="kitesurfer"
+          class="w-full h-full object-cover"
+          loading="lazy"
+        />
+      </div>
+    </Layout>
+  </body>
+</html>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const menuBtn = document.getElementById("menu-btn");
+    const mobileMenu = document.getElementById("mobile-menu");
+    const closeMenuBtn = document.getElementById("close-mobile-menu");
+
+    if (menuBtn && mobileMenu) {
+      menuBtn.addEventListener("click", function () {
+        mobileMenu.classList.toggle("hidden");
+      });
+    }
+
+    if (closeMenuBtn && mobileMenu) {
+      closeMenuBtn.addEventListener("click", function () {
+        mobileMenu.classList.add("hidden");
+      });
+    }
+
+    // Close menu when clicking on the overlay (but not on menu items)
+    if (mobileMenu) {
+      mobileMenu.addEventListener("click", function (event) {
+        if (event.target === mobileMenu) {
+          mobileMenu.classList.add("hidden");
+        }
+      });
+    }
+  });
+</script>
