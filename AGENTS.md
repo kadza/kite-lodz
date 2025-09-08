@@ -1,42 +1,51 @@
 # Agent Guidelines for Kite Spots Project
 
 ## Commands
-- **Start dev server**: `npm start` (uses live-server)
-- **Build**: No build step required (static HTML/CSS/JS)
+- **Start dev server**: `npm run dev` or `npm start` (uses Astro dev server)
+- **Build**: `npm run build` (builds static site with Astro)
+- **Preview build**: `npm run preview` (previews built site)
 - **Test**: No test framework configured yet
-- **Lint**: No linter configured yet
+- **Lint**: `npm run lint` (uses ESLint for JS/TS/JSX/TSX)
+- **Lint fix**: `npm run lint:fix` (auto-fixes lint issues)
+- **Optimize images**: `npm run optimize` (optimizes images using Sharp)
 
 ## Code Style Guidelines
 
-### HTML
+### Astro
+- Use Astro components (.astro files) for page layouts and static content
+- Use React components (.tsx) for interactive elements
+- Include proper meta tags in Layout.astro
 - Use semantic HTML5 elements
-- Include proper meta tags (charset, viewport, title)
-- Use lowercase for all HTML elements and attributes
+- Use lowercase for HTML elements and attributes
 - Double quotes for attribute values
 - Self-closing tags for void elements
 
-### CSS/JavaScript
-- Use Tailwind CSS classes inline for styling
+### React/TypeScript
+- Use React with TypeScript for interactive components
+- Use Tailwind CSS classes for styling
 - Custom Tailwind config for consistent colors and fonts
-- Vanilla JavaScript with modern ES6+ features
 - Use `const`/`let` instead of `var`
 - Arrow functions preferred for callbacks
 - Async/await for asynchronous operations
+- PascalCase for component names
+- camelCase for props and state variables
 
 ### Naming Conventions
 - kebab-case for HTML classes and IDs
-- camelCase for JavaScript variables and functions
-- PascalCase for constructor functions (if any)
+- camelCase for JavaScript/TypeScript variables and functions
+- PascalCase for React components and constructor functions
 
 ### File Structure
 - Static assets in `/assets/` directory
-- Spot-specific content in `/spots/{spot-name}/`
-- Keep HTML, CSS, and JS separated appropriately
+- Astro pages in `/src/pages/`
+- Components in `/src/components/`
+- Styles in `/src/styles/`
+- Spot-specific content in `/src/pages/spots/{spot-name}/`
 
 ### Error Handling
 - Use try/catch for async operations
-- Return appropriate HTTP status codes in API endpoints
 - Graceful fallbacks for missing resources
+- Handle errors in React components with error boundaries
 
 ### Security
 - Validate and sanitize all user inputs
