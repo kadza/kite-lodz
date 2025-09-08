@@ -132,63 +132,7 @@ const subNav: NavLink[] = [
 </div>
 
 <script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const menuBtn = document.getElementById("menu-btn");
-    const mobileMenu = document.getElementById("mobile-menu");
-    const closeMenuBtn = document.getElementById("close-mobile-menu");
-    const fullscreenModal = document.getElementById("fullscreen-modal");
-    const fullscreenImage = document.getElementById("fullscreen-image");
-    const closeFullscreenModalBtn = document.getElementById("close-fullscreen-modal");
-
-    if (menuBtn && mobileMenu) {
-      menuBtn.addEventListener("click", function () {
-        mobileMenu.classList.toggle("hidden");
-      });
-    }
-
-    if (closeMenuBtn && mobileMenu) {
-      closeMenuBtn.addEventListener("click", function () {
-        mobileMenu.classList.add("hidden");
-      });
-    }
-
-    // Close menu when clicking on the overlay (but not on menu items)
-    if (mobileMenu) {
-      mobileMenu.addEventListener("click", function (event) {
-        if (event.target === mobileMenu) {
-          mobileMenu.classList.add("hidden");
-        }
-      });
-    }
-
-    // Get all images that should be clickable for fullscreen
-    const images = document.querySelectorAll("img[src^='/assets/']");
-
-    images.forEach((image) => {
-      image.style.cursor = "pointer";
-      image.addEventListener("click", function () {
-        fullscreenImage.src = this.src;
-        fullscreenModal.classList.remove("hidden");
-        document.body.style.overflow = "hidden";
-      });
-    });
-
-    if (closeFullscreenModalBtn) {
-      closeFullscreenModalBtn.addEventListener("click", function () {
-        fullscreenModal.classList.add("hidden");
-        document.body.style.overflow = "";
-      });
-    }
-
-    if (fullscreenModal) {
-      fullscreenModal.addEventListener("click", function (event) {
-        if (event.target === fullscreenModal) {
-          fullscreenModal.classList.add("hidden");
-          document.body.style.overflow = "";
-        }
-      });
-    }
-  });
+  import '../../../main.js';
 </script>
     </Layout>
   </body>
