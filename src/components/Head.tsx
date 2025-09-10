@@ -1,4 +1,5 @@
 import { type ReactNode, type FunctionComponent } from 'react';
+import '../styles/global.css';
 
 interface HeadProps {
   title: string;

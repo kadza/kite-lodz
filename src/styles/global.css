@@ -34,3 +34,19 @@ h1, h2, h3, h4, h5, h6,
 p, li, span, div, a {
   @apply text-textColor;
 }
+
+/* Mobile Menu Z-Index Fix */
+/* Ensure mobile menu appears above Leaflet map controls */
+#mobile-menu {
+  z-index: 1300;
+}
+
+/* Override Leaflet controls z-index to be below mobile menu */
+.leaflet-control-container .leaflet-control {
+  z-index: 900 !important;
+}
+
+/* Ensure Leaflet popups also stay below mobile menu */
+.leaflet-popup {
+  z-index: 950 !important;
+}

@@ -95,7 +95,7 @@ export const Nav: FunctionComponent<NavProps> = ({ links, subNav }) => {
       {/* Mobile Menu */}
       <div
         id="mobile-menu"
-        className="hidden fixed inset-0 w-screen h-screen bg-white z-50 flex flex-col items-center justify-center font-montserrat text-[2rem] space-y-12"
+        className="hidden fixed inset-0 w-screen h-screen bg-white z-[1300] flex flex-col items-center justify-center font-montserrat text-[2rem] space-y-12"
       >
         <button
           id="close-mobile-menu"
