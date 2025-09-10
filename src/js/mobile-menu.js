@@ -3,7 +3,13 @@
  * Handles mobile navigation menu interactions
  */
 
+let isInitialized = false;
+
 export function initMobileMenu() {
+  // Prevent multiple initializations
+  if (isInitialized) return;
+  isInitialized = true;
+
   const menuBtn = document.getElementById("menu-btn");
   const mobileMenu = document.getElementById("mobile-menu");
   const closeMenuBtn = document.getElementById("close-mobile-menu");
@@ -28,11 +34,4 @@ export function initMobileMenu() {
       }
     });
   }
-}
-
-// Auto-initialize when DOM is ready
-if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', initMobileMenu);
-} else {
-  initMobileMenu();
 }
