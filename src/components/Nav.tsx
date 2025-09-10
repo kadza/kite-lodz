@@ -17,18 +17,17 @@ export const Nav: FunctionComponent<NavProps> = ({ links, subNav }) => {
       <div className="container mx-auto flex uppercase items-center px-4">
         <div className="hidden md:flex space-x-8 font-montserrat text-[2rem]">
           {links.map((link, index) => (
-            <>
+            <div key={link.href} className="contents">
               <a
-                key={link.href}
                 href={link.href}
                 className={`hover:text-hoverColor text-textColor ${link.isActive ? "underline decoration-2 underline-offset-8" : ""}`}
               >
                 {link.label}
               </a>
               {index < links.length - 1 && (
-                <span className="border-l border-textColor h-8 self-center"></span>
+                <span className="border-l border-textColor h-8 self-center mx-4"></span>
               )}
-            </>
+            </div>
           ))}
         </div>
 
@@ -77,9 +76,8 @@ export const Nav: FunctionComponent<NavProps> = ({ links, subNav }) => {
           {/* Mobile: Fixed positioning */}
           <div className="container mx-auto flex flex-wrap md:flex-nowrap uppercase px-4 gap-3 md:gap-0">
             {subNav.map((link, index) => (
-              <>
+              <div key={link.href} className="contents">
                 <a
-                  key={link.href}
                   href={link.href}
                   className={`hover:text-hoverColor text-textColor ${link.isActive ? "underline underline-offset-4 decoration-2" : ""}`}
                 >
@@ -88,7 +86,7 @@ export const Nav: FunctionComponent<NavProps> = ({ links, subNav }) => {
                 {index < subNav.length - 1 && (
                   <span className="border-l border-textColor h-4 mx-2 self-center hidden md:block"></span>
                 )}
-              </>
+              </div>
             ))}
           </div>
         </>
