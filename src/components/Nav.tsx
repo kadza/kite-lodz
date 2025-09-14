@@ -13,44 +13,71 @@ interface NavProps {
 
 export const Nav: FunctionComponent<NavProps> = ({ links, subNav }) => {
   return (
-    <nav className="min-h-[4.5rem] mb-2 mt-2 md:mt-5 flex flex-col relative">
-      <div className="container mx-auto flex uppercase items-center px-4">
-        <div className="hidden md:flex space-x-8 font-montserrat text-[2rem]">
-          {links.map((link, index) => (
-            <div key={link.href} className="contents">
-              <a
-                href={link.href}
-                className={`hover:text-hoverColor text-textColor ${link.isActive ? "underline decoration-2 underline-offset-8" : ""}`}
-              >
-                {link.label}
-              </a>
-              {index < links.length - 1 && (
-                <span className="border-l border-textColor h-8 self-center mx-4"></span>
-              )}
-            </div>
-          ))}
+    <nav className="md:min-h-[4.5rem] mb-2 mt-2 md:mt-5 flex flex-col">
+      {/*Desktop*/}
+      <div>
+        <div className="container mx-auto flex uppercase items-center px-4">
+          <div className="hidden md:flex space-x-8 font-montserrat text-[2rem]">
+            {links.map((link, index) => (
+              <div key={link.href} className="contents">
+                <a
+                  href={link.href}
+                  className={`hover:text-hoverColor text-textColor ${link.isActive ? "underline decoration-2 underline-offset-8" : ""}`}
+                >
+                  {link.label}
+                </a>
+                {index < links.length - 1 && (
+                  <span className="border-l border-textColor h-8 self-center mx-4"></span>
+                )}
+              </div>
+            ))}
+          </div>
         </div>
+        {subNav && (
+          <div className="container mx-auto hidden md:flex md:flex-nowrap uppercase px-4 gap-3 md:gap-0">
+            {subNav.map((link, index) => (
+              <div key={link.href} className="contents">
+                <a
+                  href={link.href}
+                  className={`hover:text-hoverColor text-textColor ${link.isActive ? "underline underline-offset-4 decoration-2" : ""}`}
+                >
+                  {link.label}
+                </a>
+                {index < subNav.length - 1 && (
+                  <span className="border-l border-textColor h-4 mx-2 self-center hidden md:block"></span>
+                )}
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
 
-        <div className="md:hidden flex items-center justify-between w-full">
-          {(() => {
-            const activeMainLink = links.find((link) => link.isActive);
-            const activeSubLink = subNav?.find((link) => link.isActive);
-            let displayLink = activeMainLink;
+      {/* Mobile nav*/}
+      <div
+        className={`container mx-auto flex uppercase ${subNav?.length ? "justify-between" : "justify-end"} px-4`}
+      >
+        {subNav && (
+          <div>
+            <div className="md:hidden container mx-auto flex flex-wrap uppercase">
+              {subNav.map((link, index) => (
+                <div key={link.href} className="contents">
+                  <a
+                    href={link.href}
+                    className={`hover:text-hoverColor text-textColor ${link.isActive ? "underline decoration-2 underline-offset-4" : ""}`}
+                  >
+                    {link.label}
+                  </a>
+                  {index < subNav.length - 1 && (
+                    <span className="border-l border-textColor h-4 self-center mx-2"></span>
+                  )}
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
 
-            if (!displayLink && activeSubLink) {
-              // Find parent link based on URL path
-              displayLink = links.find(
-                (link) =>
-                  activeSubLink.href.startsWith(link.href) && link.href !== "/",
-              );
-            }
-
-            return displayLink ? (
-              <span className="font-montserrat text-[2rem] text-textColor">
-                {displayLink.label}
-              </span>
-            ) : null;
-          })()}
+        {/* Mobile Hamburger Menu */}
+        <div className="md:hidden">
           <button id="menu-btn" className="text-textColor focus:outline-none">
             <svg
               className="w-8 h-8"
@@ -70,32 +97,10 @@ export const Nav: FunctionComponent<NavProps> = ({ links, subNav }) => {
         </div>
       </div>
 
-      {/* Sub Navigation */}
-      {subNav && (
-        <>
-          {/* Mobile: Fixed positioning */}
-          <div className="container mx-auto flex flex-wrap md:flex-nowrap uppercase px-4 gap-3 md:gap-0">
-            {subNav.map((link, index) => (
-              <div key={link.href} className="contents">
-                <a
-                  href={link.href}
-                  className={`hover:text-hoverColor text-textColor ${link.isActive ? "underline underline-offset-4 decoration-2" : ""}`}
-                >
-                  {link.label}
-                </a>
-                {index < subNav.length - 1 && (
-                  <span className="border-l border-textColor h-4 mx-2 self-center hidden md:block"></span>
-                )}
-              </div>
-            ))}
-          </div>
-        </>
-      )}
-
       {/* Mobile Menu */}
       <div
         id="mobile-menu"
-        className="hidden fixed inset-0 w-screen h-screen bg-white z-[1300] flex flex-col items-center justify-center font-montserrat text-[2rem] space-y-12"
+        className="hidden fixed inset-0 w-screen bg-white z-[1300] flex flex-col items-center justify-center font-montserrat text-[2rem] space-y-12"
       >
         <button
           id="close-mobile-menu"
