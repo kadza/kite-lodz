@@ -15,10 +15,16 @@ export const Layout: FunctionComponent<LayoutProps> = ({
   children,
 }) => (
   <div className="flex flex-col h-screen bg-white bg-opacity-50 md:bg-transparent">
+    <div className="hidden md:block">
+      <Nav links={navLinks} subNav={subNav} />
+    </div>
+
     <div className="container mx-auto flex-1 overflow-hidden p-4 md:p-8 md:bg-white md:bg-opacity-50 md:rounded-lg">
       <div className="overflow-y-auto h-full">{children}</div>
     </div>
 
-    <Nav links={navLinks} subNav={subNav} />
+    <div className="md:hidden">
+      <Nav links={navLinks} subNav={subNav} />
+    </div>
   </div>
 );

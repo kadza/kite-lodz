@@ -1,4 +1,5 @@
 import { type FunctionComponent } from "react";
+import { siteNavigation, flattenNavigationTree } from "./navigation";
 
 export interface NavLink {
   href: string;
@@ -12,6 +13,8 @@ interface NavProps {
 }
 
 export const Nav: FunctionComponent<NavProps> = ({ links, subNav }) => {
+  const currentPath = typeof window !== 'undefined' ? window.location.pathname : '';
+
   return (
     <nav className="md:min-h-[4.5rem] mb-2 mt-2 md:mt-5 flex flex-col">
       {/*Desktop*/}
@@ -100,7 +103,7 @@ export const Nav: FunctionComponent<NavProps> = ({ links, subNav }) => {
       {/* Mobile Menu */}
       <div
         id="mobile-menu"
-        className="hidden fixed inset-0 w-screen bg-white z-[1300] flex flex-col items-center justify-center font-montserrat text-[2rem] space-y-12"
+        className="hidden fixed inset-0 w-screen bg-white z-[1300] flex flex-col items-start justify-start font-montserrat text-[1.5rem] pt-20 px-8 overflow-y-auto"
       >
         <button
           id="close-mobile-menu"
@@ -108,15 +111,21 @@ export const Nav: FunctionComponent<NavProps> = ({ links, subNav }) => {
         >
           ×
         </button>
-        {links.map((link) => (
-          <a
-            key={link.href}
-            href={link.href}
-            className={`hover:text-hoverColor ${link.isActive ? "underline decoration-2 underline-offset-8" : ""}`}
-          >
-            {link.label}
-          </a>
-        ))}
+        <div className="w-full space-y-4">
+          {flattenNavigationTree(siteNavigation, currentPath).map((link) => (
+            <a
+              key={link.href}
+              href={link.href}
+              className={`block hover:text-hoverColor transition-colors duration-200 ${
+                link.isActive ? "underline decoration-2 underline-offset-4 text-hoverColor" : "text-textColor"
+              } ${link.label.startsWith('  ') ? 'ml-8 text-lg' : ''} ${
+                link.label.includes('└─') ? 'ml-4 text-base' : ''
+              }`}
+            >
+              {link.label.replace(/^ {2}└─ /, '└─ ')}
+            </a>
+          ))}
+        </div>
       </div>
     </nav>
   );

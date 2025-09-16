@@ -1,14 +1,9 @@
 ---
 import { Layout } from '../../../components/Layout';
 import { Head } from '../../../components/Head';
-import type { NavLink } from '../../../components/Nav';
+import { getNavLinksForPage } from '../../../components/navigation';
 
-const navLinks: NavLink[] = [
-  { href: '/', label: 'Kite Łódź' },
-  { href: '/spots/jeziorsko/', label: 'Jeziorsko' },
-];
-
-const subNav: NavLink[] = [];
+const { navLinks, subNav } = getNavLinksForPage('/spots/jeziorsko/pogoda');
 ---
 
 <html lang="en" class="h-full">
