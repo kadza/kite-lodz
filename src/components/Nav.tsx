@@ -77,7 +77,7 @@ export const Nav: FunctionComponent<NavProps> = ({ links, subNav }) => {
         )}
 
         {/* Mobile Hamburger Menu */}
-        <div className="md:hidden">
+        <div className="md:hidden flex flex-col justify-end">
           <button id="menu-btn" className="text-textColor focus:outline-none">
             <svg
               className="w-8 h-8"
