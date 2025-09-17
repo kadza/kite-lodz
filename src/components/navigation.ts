@@ -1,4 +1,8 @@
-import type { NavLink } from './Nav';
+export interface NavLink {
+  href: string;
+  label: string;
+  isActive?: boolean;
+}
 
 export interface NavTreeNode {
   href: string;
