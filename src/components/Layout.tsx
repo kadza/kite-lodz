@@ -14,7 +14,7 @@ export const Layout: FunctionComponent<LayoutProps> = ({
   subNav,
   children,
 }) => (
-  <div className="flex flex-col h-screen bg-white bg-opacity-50 md:bg-transparent">
+  <div className="flex flex-col bg-white bg-opacity-50 md:bg-transparent" style={{ height: 'calc(var(--vh, 1vh) * 100)' }}>
     <div className="hidden md:block">
       <Nav links={navLinks} subNav={subNav} />
     </div>
