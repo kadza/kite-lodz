@@ -3,11 +3,13 @@ import { Layout } from "../components/Layout";
 import { Head } from "../components/Head";
 
 const navLinks = [
-  { href: '/', label: 'Kite Łódź', isActive: true },
-  { href: '/spots/jeziorsko/', label: 'Jeziorsko', isActive: false }
+  { href: "/", label: "Kite Łódź", isActive: true },
+  { href: "/spots/jeziorsko/", label: "Jeziorsko", isActive: false },
 ];
-const subNav = [
-  { href: '/spots/jeziorsko/', label: 'Jeziorsko', isActive: false }
+const desktopSubNav = [];
+
+const mobileSubNav = [
+  { href: "/spots/jeziorsko/", label: "Jeziorsko", isActive: false },
 ];
 ---
 
@@ -16,7 +18,11 @@ const subNav = [
     <Head title="Kite Spots" />
   </head>
   <body class="h-full">
-    <Layout navLinks={navLinks} subNav={subNav}>
+    <Layout
+      navLinks={navLinks}
+      desktopSubNav={desktopSubNav}
+      mobileSubNav={mobileSubNav}
+    >
       <div class="w-full h-full flex justify-center items-center">
         <img
           src="/assets/surfer.webp"

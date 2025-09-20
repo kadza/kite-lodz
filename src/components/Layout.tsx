@@ -6,13 +6,15 @@ import "../styles/global.css";
 
 interface LayoutProps {
   navLinks: NavLink[];
-  subNav?: NavLink[];
+  desktopSubNav?: NavLink[];
+  mobileSubNav?: NavLink[];
   children: ReactNode;
 }
 
 export const Layout: FunctionComponent<LayoutProps> = ({
   navLinks,
-  subNav,
+  desktopSubNav,
+  mobileSubNav,
   children,
 }) => (
   <div
@@ -20,7 +22,7 @@ export const Layout: FunctionComponent<LayoutProps> = ({
     style={{ height: "calc(var(--vh, 1vh) * 100)" }}
   >
     <div className="hidden md:block">
-      <DesktopNav links={navLinks} subNav={subNav} />
+      <DesktopNav links={navLinks} subNav={desktopSubNav} />
     </div>
 
     <div className="container mx-auto flex-1 overflow-hidden p-4 md:p-8 md:bg-white md:bg-opacity-50 md:rounded-lg">
@@ -28,7 +30,7 @@ export const Layout: FunctionComponent<LayoutProps> = ({
     </div>
 
     <div className="md:hidden">
-      <MobileNav subNav={subNav} />
+      <MobileNav subNav={mobileSubNav} />
     </div>
   </div>
 );

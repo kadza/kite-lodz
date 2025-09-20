@@ -10,10 +10,6 @@ export const DesktopNav: FunctionComponent<DesktopNavProps> = ({
   links,
   subNav,
 }) => {
-  const currentPath =
-    typeof window !== "undefined" ? window.location.pathname : "";
-  const shouldShowSubNav = subNav && currentPath !== "/" && currentPath !== "";
-
   return (
     <nav className="mb-2 mt-2 md:mt-5 min-h-[4.5rem]">
       <div className="container mx-auto flex uppercase items-center px-4">
@@ -33,7 +29,7 @@ export const DesktopNav: FunctionComponent<DesktopNavProps> = ({
           ))}
         </div>
       </div>
-      {shouldShowSubNav && (
+      {subNav && (
         <div className="container mx-auto flex flex-nowrap uppercase px-4 gap-3 md:gap-0">
           {subNav.map((link, index) => (
             <div key={link.href} className="contents">

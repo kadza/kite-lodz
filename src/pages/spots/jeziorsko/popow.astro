@@ -3,20 +3,35 @@ import { Layout } from "../../../components/Layout";
 import { Head } from "../../../components/Head";
 
 const navLinks = [
-  { href: '/', label: 'Kite Łódź', isActive: false },
-  { href: '/spots/jeziorsko/', label: 'Jeziorsko', isActive: true }
+  { href: "/", label: "Kite Łódź", isActive: false },
+  { href: "/spots/jeziorsko/", label: "Jeziorsko", isActive: true },
 ];
-const subNav = [
-  { href: '/spots/jeziorsko/popow', label: 'Popów', isActive: true },
-  { href: '/spots/jeziorsko/popow-polanka', label: 'Popów polanka', isActive: false },
-  { href: '/spots/jeziorsko/wylazlow', label: 'Wylazłów', isActive: false },
-  { href: '/spots/jeziorsko/brodnia-tama', label: 'Brodnia tama', isActive: false },
-  { href: '/spots/jeziorsko/brodnia-cypel', label: 'Brodnia cypel', isActive: false },
-  { href: '/spots/jeziorsko/ostrow', label: 'Ostrów Warcki', isActive: false },
-  { href: '/spots/jeziorsko/zaspy', label: 'Zaspy', isActive: false },
-  { href: '/spots/jeziorsko/milkowice', label: 'Miłkowice', isActive: false },
-  { href: '/spots/jeziorsko/skarpa', label: 'Skarpa', isActive: false }
+
+const desktopSubNav = [
+  { href: "/spots/jeziorsko/popow", label: "Popów", isActive: true },
+  {
+    href: "/spots/jeziorsko/popow-polanka",
+    label: "Popów polanka",
+    isActive: false,
+  },
+  { href: "/spots/jeziorsko/wylazlow", label: "Wylazłów", isActive: false },
+  {
+    href: "/spots/jeziorsko/brodnia-tama",
+    label: "Brodnia tama",
+    isActive: false,
+  },
+  {
+    href: "/spots/jeziorsko/brodnia-cypel",
+    label: "Brodnia cypel",
+    isActive: false,
+  },
+  { href: "/spots/jeziorsko/ostrow", label: "Ostrów Warcki", isActive: false },
+  { href: "/spots/jeziorsko/zaspy", label: "Zaspy", isActive: false },
+  { href: "/spots/jeziorsko/milkowice", label: "Miłkowice", isActive: false },
+  { href: "/spots/jeziorsko/skarpa", label: "Skarpa", isActive: false },
 ];
+
+const mobileSubNav = [];
 ---
 
 <html lang="en" class="h-full">
@@ -24,7 +39,11 @@ const subNav = [
     <Head title="Popów - Jeziorsko" />
   </head>
   <body class="h-full">
-    <Layout navLinks={navLinks} subNav={subNav}>
+    <Layout
+      navLinks={navLinks}
+      desktopSubNav={desktopSubNav}
+      mobileSubNav={mobileSubNav}
+    >
       <div class="flex flex-col md:flex-row gap-8">
         <!-- Main content column -->
         <div class="md:w-2/3 order-2 md:order-2">
