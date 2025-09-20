@@ -40,7 +40,10 @@ export function initMobileMenu() {
     const menuLinks = mobileMenu.querySelectorAll("a");
     menuLinks.forEach((link) => {
       link.addEventListener("click", () => {
-        mobileMenu.classList.add("hidden");
+        // Add small delay to prevent flicker during navigation
+        setTimeout(() => {
+          mobileMenu.classList.add("hidden");
+        }, 150);
       });
     });
   }
