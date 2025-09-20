@@ -1,9 +1,11 @@
 ---
 import { Layout } from "../components/Layout";
 import { Head } from "../components/Head";
-import { getNavLinksForPage } from "../components/navigation";
 
-const { navLinks, subNav } = getNavLinksForPage("/");
+const navLinks = [
+  { href: '/', label: 'Kite Łódź', isActive: true },
+  { href: '/spots/jeziorsko/', label: 'Jeziorsko', isActive: false }
+];
 ---
 
 <html lang="en" class="h-full">
@@ -11,7 +13,7 @@ const { navLinks, subNav } = getNavLinksForPage("/");
     <Head title="Kite Spots" />
   </head>
   <body class="h-full">
-    <Layout navLinks={navLinks} subNav={subNav}>
+    <Layout navLinks={navLinks}>
       <div class="w-full h-full flex justify-center items-center">
         <img
           src="/assets/surfer.webp"

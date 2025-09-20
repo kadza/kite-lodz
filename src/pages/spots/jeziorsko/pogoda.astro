@@ -1,9 +1,15 @@
 ---
 import { Layout } from "../../../components/Layout";
 import { Head } from "../../../components/Head";
-import { getNavLinksForPage } from "../../../components/navigation";
 
-const { navLinks, subNav } = getNavLinksForPage("/spots/jeziorsko/pogoda");
+const navLinks = [
+  { href: '/', label: 'Kite Łódź', isActive: false },
+  { href: '/spots/jeziorsko/', label: 'Jeziorsko', isActive: true }
+];
+const subNav = [
+  { href: '/spots/jeziorsko/spoty', label: 'Spoty', isActive: false },
+  { href: '/spots/jeziorsko/pogoda', label: 'Pogoda', isActive: true }
+];
 ---
 
 <html lang="en" class="h-full">
