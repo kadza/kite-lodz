@@ -34,4 +34,14 @@ export function initMobileMenu() {
       }
     });
   }
+
+  // Close menu when clicking on navigation links
+  if (mobileMenu) {
+    const menuLinks = mobileMenu.querySelectorAll("a");
+    menuLinks.forEach((link) => {
+      link.addEventListener("click", () => {
+        mobileMenu.classList.add("hidden");
+      });
+    });
+  }
 }
