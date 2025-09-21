@@ -29,8 +29,17 @@ body::before {
 }
 
 /* Global text color */
-h1, h2, h3, h4, h5, h6,
-p, li, span, div, a {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+li,
+span,
+div,
+a {
   @apply text-textColor;
 }
 
@@ -48,4 +57,22 @@ p, li, span, div, a {
 /* Ensure Leaflet popups also stay below mobile menu */
 .leaflet-popup {
   z-index: 950 !important;
+}
+
+/* Collapsible Menu Styles */
+.collapsible-section {
+  display: none;
+  transition: all 0.2s ease-in-out;
+}
+
+.collapsible-section.expanded {
+  display: block;
+}
+
+.menu-arrow {
+  transition: transform 0.2s ease-in-out;
+}
+
+.menu-arrow.rotated {
+  transform: rotate(90deg);
 }
