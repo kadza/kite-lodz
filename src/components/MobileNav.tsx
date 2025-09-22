@@ -89,7 +89,7 @@ export const MobileNav: FunctionComponent<MobileNavProps> = ({ subNav }) => {
     typeof window !== "undefined" ? window.location.pathname : "";
 
   return (
-    <nav className="md:min-h-[4.5rem] mb-2 mt-2 md:mt-5 flex flex-col">
+    <nav className="md:min-h-[4.5rem] mb-2 md:mt-5 flex flex-col">
       <div
         className={`container mx-auto flex uppercase ${subNav?.length ? "justify-between" : "justify-end"} px-4`}
       >
