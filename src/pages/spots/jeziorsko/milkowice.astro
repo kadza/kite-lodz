@@ -1,0 +1,165 @@
+---
+import { Layout } from "../../../components/Layout";
+import { Head } from "../../../components/Head";
+
+const navLinks = [
+  { href: "/", label: "Kite Łódź", isActive: false },
+  { href: "/spots/jeziorsko/", label: "Jeziorsko", isActive: true },
+];
+
+const desktopSubNav = [
+  { href: "/spots/jeziorsko/popow", label: "Popów", isActive: false },
+  {
+    href: "/spots/jeziorsko/popow-polanka",
+    label: "Popów polanka",
+    isActive: false,
+  },
+  { href: "/spots/jeziorsko/wylazlow", label: "Wylazłów", isActive: false },
+  {
+    href: "/spots/jeziorsko/brodnia-tama",
+    label: "Brodnia tama",
+    isActive: false,
+  },
+  {
+    href: "/spots/jeziorsko/brodnia-cypel",
+    label: "Brodnia cypel",
+    isActive: false,
+  },
+  { href: "/spots/jeziorsko/ostrow", label: "Ostrów Warcki", isActive: false },
+  { href: "/spots/jeziorsko/zaspy", label: "Zaspy", isActive: false },
+  { href: "/spots/jeziorsko/milkowice", label: "Miłkowice", isActive: true },
+  { href: "/spots/jeziorsko/skarpa", label: "Skarpa", isActive: false },
+];
+
+const mobileSubNav = [];
+---
+
+<html lang="en" class="h-full">
+  <head>
+    <Head title="Miłkowice - Jeziorsko" />
+  </head>
+  <body class="h-full">
+    <Layout
+      navLinks={navLinks}
+      desktopSubNav={desktopSubNav}
+      mobileSubNav={mobileSubNav}
+    >
+      <div class="flex flex-col md:flex-row gap-8">
+        <!-- Main content column -->
+        <div class="md:w-2/3 order-2 md:order-2">
+          <div
+            class="md:p-6 md:bg-white md:bg-opacity-70 md:rounded-2xl md:shadow-lg h-fit"
+          >
+            <p class="text-justify">
+              Plaża w Miłkowicach jest idealnym miejscem dla początkujących kitesurferów. Woda jest płytka, dno piaszczyste, co zapewnia bezpieczeństwo. Wiatry zachodnie i południowo-zachodnie są najkorzystniejsze.
+            </p>
+
+            <div class="mt-8">
+              <div class="gallery grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div>
+                  <a
+                    href="/assets/milkowice-lato.png"
+                    class="block relative h-96 w-full bg-gray-200 rounded-2xl shadow-lg overflow-hidden"
+                  >
+                    <img
+                      src="/assets/milkowice-lato.png"
+                      alt="Spot Miłkowice latem"
+                      class="absolute top-0 left-0 w-full h-full object-cover"
+                      loading="lazy"
+                      onload="this.style.opacity=1"
+                      style="opacity: 0"
+                    />
+                  </a>
+                </div>
+                <div>
+                  <a
+                    href="/assets/milkowice-zima.png"
+                    class="block relative h-96 w-full bg-gray-200 rounded-2xl shadow-lg overflow-hidden"
+                  >
+                    <img
+                      src="/assets/milkowice-zima.png"
+                      alt="Spot Miłkowice zimą"
+                      class="absolute top-0 left-0 w-full h-full object-cover"
+                      loading="lazy"
+                      onload="this.style.opacity=1"
+                      style="opacity: 0"
+                    />
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sidebar / Info card -->
+        <div
+          class="md:w-1/3 md:p-6 md:bg-white md:bg-opacity-70 md:rounded-2xl md:shadow-lg h-fit order-1 md:order-1"
+        >
+          <div class="flex justify-around items-center mb-6">
+            <div>
+              <p class="font-bold text-center">Kierunki wiatru:</p>
+              <p class="text-center">W, SW, NW</p>
+            </div>
+            <a
+              href="https://www.google.com/maps/dir/?api=1&destination=51.8517,18.7528"
+              target="_blank"
+              class="inline-block font-montserrat uppercase font-semibold bg-transparent border-2 border-textColor text-textColor py-2 px-4 rounded hover:bg-textColor hover:text-white transition-colors"
+            >
+              Dojazd
+            </a>
+          </div>
+
+          <div class="space-y-6 lightbox-item">
+            <a
+              href="/assets/milkowice-mapa.png"
+              class="block relative bg-gray-200 rounded-2xl shadow-lg overflow-hidden"
+            >
+              <!-- This div creates the 4:3 aspect ratio -->
+              <div style="padding-bottom: 75%"></div>
+              <img
+                src="/assets/milkowice-mapa.png"
+                alt="Mapa spotu Miłkowice"
+                class="absolute top-0 left-0 w-full h-full object-cover"
+                loading="lazy"
+                onload="this.style.opacity=1"
+                style="opacity: 0"
+              />
+            </a>
+            <div class="text-xs text-center mt-2">
+              <p class="flex justify-center items-center space-x-4">
+                <span><span class="text-[#6d9fea]">■</span> Parking</span>
+                <span><span class="text-[#39771d]">■</span> Strefa startu</span>
+                <span
+                  ><span class="text-[#e06767]">■</span> Strefa niebezpieczna</span
+                >
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </Layout>
+
+    <!-- Fullscreen Image Modal -->
+    <div
+      id="fullscreen-modal"
+      class="fixed inset-0 bg-black flex items-center justify-center z-[1200] hidden"
+    >
+      <button
+        id="close-fullscreen-modal"
+        class="absolute top-4 right-4 text-white text-4xl font-bold focus:outline-none"
+      >
+        &times;
+      </button>
+      <img
+        id="fullscreen-image"
+        src=""
+        alt="Fullscreen Image"
+        class="max-w-[90%] max-h-[90%] object-contain"
+      />
+    </div>
+
+    <script>
+      import "../../../main.js";
+    </script>
+  </body>
+</html>

@@ -1,6 +1,6 @@
-const fs = require("fs");
-const path = require("path");
-const sharp = require("sharp");
+import fs from "fs";
+import path from "path";
+import sharp from "sharp";
 
 const inputDir = process.argv[2] || "./assets/original";
 const outputDir = process.argv[3] || "./assets";
@@ -63,4 +63,3 @@ function processDirectory(dir, baseDir = dir) {
 
 processDirectory(inputDir);
 console.log("Image optimization complete!");
-
