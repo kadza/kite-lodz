@@ -50,17 +50,34 @@ const mobileSubNav = [];
           <div
             class="md:p-6 md:bg-white md:bg-opacity-70 md:rounded-2xl md:shadow-lg h-fit"
           >
-            <p class="text-justify">
-              Popów to najbardzej popularny spot zlokalizowany na zachodnim
-              brzegu zbiornika Jeziorsko. Najlepsze warunki do pływania
-              zapewniają kierunki wiatru z południowego-zachodu, zachodu oraz
-              północnego-zachodu. Jeżeli stan wody jest wysoki, miejsca do
-              startu jest bardzo mało, cała zatoczka może być zalana i start
-              jest możliwy jedynie przy wietrze zachodnim. Przy niższym stanie
-              wody miejsca do startu jest dużo, ale należy zachować szczególną
-              ostrożność ze względu na zatopione fundamenty starych budynków,
-              które znajdują się w pobliżu brzegu.
-            </p>
+            <div class="text-justify">
+              <p>
+                Popów to najbardzej popularny spot zlokalizowany na zachodnim
+                brzegu zbiornika Jeziorsko.
+              </p>
+              <br />
+              <h3>Zalety:</h3>
+              <ul class="list-disc pl-6">
+                <li>
+                  Popularny spot, często znajdzie się ktoś kto pomoże
+                  wystartować/wylądować latawiec
+                </li>
+                <li>Przy niższym stanie wody dużo miejsca do startu</li>
+                <li>Dużo miejsca do parkowania niedaleko plaży</li>
+              </ul>
+              <br />
+              <h3>Wady:</h3>
+              <ul class="list-disc pl-6">
+                <li>Przy wysokim stanie wody mało miejsca do startu</li>
+                <li>Przy wysokim stanie wody wystające krzaki z wody</li>
+                <li>
+                  Przy niskim stanie trzeba uważać na pozostalości po
+                  fundamentach
+                </li>
+                <li>Drzewa blisko wody</li>
+                <li>Niebiezpieczny dla początkujących</li>
+              </ul>
+            </div>
 
             <div class="mt-8">
               <div class="gallery grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -78,6 +95,9 @@ const mobileSubNav = [];
                       style="opacity: 0"
                     />
                   </a>
+                  <p class="mt-2 text-sm text-gray-600 text-center">
+                    Popów wiosną
+                  </p>
                 </div>
                 <div>
                   <a
@@ -93,6 +113,45 @@ const mobileSubNav = [];
                       style="opacity: 0"
                     />
                   </a>
+                  <p class="mt-2 text-sm text-gray-600 text-center">
+                    Popów zimą
+                  </p>
+                </div>
+                <div>
+                  <a
+                    href="/assets/popow-fundamenty.webp"
+                    class="block relative h-96 w-full bg-gray-200 rounded-2xl shadow-lg overflow-hidden"
+                  >
+                    <img
+                      src="/assets/popow-fundamenty.webp"
+                      alt="Fundamenty w Popowie"
+                      class="absolute top-0 left-0 w-full h-full object-cover"
+                      loading="lazy"
+                      onload="this.style.opacity=1"
+                      style="opacity: 0"
+                    />
+                  </a>
+                  <p class="mt-2 text-sm text-gray-600 text-center">
+                    Fundamenty w Popowie zimą
+                  </p>
+                </div>
+                <div>
+                  <a
+                    href="/assets/popow-lato-mapa.webp"
+                    class="block relative h-96 w-full bg-gray-200 rounded-2xl shadow-lg overflow-hidden"
+                  >
+                    <img
+                      src="/assets/popow-lato-mapa.webp"
+                      alt="Mapa Popowa latem"
+                      class="absolute top-0 left-0 w-full h-full object-cover"
+                      loading="lazy"
+                      onload="this.style.opacity=1"
+                      style="opacity: 0"
+                    />
+                  </a>
+                  <p class="mt-2 text-sm text-gray-600 text-center">
+                    Widok na spot Popów latem
+                  </p>
                 </div>
               </div>
             </div>
@@ -119,28 +178,34 @@ const mobileSubNav = [];
 
           <div class="space-y-6 lightbox-item">
             <a
-              href="/assets/popow-zima-mapa.webp"
+              href="/assets/popow-mapa.webp"
               class="block relative bg-gray-200 rounded-2xl shadow-lg overflow-hidden"
             >
               <!-- This div creates the 4:3 aspect ratio -->
               <div style="padding-bottom: 75%"></div>
               <img
-                src="/assets/popow-zima-mapa.webp"
-                alt="Mapa spotu Popów zimą"
+                src="/assets/popow-mapa.webp"
+                alt="Mapa spotu Popów"
                 class="absolute top-0 left-0 w-full h-full object-cover"
                 loading="lazy"
                 onload="this.style.opacity=1"
                 style="opacity: 0"
               />
             </a>
-            <div class="text-xs text-center mt-2">
-              <p class="flex justify-center items-center space-x-4">
-                <span><span class="text-[#6d9fea]">■</span> Parking</span>
-                <span><span class="text-[#39771d]">■</span> Strefa startu</span>
-                <span
-                  ><span class="text-[#e06767]">■</span> Strefa niebezpieczna</span
-                >
-              </p>
+            <div class="bg-slate-900 rounded-2xl p-3 mt-2">
+              <div class="text-xs text-center">
+                <p class="flex justify-center items-center space-x-4">
+                  <span class="text-gray-300"
+                    ><span class="text-[#00feff]">■</span> Parking</span
+                  >
+                  <span class="text-gray-300"
+                    ><span class="text-[#00fe00]">■</span> Strefa startu</span
+                  >
+                  <span class="text-gray-300"
+                    ><span class="text-[#ea2a1d]">■</span> Strefa niebezpieczna</span
+                  >
+                </p>
+              </div>
             </div>
           </div>
         </div>
