@@ -2,8 +2,8 @@ import fs from "fs";
 import path from "path";
 import sharp from "sharp";
 
-const inputDir = process.argv[2] || "./assets/original";
-const outputDir = process.argv[3] || "./assets";
+const inputDir = process.argv[2] || "./public/assets/original";
+const outputDir = process.argv[3] || "./public/assets";
 
 if (!fs.existsSync(outputDir)) {
   fs.mkdirSync(outputDir, { recursive: true });
