@@ -1,0 +1,218 @@
+---
+import { Layout } from "../../../components/Layout";
+import { Head } from "../../../components/Head";
+
+const navLinks = [
+  { href: "/", label: "Kite Łódź", isActive: false },
+  { href: "/spots/jeziorsko/", label: "Jeziorsko", isActive: true },
+];
+
+const desktopSubNav = [
+  { href: "/spots/jeziorsko/popow", label: "Popów", isActive: false },
+  {
+    href: "/spots/jeziorsko/popow-polanka",
+    label: "Popów polanka",
+    isActive: false,
+  },
+  { href: "/spots/jeziorsko/wylazlow", label: "Wylazłów", isActive: false },
+  {
+    href: "/spots/jeziorsko/brodnia-tama",
+    label: "Brodnia tama",
+    isActive: false,
+  },
+  {
+    href: "/spots/jeziorsko/brodnia-cypel",
+    label: "Brodnia cypel",
+    isActive: false,
+  },
+  { href: "/spots/jeziorsko/ostrow", label: "Ostrów Warcki", isActive: false },
+  { href: "/spots/jeziorsko/zaspy", label: "Zaspy", isActive: true },
+  { href: "/spots/jeziorsko/milkowice", label: "Miłkowice", isActive: false },
+  { href: "/spots/jeziorsko/skarpa", label: "Skarpa", isActive: false },
+];
+
+const mobileSubNav = [];
+---
+
+<html lang="en" class="h-full">
+  <head>
+    <Head title="Zaspy - Jeziorsko" />
+  </head>
+  <body class="h-full">
+    <Layout
+      navLinks={navLinks}
+      desktopSubNav={desktopSubNav}
+      mobileSubNav={mobileSubNav}
+    >
+      <div class="flex flex-col md:flex-row gap-8">
+        <!-- Main content column -->
+        <div class="md:w-2/3 order-2 md:order-2">
+          <div
+            class="md:p-6 md:bg-white md:bg-opacity-70 md:rounded-2xl md:shadow-lg h-fit"
+          >
+            <div class="text-justify">
+              <p>
+                Zaspy latem gdy plaża w Ostrowie jest zajęta przez plażowiczów,
+                a poziom wody jest wysoki to praktycznie jedyny spot do startu
+                na zachodnim brzegu Jeziorska. Miejsca do startu jest bardzo
+                mało, szybko robi się głęboko, z jednej strony jest betonowy
+                slip, a z drugiej krzaki. Dodatkowo wzdłuż miejsca do parkowanie
+                jest linia pod napięciem i zdarzyło się, że poleciały iskry gdy
+                latawiec na niej wylądował.
+              </p>
+              <br />
+              <h3>Zalety:</h3>
+              <ul class="list-disc pl-6">
+                <li>
+                  Przy wysokim poziomie wody jedyna opcja na zachodnim brzegu
+                </li>
+                <li>Dużo miejsca do parkowania</li>
+                <li>Trawka do złożenia latawca</li>
+              </ul>
+              <br />
+              <h3>Wady:</h3>
+              <ul class="list-disc pl-6">
+                <li>Mało miejsca do startu</li>
+                <li>Linia pod napięciem niedaleko miejsca do startu</li>
+                <li>Tylko dla zaawansowanych</li>
+              </ul>
+            </div>
+
+            <div class="mt-8">
+              <div class="gallery grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div>
+                  <a
+                    href="/assets/zaspy-lato.webp"
+                    class="block relative h-96 w-full bg-gray-200 rounded-2xl shadow-lg overflow-hidden"
+                  >
+                    <img
+                      src="/assets/zaspy-lato.webp"
+                      alt="Spot Zaspy latem"
+                      class="absolute top-0 left-0 w-full h-full object-cover"
+                      loading="lazy"
+                      onload="this.style.opacity=1"
+                      style="opacity: 0"
+                    />
+                  </a>
+                  <p class="text-center mt-2 text-sm">
+                    Widok na spot w Zaspach latem
+                  </p>
+                </div>
+                <div>
+                  <a
+                    href="/assets/zaspy-zima.webp"
+                    class="block relative h-96 w-full bg-gray-200 rounded-2xl shadow-lg overflow-hidden"
+                  >
+                    <img
+                      src="/assets/zaspy-zima.webp"
+                      alt="Spot Zaspy zimą"
+                      class="absolute top-0 left-0 w-full h-full object-cover"
+                      loading="lazy"
+                      onload="this.style.opacity=1"
+                      style="opacity: 0"
+                    />
+                  </a>
+                  <p class="text-center mt-2 text-sm">
+                    Widok na spot w Zaspach zimą
+                  </p>
+                </div>
+                <div>
+                  <a
+                    href="/assets/zaspy-plaza.webp"
+                    class="block relative h-96 w-full bg-gray-200 rounded-2xl shadow-lg overflow-hidden"
+                  >
+                    <img
+                      src="/assets/zaspy-plaza.webp"
+                      alt="Spot Zaspy plaża"
+                      class="absolute top-0 left-0 w-full h-full object-cover"
+                      loading="lazy"
+                      onload="this.style.opacity=1"
+                      style="opacity: 0"
+                    />
+                  </a>
+                  <p class="text-center mt-2 text-sm">Plaża w Zaspach</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sidebar / Info card -->
+        <div
+          class="md:w-1/3 md:p-6 md:bg-white md:bg-opacity-70 md:rounded-2xl md:shadow-lg h-fit order-1 md:order-1"
+        >
+          <div class="flex justify-around items-center mb-6">
+            <div>
+              <p class="font-bold text-center">Kierunki wiatru:</p>
+              <p class="text-center">NE, E, SE, S</p>
+            </div>
+            <a
+              href="https://www.google.com/maps/dir/?api=1&destination=51.82270426116622, 18.668874495545356"
+              target="_blank"
+              class="inline-block font-montserrat uppercase font-semibold bg-transparent border-2 border-textColor text-textColor py-2 px-4 rounded hover:bg-textColor hover:text-white transition-colors"
+            >
+              Dojazd
+            </a>
+          </div>
+
+          <div class="space-y-6 lightbox-item">
+            <a
+              href="/assets/zaspy-mapa.webp"
+              class="block relative bg-gray-200 rounded-2xl shadow-lg overflow-hidden"
+            >
+              <!-- This div creates the 4:3 aspect ratio -->
+              <div style="padding-bottom: 75%"></div>
+              <img
+                src="/assets/zaspy-mapa.webp"
+                alt="Mapa spotu Zaspy"
+                class="absolute top-0 left-0 w-full h-full object-cover"
+                loading="lazy"
+                onload="this.style.opacity=1"
+                style="opacity: 0"
+              />
+            </a>
+            <div class="bg-slate-900 rounded-2xl p-3 mt-2">
+              <div class="text-xs text-center">
+                <p class="flex justify-center items-center space-x-4">
+                  <span class="text-gray-300"
+                    ><span class="text-[#00feff]">■</span> Parking</span
+                  >
+                  <span class="text-gray-300"
+                    ><span class="text-[#00fe00]">■</span> Strefa startu</span
+                  >
+                  <span class="text-gray-300"
+                    ><span class="text-[#ea2a1d]">■</span> Strefa niebezpieczna</span
+                  >
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </Layout>
+
+    <!-- Fullscreen Image Modal -->
+    <div
+      id="fullscreen-modal"
+      class="fixed inset-0 bg-black flex items-center justify-center z-[1200] hidden"
+    >
+      <button
+        id="close-fullscreen-modal"
+        class="absolute top-4 right-4 text-white text-4xl font-bold focus:outline-none"
+      >
+        &times;
+      </button>
+      <img
+        id="fullscreen-image"
+        src=""
+        alt="Fullscreen Image"
+        class="max-w-[90%] max-h-[90%] object-contain"
+      />
+    </div>
+
+    <script>
+      import "../../../main.js";
+    </script>
+  </body>
+</html>
+
