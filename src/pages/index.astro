@@ -9,9 +9,7 @@ const navLinks = [
 ];
 const desktopSubNav = [];
 
-const mobileSubNav = [
-  { href: "/spots/jeziorsko/", label: "Jeziorsko", isActive: false },
-];
+const mobileSubNav = [];
 ---
 
 <html lang="en" class="h-full">
@@ -20,16 +18,11 @@ const mobileSubNav = [
   </head>
   <body class="h-full">
     <Layout
-      navLinks={navLinks}
       desktopSubNav={desktopSubNav}
       mobileSubNav={mobileSubNav}
+      isMainPage={true}
     >
-      <!-- Title and Subtitle at Top -->
-      <div class="text-center mb-8">
-        <h1 class="text-4xl md:text-5xl font-bold mb-4 text-gray-800">
-          Witaj na Kite Łódź
-        </h1>
-      </div>
+
 
       <!-- Content Section: Tiles on Left, Image on Right -->
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">

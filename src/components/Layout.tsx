@@ -5,9 +5,10 @@ import type { NavLink } from "./navigation";
 import "../styles/global.css";
 
 interface LayoutProps {
-  navLinks: NavLink[];
+  navLinks?: NavLink[];
   desktopSubNav?: NavLink[];
   mobileSubNav?: NavLink[];
+  isMainPage?: boolean;
   children: ReactNode;
 }
 
@@ -15,6 +16,7 @@ export const Layout: FunctionComponent<LayoutProps> = ({
   navLinks,
   desktopSubNav,
   mobileSubNav,
+  isMainPage = false,
   children,
 }) => (
   <div
@@ -26,11 +28,18 @@ export const Layout: FunctionComponent<LayoutProps> = ({
     </div>
 
     <div className="container mx-auto flex-1 overflow-hidden p-4 pb-0 mb-2 md:p-8 md:bg-white md:bg-opacity-50 md:rounded-lg">
-      <div className="overflow-y-auto h-full">{children}</div>
+      <div className="overflow-y-auto h-full">
+        {isMainPage && (
+          <div className="md:hidden text-center mb-4">
+            <h3 className="text-2xl">Witaj na Kite Łódź</h3>
+          </div>
+        )}
+        {children}
+      </div>
     </div>
 
     <div className="md:hidden">
-      <MobileNav subNav={mobileSubNav} />
+      <MobileNav subNav={mobileSubNav} isMainPage={isMainPage} />
     </div>
   </div>
 );

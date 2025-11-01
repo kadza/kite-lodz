@@ -4,6 +4,7 @@ import type { NavLink, NavTreeNode } from "./navigation";
 
 interface MobileNavProps {
   subNav?: NavLink[];
+  isMainPage?: boolean;
 }
 
 interface NavTreeProps {
@@ -84,16 +85,24 @@ const NavTree: FunctionComponent<NavTreeProps> = ({
   );
 };
 
-export const MobileNav: FunctionComponent<MobileNavProps> = ({ subNav }) => {
+export const MobileNav: FunctionComponent<MobileNavProps> = ({
+  subNav,
+  isMainPage = false,
+}) => {
   const currentPath =
     typeof window !== "undefined" ? window.location.pathname : "";
+
+  // Filter out Jeziorsko nav item on main page
+  const filteredNavigation = isMainPage
+    ? siteNavigation.filter((node) => node.href !== "/spots/jeziorsko/")
+    : siteNavigation;
 
   return (
     <nav className="md:min-h-[4.5rem] mb-2 md:mt-5 flex flex-col">
       <div
-        className={`container mx-auto flex uppercase ${subNav?.length ? "justify-between" : "justify-end"} px-4`}
+        className={`container mx-auto flex uppercase ${subNav && subNav.length > 0 ? "justify-between" : "justify-end"} px-4`}
       >
-        {subNav && (
+        {subNav && subNav.length > 0 && (
           <div>
             <div className="container mx-auto flex flex-wrap uppercase">
               {subNav.map((link, index) => (
@@ -146,7 +155,11 @@ export const MobileNav: FunctionComponent<MobileNavProps> = ({ subNav }) => {
           ×
         </button>
         <div className="w-full space-y-4">
-          <NavTree nodes={siteNavigation} currentPath={currentPath} level={0} />
+          <NavTree
+            nodes={filteredNavigation}
+            currentPath={currentPath}
+            level={0}
+          />
         </div>
       </div>
     </nav>

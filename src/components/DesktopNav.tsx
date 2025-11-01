@@ -2,7 +2,7 @@ import { type FunctionComponent } from "react";
 import type { NavLink } from "./navigation";
 
 interface DesktopNavProps {
-  links: NavLink[];
+  links?: NavLink[];
   subNav?: NavLink[];
 }
 
@@ -13,21 +13,27 @@ export const DesktopNav: FunctionComponent<DesktopNavProps> = ({
   return (
     <nav className="mb-2 mt-2 md:mt-5 min-h-[4.5rem]">
       <div className="container mx-auto flex uppercase items-center px-4">
-        <div className="flex space-x-8 font-montserrat text-[2rem]">
-          {links.map((link, index) => (
-            <div key={link.href} className="contents">
-              <a
-                href={link.href}
-                className={`hover:text-hoverColor text-textColor ${link.isActive ? "underline decoration-2 underline-offset-8" : ""}`}
-              >
-                {link.label}
-              </a>
-              {index < links.length - 1 && (
-                <span className="border-l border-textColor h-8 self-center mx-4"></span>
-              )}
-            </div>
-          ))}
-        </div>
+        {links && links.length > 0 ? (
+          <div className="flex space-x-8 font-montserrat text-[2rem]">
+            {links.map((link, index) => (
+              <div key={link.href} className="contents">
+                <a
+                  href={link.href}
+                  className={`hover:text-hoverColor text-textColor ${link.isActive ? "underline decoration-2 underline-offset-8" : ""}`}
+                >
+                  {link.label}
+                </a>
+                {index < links.length - 1 && (
+                  <span className="border-l border-textColor h-8 self-center mx-4"></span>
+                )}
+              </div>
+            ))}
+          </div>
+        ) : (
+          <div className="font-montserrat text-[2rem] text-textColor">
+            Witaj na Kite Łódź
+          </div>
+        )}
       </div>
       {subNav && (
         <div className="container mx-auto flex flex-nowrap uppercase px-4 gap-3 md:gap-0">
