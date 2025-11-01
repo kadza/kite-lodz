@@ -40,6 +40,10 @@ export const siteNavigation: NavTreeNode[] = [
       },
     ],
   },
+  {
+    href: "/kontakt",
+    label: "Kontakt",
+  },
 ];
 
 export function flattenNavigationTree(

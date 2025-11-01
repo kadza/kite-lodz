@@ -1,0 +1,80 @@
+---
+import { Layout } from "../components/Layout";
+import { Head } from "../components/Head";
+
+const navLinks = [
+  { href: "/", label: "Kite Łódź", isActive: false },
+  { href: "/spots/jeziorsko/", label: "Jeziorsko", isActive: false },
+  { href: "/kontakt", label: "Kontakt", isActive: true },
+];
+const desktopSubNav = [];
+const mobileSubNav = [];
+---
+
+<html lang="en" class="h-full">
+  <head>
+    <Head title="Kontakt" />
+  </head>
+  <body class="h-full">
+    <Layout
+      navLinks={navLinks}
+      desktopSubNav={desktopSubNav}
+      mobileSubNav={mobileSubNav}
+    >
+      <div class="prose max-w-none">
+        <p class="mb-6">
+          Jeśli chcesz coś dodać, zmienić, każda opinia jest mile widziana.
+          Napisz na email:
+          <a
+            href="mailto:kitelodz@gmail.com"
+            class="text-textColor hover:text-hoverColor uppercase transition-colors"
+          >
+            kitelodz@gmail.com
+          </a>
+        </p>
+        <p class="mb-4">
+          Jeśli szukasz dodatkowych informacji, towarzystwa na spocie. Dołącz do
+          lokalnych grup społeczności:
+        </p>
+        <ul class="list-disc list-inside mb-6">
+          <li>
+            <a
+              href="https://www.facebook.com/groups/1571573253349645/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-textColor hover:text-hoverColor uppercase transition-colors"
+            >
+              Kitesurfing Jeziorsko
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://www.facebook.com/groups/kite.lodz/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-textColor hover:text-hoverColor uppercase transition-colors"
+            >
+              Kite Łódź
+            </a>
+          </li>
+        </ul>
+        <p>
+          Jeśli chcesz pomóc i rozwijać stronę, zapraszam:
+          <a
+            href="https://github.com/kadza/kite-lodz"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-textColor hover:text-hoverColor uppercase transition-colors"
+          >
+            Projekt na Github
+          </a>
+        </p>
+        <p></p>
+      </div>
+    </Layout>
+  </body>
+</html>
+
+<script>
+  import "../main.js";
+</script>
