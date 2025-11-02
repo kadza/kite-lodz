@@ -39,7 +39,7 @@ export const Layout: FunctionComponent<LayoutProps> = ({
     </div>
 
     <div className="md:hidden">
-      <MobileNav subNav={mobileSubNav} isMainPage={isMainPage} />
+      <MobileNav subNav={mobileSubNav} />
     </div>
   </div>
 );

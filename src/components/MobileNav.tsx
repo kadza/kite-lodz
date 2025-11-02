@@ -4,7 +4,6 @@ import type { NavLink, NavTreeNode } from "./navigation";
 
 interface MobileNavProps {
   subNav?: NavLink[];
-  isMainPage?: boolean;
 }
 
 interface NavTreeProps {
@@ -85,17 +84,11 @@ const NavTree: FunctionComponent<NavTreeProps> = ({
   );
 };
 
-export const MobileNav: FunctionComponent<MobileNavProps> = ({
-  subNav,
-  isMainPage = false,
-}) => {
+export const MobileNav: FunctionComponent<MobileNavProps> = ({ subNav }) => {
   const currentPath =
     typeof window !== "undefined" ? window.location.pathname : "";
 
-  // Filter out Jeziorsko nav item on main page
-  const filteredNavigation = isMainPage
-    ? siteNavigation.filter((node) => node.href !== "/spots/jeziorsko/")
-    : siteNavigation;
+  const filteredNavigation = siteNavigation;
 
   return (
     <nav className="md:min-h-[4.5rem] mb-2 md:mt-5 flex flex-col">
