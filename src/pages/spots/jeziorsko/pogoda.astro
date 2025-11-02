@@ -20,7 +20,7 @@ const subNav = [
   <body class="h-full">
     <Layout navLinks={navLinks} desktopSubNav={subNav} mobileSubNav={subNav}>
       <div class="space-y-4">
-        <!-- Current Weather Tile -->
+        <!-- Current Weather  -->
         <div class="p-6 bg-white bg-opacity-70 rounded-2xl shadow-lg">
           <h3 class="text-xl mb-4">Aktualna pogoda*</h3>
           <div id="current-weather" class="flex flex-col space-y-2">
@@ -38,20 +38,13 @@ const subNav = [
             </div>
           </div>
         </div>
-
-        <!-- Forecast Tile -->
-        <div class="p-6 bg-white bg-opacity-70 rounded-2xl shadow-lg">
-          <h3 class="text-xl mb-4">Prognozy</h3>
+        <!-- Weather forecast  -->
+        <div>
           <img id="meteo-forecast" src="" class="border-0 mb-4 w-full" />
           <iframe
-            class="w-full h-[200px]"
+            class="w-full h-[200px] mb-4"
             src="https://embed.windy.com/embed.html?type=forecast&location=coordinates&detail=true&detailLat=51.792518561875625&detailLon=18.66756670243234&metricTemp=°C&metricRain=mm&metricWind=kt"
             frameborder="0"></iframe>
-        </div>
-
-        <!-- Additional Weather Widget Tile -->
-        <div class="p-6 bg-white bg-opacity-70 rounded-2xl shadow-lg">
-          <h3 class="text-xl mb-4">Dodatkowe informacje</h3>
           <div id="wg_fwdg_3644_100_1752307649736"></div>
           <div data-weather-widget></div>
         </div>
