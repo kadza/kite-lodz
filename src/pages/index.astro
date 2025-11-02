@@ -20,14 +20,26 @@ const mobileSubNav = [];
     <Layout
       desktopSubNav={desktopSubNav}
       mobileSubNav={mobileSubNav}
-      isMainPage={true}
     >
 
 
-      <!-- Content Section: Tiles on Left, Image on Right -->
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
+      <!-- Content Section: Image first on mobile, Tiles on Left, Image on Right on desktop -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-8 items-start">
+        <!-- Decorative Image on Right (first on mobile) -->
+        <div class="lg:order-2 lg:sticky lg:top-0 relative">
+          <img
+            src="/assets/surfer.webp"
+            alt="kitesurfer"
+            class="w-full h-full object-cover rounded-2xl"
+            loading="lazy"
+          />
+          <div class="absolute top-4 right-8 text-textColor text-xl lg:text-5xl drop-shadow-lg">
+            Witaj na Kite Łódź
+          </div>
+        </div>
+
         <!-- Featured Highlights Tiles -->
-        <div class="space-y-4">
+        <div class="lg:order-1 space-y-4">
            <div
              class="p-6 bg-white bg-opacity-70 rounded-2xl shadow-lg"
            >
@@ -74,16 +86,6 @@ const mobileSubNav = [];
               Kontakt
             </a>
           </div>
-        </div>
-
-        <!-- Decorative Image on Right -->
-        <div class="lg:sticky lg:top-4">
-          <img
-            src="/assets/surfer.webp"
-            alt="kitesurfer"
-            class="w-full h-full object-cover rounded-lg"
-            loading="lazy"
-          />
         </div>
       </div>
     </Layout>

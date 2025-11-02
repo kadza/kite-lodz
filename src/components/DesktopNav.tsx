@@ -13,7 +13,7 @@ export const DesktopNav: FunctionComponent<DesktopNavProps> = ({
   return (
     <nav className="mb-2 mt-2 md:mt-5 min-h-[4.5rem]">
       <div className="container mx-auto flex uppercase items-center px-4">
-        {links && links.length > 0 ? (
+        {links && links.length > 0 && (
           <div className="flex space-x-8 font-montserrat text-[2rem]">
             {links.map((link, index) => (
               <div key={link.href} className="contents">
@@ -28,10 +28,6 @@ export const DesktopNav: FunctionComponent<DesktopNavProps> = ({
                 )}
               </div>
             ))}
-          </div>
-        ) : (
-          <div className="font-montserrat text-[2rem] text-textColor">
-            Witaj na Kite Łódź
           </div>
         )}
       </div>
