@@ -24,14 +24,9 @@ export const siteNavigation: NavTreeNode[] = [
         label: "Spoty",
         children: [
           { href: "/spots/jeziorsko/popow", label: "Popów" },
-          { href: "/spots/jeziorsko/popow-polanka", label: "Popów polanka" },
-          { href: "/spots/jeziorsko/wylazlow", label: "Wylazłów" },
-          { href: "/spots/jeziorsko/brodnia-tama", label: "Brodnia tama" },
-          { href: "/spots/jeziorsko/brodnia-cypel", label: "Brodnia cypel" },
           { href: "/spots/jeziorsko/ostrow", label: "Ostrów Warcki" },
           { href: "/spots/jeziorsko/zaspy", label: "Zaspy" },
           { href: "/spots/jeziorsko/milkowice", label: "Miłkowice" },
-          { href: "/spots/jeziorsko/skarpa", label: "Skarpa" },
         ],
       },
       {
