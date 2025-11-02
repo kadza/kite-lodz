@@ -27,7 +27,7 @@ export const Layout: FunctionComponent<LayoutProps> = ({
       <DesktopNav links={navLinks} subNav={desktopSubNav} />
     </div>
 
-    <div className="container mx-auto flex-1 overflow-hidden p-4 pb-0 mb-2 md:p-8 md:bg-white md:bg-opacity-50 md:rounded-lg">
+    <div className="container mx-auto flex-1 overflow-hidden p-2 md:p-4 mb-2">
       <div className="overflow-y-auto h-full">
         {isMainPage && (
           <div className="md:hidden text-center mb-4">

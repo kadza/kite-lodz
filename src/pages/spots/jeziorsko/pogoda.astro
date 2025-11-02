@@ -19,48 +19,56 @@ const subNav = [
   </head>
   <body class="h-full">
     <Layout navLinks={navLinks} desktopSubNav={subNav} mobileSubNav={subNav}>
-      <div class="w-full flex flex-col items-start">
-        <div class="w-full mb-4">
-          <h3 class="text-xl mb-2">Aktualna pogoda*</h3>
-          <div id="current-weather" class="flex flex-col">
+      <div class="space-y-4">
+        <!-- Current Weather Tile -->
+        <div class="p-6 bg-white bg-opacity-70 rounded-2xl shadow-lg">
+          <h3 class="text-xl mb-4">Aktualna pogoda*</h3>
+          <div id="current-weather" class="flex flex-col space-y-2">
             <div class="flex space-x-2">
-              <p>Kierunek wiatru:</p>
-              <p id="wind-dir">-</p>
+              <p class="text-gray-700">Kierunek wiatru:</p>
+              <p id="wind-dir" class="text-gray-700">-</p>
             </div>
             <div class="flex space-x-2">
-              <p>Prędkość wiatru:</p>
-              <p id="wind-speed">-</p>
+              <p class="text-gray-700">Prędkość wiatru:</p>
+              <p id="wind-speed" class="text-gray-700">-</p>
             </div>
             <div class="flex space-x-2">
-              <p>Temperatura:</p>
-              <p id="temperature">-</p>
+              <p class="text-gray-700">Temperatura:</p>
+              <p id="temperature" class="text-gray-700">-</p>
             </div>
           </div>
         </div>
-        <h3 class="text-xl mb-2">Prognozy</h3>
-        <img id="meteo-forecast" src="" class="border-0 mb-4" />
-        <div class="w-full mb-4">
+
+        <!-- Forecast Tile -->
+        <div class="p-6 bg-white bg-opacity-70 rounded-2xl shadow-lg">
+          <h3 class="text-xl mb-4">Prognozy</h3>
+          <img id="meteo-forecast" src="" class="border-0 mb-4 w-full" />
           <iframe
             class="w-full h-[200px]"
             src="https://embed.windy.com/embed.html?type=forecast&location=coordinates&detail=true&detailLat=51.792518561875625&detailLon=18.66756670243234&metricTemp=°C&metricRain=mm&metricWind=kt"
             frameborder="0"></iframe>
         </div>
-        <div class="w-full">
+
+        <!-- Additional Weather Widget Tile -->
+        <div class="p-6 bg-white bg-opacity-70 rounded-2xl shadow-lg">
+          <h3 class="text-xl mb-4">Dodatkowe informacje</h3>
           <div id="wg_fwdg_3644_100_1752307649736"></div>
           <div data-weather-widget></div>
         </div>
-      </div>
-      <div class="w-full text-left text-xs mt-4">
-        <p>
-          * Aktualna pogoda jest pobierana ze strony
-          <a
-            href="http://meteor.iung.pulawy.pl/view2.php?u=Warta"
-            target="_blank"
-            class="underline"
-          >
-            pulawy.pl
-          </a>
-        </p>
+
+        <!-- Source Note Tile -->
+        <div class="p-6 bg-white bg-opacity-70 rounded-2xl shadow-lg">
+          <p class="text-xs text-gray-700">
+            * Aktualna pogoda jest pobierana ze strony
+            <a
+              href="http://meteor.iung.pulawy.pl/view2.php?u=Warta"
+              target="_blank"
+              class="underline text-textColor hover:text-hoverColor"
+            >
+              pulawy.pl
+            </a>
+          </p>
+        </div>
       </div>
     </Layout>
 
