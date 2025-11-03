@@ -14,15 +14,10 @@ const mobileSubNav = [];
 
 <html lang="en" class="h-full">
   <head>
-    <Head title="Kite Spots" />
+    <Head title="Kite Łódź" />
   </head>
   <body class="h-full">
-    <Layout
-      desktopSubNav={desktopSubNav}
-      mobileSubNav={mobileSubNav}
-    >
-
-
+    <Layout desktopSubNav={desktopSubNav} mobileSubNav={mobileSubNav}>
       <!-- Content Section: Image first on mobile, Image on Left, Tiles on Right on desktop -->
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-8 items-start">
         <!-- Decorative Image on Left (first on mobile) -->
@@ -33,17 +28,17 @@ const mobileSubNav = [];
             class="w-full h-full object-cover rounded-2xl"
             loading="lazy"
           />
-          <div class="absolute top-4 right-8 text-textColor text-xl lg:text-5xl drop-shadow-lg">
+          <div
+            class="absolute top-4 right-8 text-textColor text-xl lg:text-5xl drop-shadow-lg"
+          >
             Witaj na Kite Łódź
           </div>
         </div>
 
         <!-- Featured Highlights Tiles -->
         <div class="lg:order-2 space-y-4">
-           <div
-             class="p-6 bg-white bg-opacity-70 rounded-2xl shadow-lg"
-           >
-             <h3 class="text-xl mb-2">Spoty</h3>
+          <div class="p-6 bg-white bg-opacity-70 rounded-2xl shadow-lg">
+            <h3 class="text-xl mb-2">Spoty</h3>
             <p class="text-gray-700 mb-4">
               Poznaj sekrety lokalnych spotów i unikaj niebezpieczeństw.
               Doświadczenie i wiedza to klucz do udanych sesji.
@@ -55,10 +50,8 @@ const mobileSubNav = [];
               Jeziorsko
             </a>
           </div>
-           <div
-             class="p-6 bg-white bg-opacity-70 rounded-2xl shadow-lg"
-           >
-             <h3 class="text-xl mb-2">Aktualna Pogoda</h3>
+          <div class="p-6 bg-white bg-opacity-70 rounded-2xl shadow-lg">
+            <h3 class="text-xl mb-2">Aktualna Pogoda</h3>
             <p class="text-gray-700 mb-4">
               Sprawdź prognozę wiatru i warunki atmosferyczne przed wyjściem na
               wodę. Bezpieczeństwo przede wszystkim!
@@ -71,10 +64,8 @@ const mobileSubNav = [];
             </a>
           </div>
 
-           <div
-             class="p-6 bg-white bg-opacity-70 rounded-2xl shadow-lg"
-           >
-             <h3 class="text-xl mb-2">Kontakt</h3>
+          <div class="p-6 bg-white bg-opacity-70 rounded-2xl shadow-lg">
+            <h3 class="text-xl mb-2">Kontakt</h3>
             <p class="text-gray-700 mb-4">
               Masz pytania lub chcesz się podzielić wiedzą? Skontaktuj się ze
               mną lub lokalną społecznością.
