@@ -35,7 +35,11 @@ const mobileSubNav = [];
           <div class="p-6 bg-white bg-opacity-70 rounded-2xl shadow-lg">
             <p class="text-gray-700 text-justify">
               Popów to najbardzej popularny spot zlokalizowany na zachodnim
-              brzegu zbiornika Jeziorsko.
+              brzegu zbiornika Jeziorsko. Jeśli stan wody nie jest bardzo
+              wysoki, zawsze jest miejsce na wystartowanie latawca. Niestety
+              praktycznie na calej szerokosci plaży, czasem pod cienką warstwą
+              wody znajduje się dużo kamieni, które są niewidoczne na pierwszy
+              rzut oka. Najalepiej nosić ochronę na stopy nawet latem
             </p>
           </div>
 
@@ -59,91 +63,93 @@ const mobileSubNav = [];
               <li>Przy wysokim stanie wody mało miejsca do startu</li>
               <li>Przy wysokim stanie wody wystające krzaki z wody</li>
               <li>
-                Przy niskim stanie trzeba uważać na pozostalości po
-                fundamentach
+                Przy niskim stanie trzeba uważać na pozostalości po fundamentach
               </li>
               <li>Drzewa blisko wody</li>
               <li>Niebiezpieczny dla początkujących</li>
+              <li>
+                Niebiezpieczny dla foila, szczególnie przy wietrze W onshore
+              </li>
             </ul>
           </div>
 
           <!-- Gallery Tile -->
-          <div class="md:p-6 md:bg-white md:bg-opacity-70 md:rounded-2xl md:shadow-lg">
+          <div
+            class="md:p-6 md:bg-white md:bg-opacity-70 md:rounded-2xl md:shadow-lg"
+          >
             <div class="gallery grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div>
-                  <a
-                    href="/assets/popow-wiosna.webp"
-                    class="block relative h-96 w-full bg-gray-200 rounded-2xl shadow-lg overflow-hidden"
-                  >
-                    <img
-                      src="/assets/popow-wiosna.webp"
-                      alt="Spot Popów wiosną"
-                      class="absolute top-0 left-0 w-full h-full object-cover"
-                      loading="lazy"
-                      onload="this.style.opacity=1"
-                      style="opacity: 0"
-                    />
-                  </a>
-                  <p class="mt-2 text-sm text-gray-600 text-center">
-                    Popów wiosną
-                  </p>
-                </div>
-                <div>
-                  <a
-                    href="/assets/popow-zima.webp"
-                    class="block relative h-96 w-full bg-gray-200 rounded-2xl shadow-lg overflow-hidden"
-                  >
-                    <img
-                      src="/assets/popow-zima.webp"
-                      alt="Spot Popów zimą"
-                      class="absolute top-0 left-0 w-full h-full object-cover"
-                      loading="lazy"
-                      onload="this.style.opacity=1"
-                      style="opacity: 0"
-                    />
-                  </a>
-                  <p class="mt-2 text-sm text-gray-600 text-center">
-                    Popów zimą
-                  </p>
-                </div>
-                <div>
-                  <a
-                    href="/assets/popow-fundamenty.webp"
-                    class="block relative h-96 w-full bg-gray-200 rounded-2xl shadow-lg overflow-hidden"
-                  >
-                    <img
-                      src="/assets/popow-fundamenty.webp"
-                      alt="Fundamenty w Popowie"
-                      class="absolute top-0 left-0 w-full h-full object-cover"
-                      loading="lazy"
-                      onload="this.style.opacity=1"
-                      style="opacity: 0"
-                    />
-                  </a>
-                  <p class="mt-2 text-sm text-gray-600 text-center">
-                    Fundamenty w Popowie zimą
-                  </p>
-                </div>
-                <div>
-                  <a
-                    href="/assets/popow-lato-mapa.webp"
-                    class="block relative h-96 w-full bg-gray-200 rounded-2xl shadow-lg overflow-hidden"
-                  >
-                    <img
-                      src="/assets/popow-lato-mapa.webp"
-                      alt="Mapa Popowa latem"
-                      class="absolute top-0 left-0 w-full h-full object-cover"
-                      loading="lazy"
-                      onload="this.style.opacity=1"
-                      style="opacity: 0"
-                    />
-                  </a>
-                  <p class="mt-2 text-sm text-gray-600 text-center">
-                    Widok na spot Popów latem
-                  </p>
+              <div>
+                <a
+                  href="/assets/popow-wiosna.webp"
+                  class="block relative h-96 w-full bg-gray-200 rounded-2xl shadow-lg overflow-hidden"
+                >
+                  <img
+                    src="/assets/popow-wiosna.webp"
+                    alt="Spot Popów wiosną"
+                    class="absolute top-0 left-0 w-full h-full object-cover"
+                    loading="lazy"
+                    onload="this.style.opacity=1"
+                    style="opacity: 0"
+                  />
+                </a>
+                <p class="mt-2 text-sm text-gray-600 text-center">
+                  Popów wiosną
+                </p>
               </div>
+              <div>
+                <a
+                  href="/assets/popow-zima.webp"
+                  class="block relative h-96 w-full bg-gray-200 rounded-2xl shadow-lg overflow-hidden"
+                >
+                  <img
+                    src="/assets/popow-zima.webp"
+                    alt="Spot Popów zimą"
+                    class="absolute top-0 left-0 w-full h-full object-cover"
+                    loading="lazy"
+                    onload="this.style.opacity=1"
+                    style="opacity: 0"
+                  />
+                </a>
+                <p class="mt-2 text-sm text-gray-600 text-center">Popów zimą</p>
+              </div>
+              <div>
+                <a
+                  href="/assets/popow-fundamenty.webp"
+                  class="block relative h-96 w-full bg-gray-200 rounded-2xl shadow-lg overflow-hidden"
+                >
+                  <img
+                    src="/assets/popow-fundamenty.webp"
+                    alt="Fundamenty w Popowie"
+                    class="absolute top-0 left-0 w-full h-full object-cover"
+                    loading="lazy"
+                    onload="this.style.opacity=1"
+                    style="opacity: 0"
+                  />
+                </a>
+                <p class="mt-2 text-sm text-gray-600 text-center">
+                  Fundamenty w Popowie zimą
+                </p>
+              </div>
+              <div>
+                <a
+                  href="/assets/popow-lato-mapa.webp"
+                  class="block relative h-96 w-full bg-gray-200 rounded-2xl shadow-lg overflow-hidden"
+                >
+                  <img
+                    src="/assets/popow-lato-mapa.webp"
+                    alt="Mapa Popowa latem"
+                    class="absolute top-0 left-0 w-full h-full object-cover"
+                    loading="lazy"
+                    onload="this.style.opacity=1"
+                    style="opacity: 0"
+                  />
+                </a>
+                <p class="mt-2 text-sm text-gray-600 text-center">
+                  Widok na spot Popów latem
+                </p>
+              </div>
+            </div>
           </div>
-        </div>
         </div>
 
         <!-- Sidebar / Info card -->
@@ -166,7 +172,9 @@ const mobileSubNav = [];
           </div>
 
           <!-- Map Tile -->
-          <div class="md:p-6 md:bg-white md:bg-opacity-70 md:rounded-2xl md:shadow-lg">
+          <div
+            class="md:p-6 md:bg-white md:bg-opacity-70 md:rounded-2xl md:shadow-lg"
+          >
             <div class="space-y-6 lightbox-item">
               <a
                 href="/assets/popow-mapa.webp"
@@ -175,55 +183,56 @@ const mobileSubNav = [];
                 <!-- This div creates the 4:3 aspect ratio -->
                 <div style="padding-bottom: 75%"></div>
                 <img
-                src="/assets/popow-mapa.webp"
-                alt="Mapa spotu Popów"
-                class="absolute top-0 left-0 w-full h-full object-cover"
-                loading="lazy"
-                onload="this.style.opacity=1"
-                style="opacity: 0"
-              />
-            </a>
-            <div class="bg-slate-900 rounded-2xl p-3 mt-2">
-              <div class="text-xs text-center">
-                <p class="flex justify-center items-center space-x-4">
-                  <span class="text-gray-300"
-                    ><span class="text-[#00feff]">■</span> Parking</span
-                  >
-                  <span class="text-gray-300"
-                    ><span class="text-[#00fe00]">■</span> Strefa startu</span
-                  >
-                  <span class="text-gray-300"
-                    ><span class="text-[#ea2a1d]">■</span> Strefa niebezpieczna</span
-                  >
-                </p>
+                  src="/assets/popow-mapa.webp"
+                  alt="Mapa spotu Popów"
+                  class="absolute top-0 left-0 w-full h-full object-cover"
+                  loading="lazy"
+                  onload="this.style.opacity=1"
+                  style="opacity: 0"
+                />
+              </a>
+              <div class="bg-slate-900 rounded-2xl p-3 mt-2">
+                <div class="text-xs text-center">
+                  <p class="flex justify-center items-center space-x-4">
+                    <span class="text-gray-300"
+                      ><span class="text-[#00feff]">■</span> Parking</span
+                    >
+                    <span class="text-gray-300"
+                      ><span class="text-[#00fe00]">■</span> Strefa startu</span
+                    >
+                    <span class="text-gray-300"
+                      ><span class="text-[#ea2a1d]">■</span> Strefa niebezpieczna</span
+                    >
+                  </p>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </Layout>
 
-    <!-- Fullscreen Image Modal -->
-    <div
-      id="fullscreen-modal"
-      class="fixed inset-0 bg-black flex items-center justify-center z-[1200] hidden"
-    >
-      <button
-        id="close-fullscreen-modal"
-        class="absolute top-4 right-4 text-white text-4xl font-bold focus:outline-none"
+      <!-- Fullscreen Image Modal -->
+      <div
+        id="fullscreen-modal"
+        class="fixed inset-0 bg-black flex items-center justify-center z-[1200] hidden"
       >
-        &times;
-      </button>
-      <img
-        id="fullscreen-image"
-        src=""
-        alt="Fullscreen Image"
-        class="max-w-[90%] max-h-[90%] object-contain"
-      />
-    </div>
+        <button
+          id="close-fullscreen-modal"
+          class="absolute top-4 right-4 text-white text-4xl font-bold focus:outline-none"
+        >
+          &times;
+        </button>
+        <img
+          id="fullscreen-image"
+          src=""
+          alt="Fullscreen Image"
+          class="max-w-[90%] max-h-[90%] object-contain"
+        />
+      </div>
 
-    <script>
-      import "../../../main.js";
-    </script>
+      <script>
+        import "../../../main.js";
+      </script>
+    </Layout>
   </body>
 </html>
