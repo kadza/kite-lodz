@@ -37,7 +37,9 @@ export function initMap() {
       },
       "popow-polanka": {
         coords: [51.828077, 18.718547],
-        elem: document.querySelector(`a[href="/spots/jeziorsko/popow-polanka"]`),
+        elem: document.querySelector(
+          `a[href="/spots/jeziorsko/popow-polanka"]`,
+        ),
       },
       wylazlow: {
         coords: [51.820756, 18.717871],
@@ -53,7 +55,9 @@ export function initMap() {
       },
       "brodnia-cypel": {
         coords: [51.796756, 18.684622],
-        elem: document.querySelector(`a[href="/spots/jeziorsko/brodnia-cypel"]`),
+        elem: document.querySelector(
+          `a[href="/spots/jeziorsko/brodnia-cypel"]`,
+        ),
       },
       ostrow: {
         coords: [51.803366, 18.660262],
@@ -71,9 +75,12 @@ export function initMap() {
 
     for (const spotName in spots) {
       const spot = spots[spotName];
+      const popupContent = spot.elem
+        ? `<a href="${spot.elem.href}" class="popup-link">${spot.elem.textContent}</a>`
+        : spot.elem?.textContent || spotName;
       spot.marker = L.marker(spot.coords, { icon: defaultIcon })
         .addTo(map)
-        .bindPopup(spot.elem?.textContent || spotName);
+        .bindPopup(popupContent);
 
       spot.marker.on("click", function (e) {
         map.setView(e.latlng, 18);
@@ -108,15 +115,14 @@ export function initMap() {
         map.closePopup();
       });
     }
-
   } catch (error) {
     console.error("Error initializing map:", error);
   }
 }
 
 // Auto-initialize when DOM is ready
-if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', initMap);
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", initMap);
 } else {
   initMap();
 }

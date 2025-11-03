@@ -85,3 +85,13 @@ a {
 .text-shadow-lg {
   text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.8);
 }
+
+/* Popup link styles */
+.popup-link {
+  color: #39563e;
+  text-decoration: none;
+}
+
+.popup-link:hover {
+  color: #c7a370;
+}
