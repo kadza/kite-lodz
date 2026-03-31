@@ -1,0 +1,12 @@
+{
+  "name": "kite-app",
+  "image": "mcr.microsoft.com/devcontainers/javascript-node:24-bookworm",
+  "features": {
+    "ghcr.io/devcontainers/features/docker-outside-of-docker:1": {}
+  },
+  "containerEnv": {
+    "NODE_OPTIONS": "--openssl-legacy-provider --max-old-space-size=4096"
+  },
+  "postCreateCommand": "bash .devcontainer/setup.sh",
+  "runArgs": ["--name", "kite-app", "--network=host"]
+}
