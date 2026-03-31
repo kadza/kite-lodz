@@ -15,34 +15,9 @@ export function initWeatherData() {
   }
 
   try {
-    // Set up forecast image
+    // Set up forecast image with fallback to older forecasts
     if (forecastElement) {
-      const now = new Date();
-      const delayedDate = new Date(now.getTime() - 21600000); // Subtract 6 hours
-
-      const options = {
-        timeZone: "Europe/Warsaw",
-        year: "numeric",
-        month: "2-digit",
-        day: "2-digit",
-        hour: "2-digit",
-        hour12: false,
-      };
-      const formatter = new Intl.DateTimeFormat("en-CA", options);
-      const parts = formatter.formatToParts(delayedDate);
-
-      const year = parts.find((p) => p.type === "year").value;
-      const month = parts.find((p) => p.type === "month").value;
-      const day = parts.find((p) => p.type === "day").value;
-      const hour = parseInt(parts.find((p) => p.type === "hour").value, 10);
-
-      const forecastHourSlot = Math.floor(hour / 6) * 6;
-      const formattedHour = String(forecastHourSlot).padStart(2, "0");
-
-      const fdate = `${year}${month}${day}${formattedHour}`;
-      const forecastUrl = `https://old.meteo.pl/um/metco/mgram_pict.php?ntype=0u&fdate=${fdate}&row=416&col=206&lang=pl`;
-
-      forecastElement.src = forecastUrl;
+      loadForecastImage(forecastElement);
     }
 
     // Fetch and display current weather data
@@ -54,6 +29,65 @@ export function initWeatherData() {
     if (windSpeedElement) windSpeedElement.textContent = "Błąd";
     if (temperatureElement) temperatureElement.textContent = "Błąd";
   }
+}
+
+function getFdateCandidates() {
+  const options = {
+    timeZone: "Europe/Warsaw",
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+    hour: "2-digit",
+    hour12: false,
+  };
+  const formatter = new Intl.DateTimeFormat("en-CA", options);
+  const candidates = [];
+
+  // Try progressively older forecasts: 6h, 12h, 18h, 24h back
+  for (const hoursBack of [6, 12, 18, 24]) {
+    const delayedDate = new Date(Date.now() - hoursBack * 3600000);
+    const parts = formatter.formatToParts(delayedDate);
+
+    const year = parts.find((p) => p.type === "year").value;
+    const month = parts.find((p) => p.type === "month").value;
+    const day = parts.find((p) => p.type === "day").value;
+    const hour = parseInt(parts.find((p) => p.type === "hour").value, 10);
+
+    const forecastHourSlot = Math.floor(hour / 6) * 6;
+    const fdate = `${year}${month}${day}${String(forecastHourSlot).padStart(2, "0")}`;
+
+    if (!candidates.includes(fdate)) {
+      candidates.push(fdate);
+    }
+  }
+  return candidates;
+}
+
+function isValidForecast(img) {
+  // Black rectangle placeholder from meteo.pl is 10x130px
+  // Valid forecasts are 540x780px
+  return img.naturalWidth > 100 && img.naturalHeight > 100;
+}
+
+async function loadForecastImage(forecastElement) {
+  const candidates = getFdateCandidates();
+
+  for (const fdate of candidates) {
+    const url = `https://old.meteo.pl/um/metco/mgram_pict.php?ntype=0u&fdate=${fdate}&row=416&col=206&lang=pl`;
+    const valid = await new Promise((resolve) => {
+      const img = new Image();
+      img.onload = () => resolve(isValidForecast(img) ? url : null);
+      img.onerror = () => resolve(null);
+      img.src = url;
+    });
+    if (valid) {
+      forecastElement.src = valid;
+      return;
+    }
+  }
+
+  // All candidates failed — show the most recent one anyway
+  forecastElement.src = `https://old.meteo.pl/um/metco/mgram_pict.php?ntype=0u&fdate=${candidates[0]}&row=416&col=206&lang=pl`;
 }
 
 async function fetchWeather() {
