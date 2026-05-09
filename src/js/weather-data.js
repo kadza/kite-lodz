@@ -4,30 +4,22 @@
  */
 
 export function initWeatherData() {
-  // Check if weather elements exist
   const windDirElement = document.getElementById("wind-dir");
-  const windSpeedElement = document.getElementById("wind-speed");
-  const temperatureElement = document.getElementById("temperature");
   const forecastElement = document.getElementById("meteo-forecast");
 
-  if (!windDirElement || !windSpeedElement || !temperatureElement) {
-    return; // Exit if weather elements don't exist
+  if (!windDirElement && !forecastElement) {
+    return;
   }
 
   try {
-    // Set up forecast image with fallback to older forecasts
     if (forecastElement) {
       loadForecastImage(forecastElement);
     }
-
-    // Fetch and display current weather data
-    fetchWeather();
-
+    if (windDirElement) {
+      fetchWeather();
+    }
   } catch (error) {
     console.error("Error initializing weather data:", error);
-    if (windDirElement) windDirElement.textContent = "Błąd";
-    if (windSpeedElement) windSpeedElement.textContent = "Błąd";
-    if (temperatureElement) temperatureElement.textContent = "Błąd";
   }
 }
 
@@ -70,10 +62,12 @@ function isValidForecast(img) {
 }
 
 async function loadForecastImage(forecastElement) {
+  const row = forecastElement.dataset.row || "416";
+  const col = forecastElement.dataset.col || "206";
   const candidates = getFdateCandidates();
 
   for (const fdate of candidates) {
-    const url = `https://old.meteo.pl/um/metco/mgram_pict.php?ntype=0u&fdate=${fdate}&row=416&col=206&lang=pl`;
+    const url = `https://old.meteo.pl/um/metco/mgram_pict.php?ntype=0u&fdate=${fdate}&row=${row}&col=${col}&lang=pl`;
     const valid = await new Promise((resolve) => {
       const img = new Image();
       img.onload = () => resolve(isValidForecast(img) ? url : null);
@@ -86,8 +80,7 @@ async function loadForecastImage(forecastElement) {
     }
   }
 
-  // All candidates failed — show the most recent one anyway
-  forecastElement.src = `https://old.meteo.pl/um/metco/mgram_pict.php?ntype=0u&fdate=${candidates[0]}&row=416&col=206&lang=pl`;
+  forecastElement.src = `https://old.meteo.pl/um/metco/mgram_pict.php?ntype=0u&fdate=${candidates[0]}&row=${row}&col=${col}&lang=pl`;
 }
 
 async function fetchWeather() {

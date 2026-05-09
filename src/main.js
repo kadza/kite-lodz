@@ -9,6 +9,7 @@ import { initFullscreenModal } from "./js/fullscreen-modal.js";
 import { loadWeatherWidget } from "./js/weather-widget.js";
 import { initWeatherData } from "./js/weather-data.js";
 import { initMap } from "./js/map.js";
+import { initMap as initPrzykonaMap } from "./js/przykona-map.js";
 
 // Initialize all modules
 document.addEventListener("DOMContentLoaded", () => {
@@ -20,6 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Initialize page-specific functionality
     initFullscreenModal();
     initMap();
+    initPrzykonaMap();
 
     // Initialize weather functionality (only on weather pages)
     if (document.querySelector("[data-weather-widget]")) {
@@ -48,4 +50,5 @@ export {
   loadWeatherWidget,
   initWeatherData,
   initMap,
+  initPrzykonaMap,
 };

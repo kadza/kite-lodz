@@ -1,18 +1,17 @@
 /**
- * Map Functionality for Kite Spots
+ * Map Functionality for Przykona Spots
  * Handles Leaflet map initialization and interactions
  */
 
 export function initMap() {
-  // Check if map element exists
   const mapElement = document.getElementById("map");
-  if (!mapElement || mapElement.dataset.spot !== "jeziorsko") {
-    return; // Exit if map element doesn't exist or is not for Jeziorsko
+  if (!mapElement || mapElement.dataset.spot !== "przykona") {
+    return;
   }
 
   try {
-    const initialCenter = [51.82, 18.69];
-    const initialZoom = 12;
+    const initialCenter = [52.004, 18.653];
+    const initialZoom = 14;
     const map = L.map("map").setView(initialCenter, initialZoom);
 
     L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
@@ -31,45 +30,13 @@ export function initMap() {
     });
 
     const spots = {
-      popow: {
-        coords: [51.831492, 18.720963],
-        elem: document.querySelector(`a[href="/spots/jeziorsko/popow"]`),
+      poludnie: {
+        coords: [52.000246, 18.653343],
+        elem: document.querySelector(`a[href="/spots/przykona/poludnie"]`),
       },
-      "popow-polanka": {
-        coords: [51.828077, 18.718547],
-        elem: document.querySelector(
-          `a[href="/spots/jeziorsko/popow-polanka"]`,
-        ),
-      },
-      wylazlow: {
-        coords: [51.820756, 18.717871],
-        elem: document.querySelector(`a[href="/spots/jeziorsko/wylazlow"]`),
-      },
-      skarpa: {
-        coords: [51.837093, 18.719265],
-        elem: document.querySelector(`a[href="/spots/jeziorsko/skarpa"]`),
-      },
-      "brodnia-tama": {
-        coords: [51.794334, 18.700114],
-        elem: document.querySelector(`a[href="/spots/jeziorsko/brodnia-tama"]`),
-      },
-      "brodnia-cypel": {
-        coords: [51.796756, 18.684622],
-        elem: document.querySelector(
-          `a[href="/spots/jeziorsko/brodnia-cypel"]`,
-        ),
-      },
-      ostrow: {
-        coords: [51.803366, 18.660262],
-        elem: document.querySelector(`a[href="/spots/jeziorsko/ostrow"]`),
-      },
-      zaspy: {
-        coords: [51.822518, 18.668995],
-        elem: document.querySelector(`a[href="/spots/jeziorsko/zaspy"]`),
-      },
-      milkowice: {
-        coords: [51.831662, 18.673346],
-        elem: document.querySelector(`a[href="/spots/jeziorsko/milkowice"]`),
+      polnoc: {
+        coords: [52.007886, 18.652701],
+        elem: document.querySelector(`a[href="/spots/przykona/polnoc"]`),
       },
     };
 
@@ -107,7 +74,6 @@ export function initMap() {
       });
     }
 
-    // Reset map button
     const resetBtn = document.getElementById("reset-map");
     if (resetBtn) {
       resetBtn.addEventListener("click", function () {
@@ -120,9 +86,3 @@ export function initMap() {
   }
 }
 
-// Auto-initialize when DOM is ready
-if (document.readyState === "loading") {
-  document.addEventListener("DOMContentLoaded", initMap);
-} else {
-  initMap();
-}

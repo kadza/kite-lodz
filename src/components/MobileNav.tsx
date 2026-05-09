@@ -39,7 +39,7 @@ const NavTree: FunctionComponent<NavTreeProps> = ({
               </a>
               {shouldShowArrow && (
                 <button
-                  data-toggle-menu="spoty-section"
+                  data-toggle-menu={`spoty-section-${node.href.split("/")[2] || "default"}`}
                   className="ml-2 text-textColor hover:text-hoverColor focus:outline-none mobile-menu-toggle"
                   aria-expanded="false"
                   aria-label="Toggle menu section"
@@ -64,11 +64,11 @@ const NavTree: FunctionComponent<NavTreeProps> = ({
             {hasChildren && node.children && (
               <div
                 id={
-                  node.href === "/spots/jeziorsko/spoty"
-                    ? "spoty-section"
+                  shouldShowArrow
+                    ? `spoty-section-${node.href.split("/")[2] || "default"}`
                     : undefined
                 }
-                className={`ml-4 mt-2 space-y-2 mobile-menu-tree ${node.href === "/spots/jeziorsko/spoty" ? "collapsible-section" : ""}`}
+                className={`ml-4 mt-2 space-y-2 mobile-menu-tree ${shouldShowArrow ? "collapsible-section" : ""}`}
               >
                 <NavTree
                   nodes={node.children}
