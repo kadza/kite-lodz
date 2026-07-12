@@ -1,12 +1,46 @@
 {
-  "name": "kite-app",
-  "image": "mcr.microsoft.com/devcontainers/javascript-node:24-bookworm",
-  "features": {
-    "ghcr.io/devcontainers/features/docker-outside-of-docker:1": {}
-  },
+  "name": "${localWorkspaceFolderBasename}",
+  "image": "mcr.microsoft.com/devcontainers/typescript-node:24",
+
+  // --name: name the Docker container after the seed/project name so it's identifiable in OrbStack/docker ps.
+  // --network=host: share the host's network namespace so any port a dev server opens (4321, 5173, 3000…)
+  //   is reachable directly at localhost:<port> on the host — no --host flag, no per-port publishing.
+  //   Works on OrbStack (not plain Docker Desktop for Mac). Trade-offs: less isolation, and a port already
+  //   in use on the host collides. Network mode is fixed at create time — recreate the container to apply.
+  "runArgs": ["--name", "${localWorkspaceFolderBasename}", "--network=host"],
+
+  "mounts": [
+    // The config repo — single host clone, live write-back (§7). Source path is configurable:
+    // set CLAUDE_DEV_ENV on the host (seed.sh does this automatically; add it to your shell
+    // profile for manual `devcontainer up` rebuilds). Defaults to ~/claude-dev-env via seed.sh.
+    "source=${localEnv:CLAUDE_DEV_ENV},target=/home/node/claude-dev-env,type=bind",
+
+    // Claude runtime state per project, survives rebuilds (§9). Session transcripts/memory:
+    "source=${localEnv:HOME}/claude-state/${localWorkspaceFolderBasename}/projects,target=/home/node/.claude/projects,type=bind",
+    // ...and ~/.claude.json (onboarding/theme/trust/history) so rebuilds skip onboarding. seed.sh
+    // pre-creates this file as `{}` on the host — a file bind mount needs its source to exist.
+    "source=${localEnv:HOME}/claude-state/${localWorkspaceFolderBasename}/claude.json,target=/home/node/.claude.json,type=bind",
+
+    // SSH agent socket (§8). macOS + OrbStack exposes the host agent at this fixed path.
+    // On Linux instead use: source=${localEnv:SSH_AUTH_SOCK},target=/ssh-agent,type=bind
+    "source=/run/host-services/ssh-auth.sock,target=/ssh-agent,type=bind"
+
+    // Claude credentials (§8). On macOS creds live in the Keychain, not a file, so we pass
+    // an OAuth token via containerEnv below instead of mounting ~/.claude/.credentials.json.
+    // If you DO have a credentials file on the host (e.g. Linux), add this mount instead of
+    // setting CLAUDE_CODE_OAUTH_TOKEN:
+    // "source=${localEnv:HOME}/.claude/.credentials.json,target=/home/node/.claude/.credentials.json,type=bind"
+  ],
+
   "containerEnv": {
-    "NODE_OPTIONS": "--openssl-legacy-provider --max-old-space-size=4096"
+    "SSH_AUTH_SOCK": "/ssh-agent",
+    // Run `claude setup-token` once on the host and export the result, e.g.:
+    //   export CLAUDE_CODE_OAUTH_TOKEN="$(claude setup-token)"
+    // so seeded containers start authenticated with no login prompt.
+    "CLAUDE_CODE_OAUTH_TOKEN": "${localEnv:CLAUDE_CODE_OAUTH_TOKEN}"
   },
-  "postCreateCommand": "bash .devcontainer/setup.sh",
-  "runArgs": ["--name", "kite-app", "--network=host"]
+
+  // The state mounts make Docker auto-create ~/.claude (and the ~/.claude.json target) as root;
+  // reclaim them so bootstrap and Claude can write.
+  "postCreateCommand": "sudo chown $(id -un):$(id -gn) /home/node/.claude /home/node/.claude.json && curl -fsSL https://claude.ai/install.sh | bash && /home/node/claude-dev-env/bootstrap.sh node-ts ${localWorkspaceFolderBasename}"
 }
