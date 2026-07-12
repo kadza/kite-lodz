@@ -1,0 +1,68 @@
+---
+import { Layout } from "../../../components/Layout";
+import { Head } from "../../../components/Head";
+
+const navLinks = [
+  { href: "/", label: "Kite Łódź", isActive: false },
+  { href: "/spots/jeziorsko/", label: "Jeziorsko", isActive: false },
+  { href: "/spots/przykona/", label: "Przykona", isActive: true },
+  { href: "/kontakt", label: "Kontakt", isActive: false },
+];
+const subNav = [
+  { href: "/spots/przykona/spoty", label: "Spoty", isActive: false },
+  { href: "/spots/przykona/pogoda", label: "Pogoda", isActive: false },
+];
+---
+
+<html lang="en" class="h-full">
+  <head>
+    <Head title="Przykona Spot" />
+  </head>
+  <body class="h-full">
+    <Layout navLinks={navLinks} desktopSubNav={subNav} mobileSubNav={subNav}>
+      <div class="space-y-4">
+        <div class="p-6 bg-white bg-opacity-70 rounded-2xl shadow-lg">
+          <h3 class="text-xl mb-2">Wiatr</h3>
+          <p>
+            Zbiornik jest otoczony drzewami i zabudowaniami ze wszystkich stron.
+            Akwen nie jest duży i wiatr nie ma się gdzie ustabilizować, w
+            związku z tym jest nierówny. Najlepszy wiatr jest pomiędzy wyspą a
+            południowym brzegiem. Najbardziej sprzyjające kierunki to NW, W i
+            SW.
+          </p>
+        </div>
+        <div class="p-6 bg-white bg-opacity-70 rounded-2xl shadow-lg">
+          <h3 class="text-xl mb-2">Zafalowanie</h3>
+          <p class="mb-4">
+            Akwen jest mały i fale nie mają jak się napędzić, w związku z tym
+            zafalowanie jest małe.
+          </p>
+          <div class="w-full md:w-1/2 bg-gray-300 rounded-2xl overflow-hidden">
+            <img
+              src="/assets/przykona.webp"
+              alt="Akwen Przykona"
+              class="w-full h-full object-cover"
+              loading="lazy"
+              onload="this.style.opacity=1"
+              style="opacity: 0"
+            />
+          </div>
+        </div>
+        <div class="p-6 bg-white bg-opacity-70 rounded-2xl shadow-lg">
+          <h3 class="text-xl mb-2">Niebezpieczeństwa</h3>
+          <p class="mb-1">
+            Miejsc do startu jest całkiem sporo, więc głównym zagrożeniem
+            pozostaje nierówny wiatr. Otaczające zbiornik drzewa i zabudowania
+            powodują, że wiatr potrafi być porywisty, a dziury w wietrze
+            zdarzają się regularnie. Należy o tym pamiętać przy wyborze sprzętu
+            i przy startach z brzegu.
+          </p>
+        </div>
+      </div>
+    </Layout>
+
+    <script>
+      import "../../../main.js";
+    </script>
+  </body>
+</html>

@@ -4,39 +4,50 @@
  */
 
 export function loadWeatherWidget() {
-  // Prevent multiple loads
   if (window.weatherWidgetLoaded) {
     return;
   }
 
+  const widgets = document.querySelectorAll('[id^="wg_fwdg_"]');
+  if (widgets.length === 0) {
+    return;
+  }
+
   const loader = function () {
-    const arg = [
-      "s=3644",
-      "m=100",
-      "uid=wg_fwdg_3644_100_1752307649736",
-      "wj=knots",
-      "tj=c",
-      "waj=m",
-      "tij=cm",
-      "odh=0",
-      "doh=24",
-      "fhours=240",
-      "hrsm=2",
-      "vt=forecasts",
-      "lng=en",
-      "idbs=1",
-      "p=WINDSPD,GUST,SMER,TMPE,FLHGT,CDC,APCP1s,RATING",
-    ];
+    widgets.forEach((widget) => {
+      const uid = widget.id;
+      const spotMatch = uid.match(/^wg_fwdg_(\d+)_/);
+      if (!spotMatch) return;
+      const spotId = spotMatch[1];
 
-    const script = document.createElement("script");
-    const tag = document.getElementsByTagName("script")[0];
+      const arg = [
+        `s=${spotId}`,
+        "m=100",
+        `uid=${uid}`,
+        "wj=knots",
+        "tj=c",
+        "waj=m",
+        "tij=cm",
+        "odh=0",
+        "doh=24",
+        "fhours=240",
+        "hrsm=2",
+        "vt=forecasts",
+        "lng=en",
+        "idbs=1",
+        "p=WINDSPD,GUST,SMER,TMPE,FLHGT,CDC,APCP1s,RATING",
+      ];
 
-    script.src = "https://www.windguru.cz/js/widget.php?" + arg.join("&");
-    script.onerror = function() {
-      console.warn("Failed to load weather widget");
-    };
+      const script = document.createElement("script");
+      const tag = document.getElementsByTagName("script")[0];
 
-    tag.parentNode.insertBefore(script, tag);
+      script.src = "https://www.windguru.cz/js/widget.php?" + arg.join("&");
+      script.onerror = function () {
+        console.warn("Failed to load weather widget for spot", spotId);
+      };
+
+      tag.parentNode.insertBefore(script, tag);
+    });
   };
 
   // Load widget when page loads

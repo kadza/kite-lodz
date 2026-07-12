@@ -5,6 +5,7 @@ import { Head } from "../components/Head";
 const navLinks = [
   { href: "/", label: "Kite Łódź", isActive: true },
   { href: "/spots/jeziorsko/", label: "Jeziorsko", isActive: false },
+  { href: "/spots/przykona/", label: "Przykona", isActive: false },
   { href: "/kontakt", label: "Kontakt", isActive: false },
 ];
 const desktopSubNav = [];
@@ -43,12 +44,20 @@ const mobileSubNav = [];
               Poznaj sekrety lokalnych spotów i unikaj niebezpieczeństw.
               Doświadczenie i wiedza to klucz do udanych sesji.
             </p>
-            <a
-              href="/spots/jeziorsko"
-              class="inline-block font-montserrat uppercase font-semibold bg-transparent border-2 border-textColor text-textColor py-2 px-4 rounded hover:bg-textColor hover:text-white transition-colors text-sm"
-            >
-              Jeziorsko
-            </a>
+            <div class="flex gap-2">
+              <a
+                href="/spots/jeziorsko"
+                class="inline-block font-montserrat uppercase font-semibold bg-transparent border-2 border-textColor text-textColor py-2 px-4 rounded hover:bg-textColor hover:text-white transition-colors text-sm"
+              >
+                Jeziorsko
+              </a>
+              <a
+                href="/spots/przykona"
+                class="inline-block font-montserrat uppercase font-semibold bg-transparent border-2 border-textColor text-textColor py-2 px-4 rounded hover:bg-textColor hover:text-white transition-colors text-sm"
+              >
+                Przykona
+              </a>
+            </div>
           </div>
           <div class="p-6 bg-white bg-opacity-70 rounded-2xl shadow-lg">
             <h3 class="text-xl mb-2">Aktualna Pogoda</h3>
@@ -56,12 +65,20 @@ const mobileSubNav = [];
               Sprawdź prognozę wiatru i warunki atmosferyczne przed wyjściem na
               wodę. Bezpieczeństwo przede wszystkim!
             </p>
-            <a
-              href="/spots/jeziorsko/pogoda"
-              class="inline-block font-montserrat uppercase font-semibold bg-transparent border-2 border-textColor text-textColor py-2 px-4 rounded hover:bg-textColor hover:text-white transition-colors text-sm"
-            >
-              Pogoda Jeziorsko
-            </a>
+            <div class="flex gap-2">
+              <a
+                href="/spots/jeziorsko/pogoda"
+                class="inline-block font-montserrat uppercase font-semibold bg-transparent border-2 border-textColor text-textColor py-2 px-4 rounded hover:bg-textColor hover:text-white transition-colors text-sm"
+              >
+                Jeziorsko
+              </a>
+              <a
+                href="/spots/przykona/pogoda"
+                class="inline-block font-montserrat uppercase font-semibold bg-transparent border-2 border-textColor text-textColor py-2 px-4 rounded hover:bg-textColor hover:text-white transition-colors text-sm"
+              >
+                Przykona
+              </a>
+            </div>
           </div>
 
           <div class="p-6 bg-white bg-opacity-70 rounded-2xl shadow-lg">

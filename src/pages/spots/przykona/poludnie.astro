@@ -4,16 +4,14 @@ import { Head } from "../../../components/Head";
 
 const navLinks = [
   { href: "/", label: "Kite Łódź", isActive: false },
-  { href: "/spots/jeziorsko/", label: "Jeziorsko", isActive: true },
-  { href: "/spots/przykona/", label: "Przykona", isActive: false },
+  { href: "/spots/jeziorsko/", label: "Jeziorsko", isActive: false },
+  { href: "/spots/przykona/", label: "Przykona", isActive: true },
   { href: "/kontakt", label: "Kontakt", isActive: false },
 ];
 
 const desktopSubNav = [
-  { href: "/spots/jeziorsko/popow", label: "Popów", isActive: true },
-  { href: "/spots/jeziorsko/ostrow", label: "Ostrów Warcki", isActive: false },
-  { href: "/spots/jeziorsko/zaspy", label: "Zaspy", isActive: false },
-  { href: "/spots/jeziorsko/milkowice", label: "Miłkowice", isActive: false },
+  { href: "/spots/przykona/poludnie", label: "Południe", isActive: true },
+  { href: "/spots/przykona/polnoc", label: "Północ", isActive: false },
 ];
 
 const mobileSubNav = [];
@@ -21,7 +19,7 @@ const mobileSubNav = [];
 
 <html lang="en" class="h-full">
   <head>
-    <Head title="Popów - Jeziorsko" />
+    <Head title="Południe - Przykona" />
   </head>
   <body class="h-full">
     <Layout
@@ -35,12 +33,16 @@ const mobileSubNav = [];
           <!-- Description Tile -->
           <div class="p-6 bg-white bg-opacity-70 rounded-2xl shadow-lg">
             <p class="text-gray-700 text-justify">
-              Popów to najbardzej popularny spot zlokalizowany na zachodnim
-              brzegu zbiornika Jeziorsko. Jeśli stan wody nie jest bardzo
-              wysoki, zawsze jest miejsce na wystartowanie latawca. Niestety
-              praktycznie na calej szerokosci plaży, czasem pod cienką warstwą
-              wody znajduje się dużo kamieni, które są niewidoczne na pierwszy
-              rzut oka. Najalepiej nosić ochronę na stopy nawet latem
+              Główny spot na Przykonie. Wchodzi wiatr W i NW. Jest dużo miejsc
+              parkingowych i sporo przestrzeni do startu. Kiedy wieje z zachodu,
+              nawet jeśli zwieje nas w dół wiatru, możemy wylądować na jednej z
+              mniejszych plaż i chodnikiem wrócić pod wiatr. To świetna
+              alternatywa dla Jeziorska Popowa dla kite foil — gdy w Popowie
+              wieje czysty on shore i ciężko jest wypłynąć bez uszkodzenia
+              sprzętu, tu popływamy wygodniej i bezpieczniej. Polecam startować
+              latawiec po prawej stronie od parkingu, przy małej plaży. Przy
+              parkingu jest więcej miejsca, ale chodzenie z latawcem w okolicy
+              molo jest niebezpieczne.
             </p>
           </div>
 
@@ -48,12 +50,10 @@ const mobileSubNav = [];
           <div class="p-6 bg-white bg-opacity-70 rounded-2xl shadow-lg">
             <h3 class="text-xl mb-2">Zalety</h3>
             <ul class="list-disc pl-6 text-gray-700">
-              <li>
-                Popularny spot, często znajdzie się ktoś kto pomoże
-                wystartować/wylądować latawiec
-              </li>
-              <li>Przy niższym stanie wody dużo miejsca do startu</li>
-              <li>Dużo miejsca do parkowania niedaleko plaży</li>
+              <li>Duży parking</li>
+              <li>Sporo miejsca do startu</li>
+              <li>Piaszczyste dno</li>
+              <li>Kilka miejsc do awaryjnego lądowania w dół wiatru</li>
             </ul>
           </div>
 
@@ -61,16 +61,9 @@ const mobileSubNav = [];
           <div class="p-6 bg-white bg-opacity-70 rounded-2xl shadow-lg">
             <h3 class="text-xl mb-2">Wady</h3>
             <ul class="list-disc pl-6 text-gray-700">
-              <li>Przy wysokim stanie wody mało miejsca do startu</li>
-              <li>Przy wysokim stanie wody wystające krzaki z wody</li>
-              <li>
-                Przy niskim stanie trzeba uważać na pozostalości po fundamentach
-              </li>
-              <li>Drzewa blisko wody</li>
-              <li>Niebiezpieczny dla początkujących</li>
-              <li>
-                Niebiezpieczny dla foila, szczególnie przy wietrze W onshore
-              </li>
+              <li>Nierówny wiatr</li>
+              <li>Latem prawdopodobnie dużo ludzi (niesprawdzone)</li>
+              <li>Woda trochę śmierdzi mułem</li>
             </ul>
           </div>
 
@@ -81,12 +74,12 @@ const mobileSubNav = [];
             <div class="gallery grid grid-cols-1 md:grid-cols-2 gap-8">
               <div>
                 <a
-                  href="/assets/popow-wiosna.webp"
+                  href="/assets/przykona-poludnie-start.webp"
                   class="block relative h-96 w-full bg-gray-200 rounded-2xl shadow-lg overflow-hidden"
                 >
                   <img
-                    src="/assets/popow-wiosna.webp"
-                    alt="Spot Popów wiosną"
+                    src="/assets/przykona-poludnie-start.webp"
+                    alt="Przykona Południe - start"
                     class="absolute top-0 left-0 w-full h-full object-cover"
                     loading="lazy"
                     onload="this.style.opacity=1"
@@ -94,33 +87,17 @@ const mobileSubNav = [];
                   />
                 </a>
                 <p class="mt-2 text-sm text-gray-600 text-center">
-                  Popów wiosną
+                  Południe — start
                 </p>
               </div>
               <div>
                 <a
-                  href="/assets/popow-zima.webp"
+                  href="/assets/przykona-poludnie-zejscie-1.webp"
                   class="block relative h-96 w-full bg-gray-200 rounded-2xl shadow-lg overflow-hidden"
                 >
                   <img
-                    src="/assets/popow-zima.webp"
-                    alt="Spot Popów zimą"
-                    class="absolute top-0 left-0 w-full h-full object-cover"
-                    loading="lazy"
-                    onload="this.style.opacity=1"
-                    style="opacity: 0"
-                  />
-                </a>
-                <p class="mt-2 text-sm text-gray-600 text-center">Popów zimą</p>
-              </div>
-              <div>
-                <a
-                  href="/assets/popow-fundamenty.webp"
-                  class="block relative h-96 w-full bg-gray-200 rounded-2xl shadow-lg overflow-hidden"
-                >
-                  <img
-                    src="/assets/popow-fundamenty.webp"
-                    alt="Fundamenty w Popowie"
+                    src="/assets/przykona-poludnie-zejscie-1.webp"
+                    alt="Przykona Południe - zejście"
                     class="absolute top-0 left-0 w-full h-full object-cover"
                     loading="lazy"
                     onload="this.style.opacity=1"
@@ -128,17 +105,17 @@ const mobileSubNav = [];
                   />
                 </a>
                 <p class="mt-2 text-sm text-gray-600 text-center">
-                  Fundamenty w Popowie zimą
+                  Południe — zejście
                 </p>
               </div>
               <div>
                 <a
-                  href="/assets/popow-lato-mapa.webp"
+                  href="/assets/przykona-poludnie-zejscie-2.webp"
                   class="block relative h-96 w-full bg-gray-200 rounded-2xl shadow-lg overflow-hidden"
                 >
                   <img
-                    src="/assets/popow-lato-mapa.webp"
-                    alt="Mapa Popowa latem"
+                    src="/assets/przykona-poludnie-zejscie-2.webp"
+                    alt="Przykona Południe - zejście 2"
                     class="absolute top-0 left-0 w-full h-full object-cover"
                     loading="lazy"
                     onload="this.style.opacity=1"
@@ -146,7 +123,25 @@ const mobileSubNav = [];
                   />
                 </a>
                 <p class="mt-2 text-sm text-gray-600 text-center">
-                  Widok na spot Popów latem
+                  Południe — zejście molo
+                </p>
+              </div>
+              <div>
+                <a
+                  href="/assets/przykona-poludnie-zejscie-prawo.webp"
+                  class="block relative h-96 w-full bg-gray-200 rounded-2xl shadow-lg overflow-hidden"
+                >
+                  <img
+                    src="/assets/przykona-poludnie-zejscie-prawo.webp"
+                    alt="Przykona Południe - zejście prawo"
+                    class="absolute top-0 left-0 w-full h-full object-cover"
+                    loading="lazy"
+                    onload="this.style.opacity=1"
+                    style="opacity: 0"
+                  />
+                </a>
+                <p class="mt-2 text-sm text-gray-600 text-center">
+                  Południe — zejście prawo przyjazne dla kite
                 </p>
               </div>
             </div>
@@ -160,10 +155,10 @@ const mobileSubNav = [];
             <div class="flex justify-around items-center">
               <div>
                 <p class="font-bold text-center">Kierunki wiatru:</p>
-                <p class="text-center">SW, W, NW</p>
+                <p class="text-center">W, NW</p>
               </div>
               <a
-                href="https://www.google.com/maps/dir/?api=1&destination=51.831271992818834, 18.721478922761708"
+                href="https://www.google.com/maps/dir/?api=1&destination=52.000246042682264, 18.653343412701442"
                 target="_blank"
                 class="inline-block font-montserrat uppercase font-semibold bg-transparent border-2 border-textColor text-textColor py-2 px-4 rounded hover:bg-textColor hover:text-white transition-colors"
               >
@@ -178,14 +173,14 @@ const mobileSubNav = [];
           >
             <div class="space-y-6 lightbox-item">
               <a
-                href="/assets/popow-mapa.webp"
+                href="/assets/przykona-poludnie-mapa.webp"
                 class="block relative bg-gray-200 rounded-2xl shadow-lg overflow-hidden"
               >
                 <!-- This div creates the 4:3 aspect ratio -->
                 <div style="padding-bottom: 75%"></div>
                 <img
-                  src="/assets/popow-mapa.webp"
-                  alt="Mapa spotu Popów"
+                  src="/assets/przykona-poludnie-mapa.webp"
+                  alt="Mapa spotu Południe"
                   class="absolute top-0 left-0 w-full h-full object-cover"
                   loading="lazy"
                   onload="this.style.opacity=1"

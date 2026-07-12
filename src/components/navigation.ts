@@ -36,6 +36,24 @@ export const siteNavigation: NavTreeNode[] = [
     ],
   },
   {
+    href: "/spots/przykona/",
+    label: "Przykona",
+    children: [
+      {
+        href: "/spots/przykona/spoty",
+        label: "Spoty",
+        children: [
+          { href: "/spots/przykona/poludnie", label: "Południe" },
+          { href: "/spots/przykona/polnoc", label: "Północ" },
+        ],
+      },
+      {
+        href: "/spots/przykona/pogoda",
+        label: "Pogoda",
+      },
+    ],
+  },
+  {
     href: "/kontakt",
     label: "Kontakt",
   },

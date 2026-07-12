@@ -4,7 +4,8 @@
  */
 
 let collapsibleState = {
-  "spoty-section": false, // Default collapsed
+  "spoty-section-jeziorsko": false,
+  "spoty-section-przykona": false,
 };
 
 export function initCollapsibleMenu() {
