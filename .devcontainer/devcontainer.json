@@ -15,6 +15,11 @@
     // profile for manual `devcontainer up` rebuilds). Defaults to ~/claude-dev-env via seed.sh.
     "source=${localEnv:CLAUDE_DEV_ENV},target=/home/node/claude-dev-env,type=bind",
 
+    // General skills → the user-scope skills dir, mounted live. Adding or removing a skill under
+    // general/skills/ on the host shows up in every container with no bootstrap re-run (restart
+    // claude to pick it up). Deletions propagate too — no stale symlinks. Fixed at create time.
+    "source=${localEnv:CLAUDE_DEV_ENV}/general/skills,target=/home/node/.claude/skills,type=bind",
+
     // Claude runtime state per project, survives rebuilds (§9). Session transcripts/memory:
     "source=${localEnv:HOME}/claude-state/${localWorkspaceFolderBasename}/projects,target=/home/node/.claude/projects,type=bind",
     // ...and ~/.claude.json (onboarding/theme/trust/history) so rebuilds skip onboarding. seed.sh
