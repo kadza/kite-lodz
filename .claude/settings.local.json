@@ -4,7 +4,14 @@
       "Bash(npm run *)",
       "Bash(npm test*)",
       "Bash(npx vitest*)",
-      "Bash(npx tsc*)"
+      "Bash(npx tsc*)",
+      "Bash(find / -maxdepth 4 -iname \"*devcontainer*\")",
+      "Bash(find / -maxdepth 3 -iname \"*claude-dev-env*\")",
+      "Bash(claude --version)",
+      "Bash(find / -maxdepth 6 -iname \"*claude*\" -path \"*local*\")",
+      "Bash(grep -iA3 \"mouse\\\\|selection\\\\|copy\\\\|paste\\\\|terminal mode\\\\|render\")",
+      "Read(//home/node/.claude/**)",
+      "Bash(env)"
     ]
   }
 }
