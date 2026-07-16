@@ -20,6 +20,12 @@
     // claude to pick it up). Deletions propagate too — no stale symlinks. Fixed at create time.
     "source=${localEnv:CLAUDE_DEV_ENV}/general/skills,target=/home/node/.claude/skills,type=bind",
 
+    // Shared screenshot inbox. Take a macOS screenshot to file with ~/claude-shots picked as the
+    // destination (Cmd+Shift+5 → Options → Save to → Other Location…, one-time); it shows up here
+    // and Claude reads the newest, then deletes it (see general/CLAUDE.md). Read-write so cleanup
+    // works. Global, not per-project. Fixed at create time — rebuild to add it to an existing box.
+    "source=${localEnv:HOME}/claude-shots,target=/home/node/.claude-shots,type=bind",
+
     // Claude runtime state per project, survives rebuilds (§9). Session transcripts/memory:
     "source=${localEnv:HOME}/claude-state/${localWorkspaceFolderBasename}/projects,target=/home/node/.claude/projects,type=bind",
     // ...and ~/.claude.json (onboarding/theme/trust/history) so rebuilds skip onboarding. seed.sh
